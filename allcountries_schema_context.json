@@ -1,43 +1,49 @@
 {"@context": {
-    "Place": {
-        "@type": "@id",
-        "@id": "http://schema.org/Place"
-    },
-    "City": {
-        "@type": "@id",
-        "@id": "http://schema.org/City"
-    }, 
-    "Country": {
-        "@type": "@id",
-        "@id": "http://schema.org/Country"
-    },   
+    "latitude": {"@id": "http://schema.org/latitude"},
+    "geo": {"@id": "http://schema.org/geo"},
+    "county_2nd_div": {"@id": "http://memexproxy.com/ontology/county_2nd_div"},
+    "text": {"@id": "http://schema.org/text"},
+    "addressRegion": {"@id": "http://schema.org/addressRegion"},
+    "value": {"@id": "http://schema.org/value"},
+    "longitude": {"@id": "http://schema.org/longitude"},
     "AdministrativeArea": {
         "@type": "@id",
         "@id": "http://schema.org/AdministrativeArea"
     },
-    "State": {
-        "@type": "@id",
-        "@id": "http://schema.org/State"
-    },
-    "text": {"@id": "http://schema.org/text"},
-    "sameAs": {"@id": "http://schema.org/sameAs"},
-    "geo": {"@id": "http://schema.org/geo"},
-    "additionalType": {"@id": "http://schema.org/additionalType"},
+    "addressCountry": {"@id": "http://schema.org/addressCountry"},
+    "subcommunity_4th_div": {"@id": "http://memexproxy.com/ontology/subcommunity_4th_div"},
     "a": "@type",
-    "uri": "@id",
-    "alternateName": {"@id": "http://schema.org/alternateName"},
     "additionalProperty": {"@id": "http://schema.org/additionalProperty"},
-    "name": {"@id": "http://schema.org/name"},
-    "value": {"@id": "http://schema.org/value"},
+    "address": {"@id": "http://schema.org/address"},
     "PropertyValue": {
         "@type": "@id",
         "@id": "http://schema.org/PropertyValue"
+    },
+    "alternateName": {"@id": "http://schema.org/alternateName"},
+    "label": {"@id": "http://www.w3.org/2000/01/rdf-schema#label"},
+    "uri": "@id",
+    "PostalAddress": {
+        "@type": "@id",
+        "@id": "http://schema.org/PostalAddress"
     },
     "GeoCoordinates": {
         "@type": "@id",
         "@id": "http://schema.org/GeoCoordinates"
     },
-    "containedIn": {"@id": "http://schema.org/containedIn"},
-    "longitude": {"@id": "http://schema.org/longitude"},
-    "latitude": {"@id": "http://schema.org/latitude"}
+    "community_3rd_div": {"@id": "http://memexproxy.com/ontology/community_3rd_div"},
+    "additionalType": {"@id": "http://schema.org/additionalType"},
+    "State": {
+        "@type": "@id",
+        "@id": "http://schema.org/State"
+    },
+    "name": {"@id": "http://schema.org/name"},
+    "Country": {
+        "@type": "@id",
+        "@id": "http://schema.org/Country"
+    },
+    "Place": {
+        "@type": "@id",
+        "@id": "http://schema.org/Place"
+    },
+    "sameAs": {"@id": "http://schema.org/sameAs"}
 }}
