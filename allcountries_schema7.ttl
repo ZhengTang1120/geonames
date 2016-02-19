@@ -1,0 +1,3062 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix schema: <http://schema.org/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+@prefix km-dev: <http://isi.edu/integration/karma/dev#> .
+
+_:node1a28glrqfx1 a km-dev:R2RMLMapping ;
+	km-dev:sourceName "allcountries_sample.txt" ;
+	km-dev:modelPublicationTime "1445542424399"^^xsd:long ;
+	km-dev:modelVersion "1.7" ;
+	km-dev:hasInputColumns "[[{\"columnName\":\"asciiname\"}],[{\"columnName\":\"admin1\"}],[{\"columnName\":\"latitude\"}],[{\"columnName\":\"admin2\"}],[{\"columnName\":\"longitude\"}],[{\"columnName\":\"admin3\"}],[{\"columnName\":\"admin4\"}],[{\"columnName\":\"population\"}],[{\"columnName\":\"fclass\"}],[{\"columnName\":\"name\"}],[{\"columnName\":\"fcode\"}],[{\"columnName\":\"country\"}],[{\"columnName\":\"geonameid\"}]]" ;
+	km-dev:hasOutputColumns "[[{\"columnName\":\"population\"}],[{\"columnName\":\"country_uri\"}],[{\"columnName\":\"geonames2schema_uri\"}],[{\"columnName\":\"SubCommunity4thDiv_uri\"}],[{\"columnName\":\"schema_class_name\"}],[{\"columnName\":\"name\"}],[{\"columnName\":\"State1stDiv_uri\"}],[{\"columnName\":\"asciiname\"}],[{\"columnName\":\"CountyProvince2ndDiv_uri\"}],[{\"columnName\":\"schema_class\"}],[{\"columnName\":\"Community3rdDiv_uri\"}],[{\"columnName\":\"latitude\"}],[{\"columnName\":\"longitude\"}],[{\"columnName\":\"fcode_uri\"}],[{\"columnName\":\"geonames_uri\"}]]" ;
+	km-dev:hasModelLabel "allcountries_sample.txt" ;
+	km-dev:hasWorksheetHistory """[
+    {
+        \"tags\": [\"Transformation\"],
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"geonameid\"}],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"newColumnName\",
+                \"value\": \"geonames_uri\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"transformationCode\",
+                \"value\": \"return gn_geonames_uri(getValue(\\\"geonameid\\\"))\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"errorDefaultValue\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"isJSONOutput\",
+                \"value\": \"false\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"geonameid\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"geonames_uri\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SubmitPythonTransformationCommand\"
+    },
+    {
+        \"tags\": [\"Transformation\"],
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"geonames_uri\"}],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"newColumnName\",
+                \"value\": \"geonames2schema_uri\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"transformationCode\",
+                \"value\": \"return gn_geonames2schema_uri(getValue(\\\"geonameid\\\"))\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"errorDefaultValue\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"isJSONOutput\",
+                \"value\": \"false\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"geonameid\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"geonames2schema_uri\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SubmitPythonTransformationCommand\"
+    },
+    {
+        \"tags\": [\"Modeling\"],
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"geonames2schema_uri\"}],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"metaPropertyName\",
+                \"value\": \"isUriOfClass\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"metaPropertyUri\",
+                \"value\": \"http://schema.org/Place\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"metaPropertyId\",
+                \"value\": \"http://schema.org/Place1 (add)\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"SemanticTypesArray\",
+                \"value\": [{
+                    \"isPrimary\": true,
+                    \"FullType\": \"http://isi.edu/integration/karma/dev#classLink\",
+                    \"DomainLabel\": \"schema:Place1 (add)\",
+                    \"DomainId\": \"http://schema.org/Place1 (add)\",
+                    \"DomainUri\": \"http://schema.org/Place\"
+                }],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"trainAndShowUpdates\",
+                \"value\": false,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"rdfLiteralType\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"geonames2schema_uri\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"geonames2schema_uri\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SetMetaPropertyCommand\"
+    },
+    {
+        \"tags\": [\"Transformation\"],
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"geonames2schema_uri\"}],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"newColumnName\",
+                \"value\": \"schema_class\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"transformationCode\",
+                \"value\": \"return fcode_to_class(getValue(\\\"fclass\\\"),getValue(\\\"fcode\\\"))\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"errorDefaultValue\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"isJSONOutput\",
+                \"value\": \"false\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"fclass\\\"}]},{\\\"value\\\":[{\\\"columnName\\\":\\\"fcode\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"schema_class\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SubmitPythonTransformationCommand\"
+    },
+    {
+        \"tags\": [\"Modeling\"],
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"schema_class\"}],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"metaPropertyName\",
+                \"value\": \"isSubclassOfClass\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"metaPropertyUri\",
+                \"value\": \"http://schema.org/Place\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"metaPropertyId\",
+                \"value\": \"http://schema.org/Place1\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"SemanticTypesArray\",
+                \"value\": [],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"trainAndShowUpdates\",
+                \"value\": false,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"rdfLiteralType\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"schema_class\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"schema_class\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SetMetaPropertyCommand\"
+    },
+    {
+        \"tags\": [\"Modeling\"],
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"geonames_uri\"}],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"SemanticTypesArray\",
+                \"value\": [{
+                    \"isPrimary\": true,
+                    \"FullType\": \"http://schema.org/sameAs\",
+                    \"DomainLabel\": \"schema:Place1\",
+                    \"DomainId\": \"http://schema.org/Place1\",
+                    \"DomainUri\": \"http://schema.org/Place\"
+                }],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"trainAndShowUpdates\",
+                \"value\": false,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"rdfLiteralType\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"geonames_uri\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"geonames_uri\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SetSemanticTypeCommand\"
+    },
+    {
+        \"tags\": [\"Modeling\"],
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"name\"}],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"SemanticTypesArray\",
+                \"value\": [{
+                    \"isPrimary\": true,
+                    \"FullType\": \"http://schema.org/name\",
+                    \"DomainLabel\": \"schema:Place1\",
+                    \"DomainId\": \"http://schema.org/Place1\",
+                    \"DomainUri\": \"http://schema.org/Place\"
+                }],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"trainAndShowUpdates\",
+                \"value\": false,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"rdfLiteralType\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"name\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"name\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SetSemanticTypeCommand\"
+    },
+    {
+        \"tags\": [\"Modeling\"],
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"asciiname\"}],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"SemanticTypesArray\",
+                \"value\": [{
+                    \"isPrimary\": true,
+                    \"FullType\": \"http://schema.org/alternateName\",
+                    \"DomainLabel\": \"schema:Place1\",
+                    \"DomainId\": \"http://schema.org/Place1\",
+                    \"DomainUri\": \"http://schema.org/Place\"
+                }],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"trainAndShowUpdates\",
+                \"value\": false,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"rdfLiteralType\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"asciiname\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"asciiname\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SetSemanticTypeCommand\"
+    },
+    {
+        \"tags\": [\"Transformation\"],
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"asciiname\"}],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"newColumnName\",
+                \"value\": \"country_uri\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"transformationCode\",
+                \"value\": \"return gn_country_uri(getValue(\\\"country\\\"))\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"errorDefaultValue\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"isJSONOutput\",
+                \"value\": \"false\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"country\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"country_uri\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SubmitPythonTransformationCommand\"
+    },
+    {
+        \"tags\": [\"Modeling\"],
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"country_uri\"}],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"SemanticTypesArray\",
+                \"value\": [{
+                    \"isPrimary\": true,
+                    \"FullType\": \"http://schema.org/containedIn\",
+                    \"DomainLabel\": \"schema:Place1\",
+                    \"DomainId\": \"http://schema.org/Place1\",
+                    \"DomainUri\": \"http://schema.org/Place\"
+                }],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"trainAndShowUpdates\",
+                \"value\": false,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"rdfLiteralType\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"country_uri\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"country_uri\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SetSemanticTypeCommand\"
+    },
+    {
+        \"tags\": [\"Transformation\"],
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"country_uri\"}],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"newColumnName\",
+                \"value\": \"State1stDiv_uri\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"transformationCode\",
+                \"value\": \"return gn_State1stDiv_uri(getValue(\\\"country\\\"),getValue(\\\"admin1\\\"))\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"errorDefaultValue\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"isJSONOutput\",
+                \"value\": \"false\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"admin1\\\"}]},{\\\"value\\\":[{\\\"columnName\\\":\\\"country\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"State1stDiv_uri\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SubmitPythonTransformationCommand\"
+    },
+    {
+        \"tags\": [\"Modeling\"],
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"State1stDiv_uri\"}],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"SemanticTypesArray\",
+                \"value\": [{
+                    \"isPrimary\": true,
+                    \"FullType\": \"http://schema.org/containedIn\",
+                    \"DomainLabel\": \"schema:Place1\",
+                    \"DomainId\": \"http://schema.org/Place1\",
+                    \"DomainUri\": \"http://schema.org/Place\"
+                }],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"trainAndShowUpdates\",
+                \"value\": false,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"rdfLiteralType\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"State1stDiv_uri\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"State1stDiv_uri\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SetSemanticTypeCommand\"
+    },
+    {
+        \"tags\": [\"Transformation\"],
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"State1stDiv_uri\"}],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"newColumnName\",
+                \"value\": \"CountyProvince2ndDiv_uri\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"transformationCode\",
+                \"value\": \"return gn_CountyProvince2ndDiv_uri(getValue(\\\"country\\\"),getValue(\\\"admin1\\\"),getValue(\\\"admin2\\\"))\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"errorDefaultValue\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"isJSONOutput\",
+                \"value\": \"false\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"admin1\\\"}]},{\\\"value\\\":[{\\\"columnName\\\":\\\"admin2\\\"}]},{\\\"value\\\":[{\\\"columnName\\\":\\\"country\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"CountyProvince2ndDiv_uri\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SubmitPythonTransformationCommand\"
+    },
+    {
+        \"tags\": [\"Modeling\"],
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"CountyProvince2ndDiv_uri\"}],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"SemanticTypesArray\",
+                \"value\": [{
+                    \"isPrimary\": true,
+                    \"FullType\": \"http://schema.org/containedIn\",
+                    \"DomainLabel\": \"schema:Place1\",
+                    \"DomainId\": \"http://schema.org/Place1\",
+                    \"DomainUri\": \"http://schema.org/Place\"
+                }],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"trainAndShowUpdates\",
+                \"value\": false,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"rdfLiteralType\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"CountyProvince2ndDiv_uri\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"CountyProvince2ndDiv_uri\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SetSemanticTypeCommand\"
+    },
+    {
+        \"tags\": [\"Transformation\"],
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"CountyProvince2ndDiv_uri\"}],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"newColumnName\",
+                \"value\": \"Community3rdDiv_uri\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"transformationCode\",
+                \"value\": \"return gn_Community3rdDiv_uri(getValue(\\\"country\\\"),getValue(\\\"admin1\\\"),getValue(\\\"admin2\\\"),getValue(\\\"admin3\\\"))\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"errorDefaultValue\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"isJSONOutput\",
+                \"value\": \"false\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"admin1\\\"}]},{\\\"value\\\":[{\\\"columnName\\\":\\\"admin2\\\"}]},{\\\"value\\\":[{\\\"columnName\\\":\\\"admin3\\\"}]},{\\\"value\\\":[{\\\"columnName\\\":\\\"country\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"Community3rdDiv_uri\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SubmitPythonTransformationCommand\"
+    },
+    {
+        \"tags\": [\"Modeling\"],
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"Community3rdDiv_uri\"}],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"SemanticTypesArray\",
+                \"value\": [{
+                    \"isPrimary\": true,
+                    \"FullType\": \"http://schema.org/containedIn\",
+                    \"DomainLabel\": \"schema:Place1\",
+                    \"DomainId\": \"http://schema.org/Place1\",
+                    \"DomainUri\": \"http://schema.org/Place\"
+                }],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"trainAndShowUpdates\",
+                \"value\": false,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"rdfLiteralType\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"Community3rdDiv_uri\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"Community3rdDiv_uri\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SetSemanticTypeCommand\"
+    },
+    {
+        \"tags\": [\"Transformation\"],
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"Community3rdDiv_uri\"}],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"newColumnName\",
+                \"value\": \"SubCommunity4thDiv_uri\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"transformationCode\",
+                \"value\": \"return gn_SubCommunity4thDiv_uri(getValue(\\\"country\\\"),getValue(\\\"admin1\\\"),getValue(\\\"admin2\\\"),getValue(\\\"admin3\\\"),getValue(\\\"admin4\\\"))\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"errorDefaultValue\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"isJSONOutput\",
+                \"value\": \"false\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"admin1\\\"}]},{\\\"value\\\":[{\\\"columnName\\\":\\\"admin2\\\"}]},{\\\"value\\\":[{\\\"columnName\\\":\\\"admin3\\\"}]},{\\\"value\\\":[{\\\"columnName\\\":\\\"admin4\\\"}]},{\\\"value\\\":[{\\\"columnName\\\":\\\"country\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"SubCommunity4thDiv_uri\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SubmitPythonTransformationCommand\"
+    },
+    {
+        \"tags\": [\"Modeling\"],
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"SubCommunity4thDiv_uri\"}],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"SemanticTypesArray\",
+                \"value\": [{
+                    \"isPrimary\": true,
+                    \"FullType\": \"http://schema.org/containedIn\",
+                    \"DomainLabel\": \"schema:Place1\",
+                    \"DomainId\": \"http://schema.org/Place1\",
+                    \"DomainUri\": \"http://schema.org/Place\"
+                }],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"trainAndShowUpdates\",
+                \"value\": false,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"rdfLiteralType\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"SubCommunity4thDiv_uri\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"SubCommunity4thDiv_uri\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SetSemanticTypeCommand\"
+    },
+    {
+        \"tags\": [\"Modeling\"],
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"latitude\"}],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"SemanticTypesArray\",
+                \"value\": [{
+                    \"isPrimary\": true,
+                    \"FullType\": \"http://schema.org/latitude\",
+                    \"DomainLabel\": \"schema:GeoCoordinates1 (add)\",
+                    \"DomainId\": \"http://schema.org/GeoCoordinates1\",
+                    \"DomainUri\": \"http://schema.org/GeoCoordinates\"
+                }],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"trainAndShowUpdates\",
+                \"value\": false,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"rdfLiteralType\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"latitude\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"latitude\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SetSemanticTypeCommand\"
+    },
+    {
+        \"tags\": [\"Modeling\"],
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"longitude\"}],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"SemanticTypesArray\",
+                \"value\": [{
+                    \"isPrimary\": true,
+                    \"FullType\": \"http://schema.org/longitude\",
+                    \"DomainLabel\": \"schema:GeoCoordinates1\",
+                    \"DomainId\": \"http://schema.org/GeoCoordinates1\",
+                    \"DomainUri\": \"http://schema.org/GeoCoordinates\"
+                }],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"trainAndShowUpdates\",
+                \"value\": false,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"rdfLiteralType\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"longitude\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"longitude\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SetSemanticTypeCommand\"
+    },
+    {
+        \"tags\": [\"Modeling\"],
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"initialEdges\",
+                \"value\": [],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"alignmentId\",
+                \"value\": \"WSP3:WS3847AL\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"newEdges\",
+                \"value\": [{
+                    \"edgeTargetUri\": \"http://schema.org/GeoCoordinates\",
+                    \"edgeId\": \"http://schema.org/geo\",
+                    \"edgeTargetId\": \"http://schema.org/GeoCoordinates1\",
+                    \"edgeSourceId\": \"http://schema.org/Place1\",
+                    \"edgeSourceUri\": \"http://schema.org/Place1\"
+                }],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"ChangeInternalNodeLinksCommand\"
+    },
+    {
+        \"tags\": [\"Modeling\"],
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"population\"}],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"SemanticTypesArray\",
+                \"value\": [{
+                    \"isPrimary\": true,
+                    \"FullType\": \"http://schema.org/value\",
+                    \"DomainLabel\": \"schema:PropertyValue1 (add)\",
+                    \"DomainId\": \"http://schema.org/PropertyValue1 (add)\",
+                    \"DomainUri\": \"http://schema.org/PropertyValue\"
+                }],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"trainAndShowUpdates\",
+                \"value\": false,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"rdfLiteralType\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"population\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"population\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SetSemanticTypeCommand\"
+    },
+    {
+        \"tags\": [\"Modeling\"],
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"literalValue\",
+                \"value\": \"Population\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"literalType\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"isUri\",
+                \"value\": false,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"AddLiteralNodeCommand\"
+    },
+    {
+        \"tags\": [\"Modeling\"],
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"initialEdges\",
+                \"value\": [],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"newEdges\",
+                \"value\": [{
+                    \"edgeTargetUri\": \"Population\",
+                    \"edgeId\": \"http://schema.org/text\",
+                    \"edgeTargetId\": \"Population1\",
+                    \"edgeSourceId\": \"http://schema.org/PropertyValue1\",
+                    \"edgeSourceUri\": \"http://schema.org/PropertyValue\"
+                }],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"ChangeInternalNodeLinksCommand\"
+    },
+    {
+        \"tags\": [\"Modeling\"],
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"initialEdges\",
+                \"value\": [],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"alignmentId\",
+                \"value\": \"WSP3:WS3847AL\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"newEdges\",
+                \"value\": [{
+                    \"edgeTargetUri\": \"http://schema.org/PropertyValue\",
+                    \"edgeId\": \"http://schema.org/additionalProperty\",
+                    \"edgeTargetId\": \"http://schema.org/PropertyValue1\",
+                    \"edgeSourceId\": \"http://schema.org/Place1\",
+                    \"edgeSourceUri\": \"http://schema.org/Place1\"
+                }],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"ChangeInternalNodeLinksCommand\"
+    },
+    {
+        \"tags\": [\"Transformation\"],
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"schema_class\"}],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"newColumnName\",
+                \"value\": \"fcode_uri\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"transformationCode\",
+                \"value\": \"return fcode_uri(getValue(\\\"fclass\\\"),getValue(\\\"fcode\\\"))\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"errorDefaultValue\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"isJSONOutput\",
+                \"value\": \"false\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"fclass\\\"}]},{\\\"value\\\":[{\\\"columnName\\\":\\\"fcode\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"fcode_uri\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SubmitPythonTransformationCommand\"
+    },
+    {
+        \"tags\": [\"Modeling\"],
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"fcode_uri\"}],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"SemanticTypesArray\",
+                \"value\": [{
+                    \"isPrimary\": true,
+                    \"FullType\": \"http://schema.org/additionalType\",
+                    \"DomainLabel\": \"schema:Place1\",
+                    \"DomainId\": \"http://schema.org/Place1\",
+                    \"DomainUri\": \"http://schema.org/Place\"
+                }],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"trainAndShowUpdates\",
+                \"value\": false,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"rdfLiteralType\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"fcode_uri\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"fcode_uri\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SetSemanticTypeCommand\"
+    },
+    {
+        \"tags\": [\"Modeling\"],
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"properties\",
+                \"value\": {
+                    \"hasServiceProperties\": false,
+                    \"hasPrefix\": false,
+                    \"graphLabel\": \"\",
+                    \"hasBaseURI\": true,
+                    \"baseURI\": \"\"
+                },
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SetWorksheetPropertiesCommand\"
+    },
+    {
+        \"tags\": [\"Transformation\"],
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"schema_class\"}],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"newColumnName\",
+                \"value\": \"schema_class_name\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"transformationCode\",
+                \"value\": \"return fcode_to_class(getValue(\\\"fclass\\\"),getValue(\\\"fcode\\\"))\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"errorDefaultValue\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"isJSONOutput\",
+                \"value\": \"false\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"fclass\\\"}]},{\\\"value\\\":[{\\\"columnName\\\":\\\"fcode\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"schema_class_name\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SubmitPythonTransformationCommand\"
+    },
+    {
+        \"tags\": [\"Modeling\"],
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"schema_class_name\"}],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"SemanticTypesArray\",
+                \"value\": [{
+                    \"isPrimary\": true,
+                    \"FullType\": \"http://www.w3.org/2000/01/rdf-schema#label\",
+                    \"DomainLabel\": \"schema:Place1\",
+                    \"DomainId\": \"http://schema.org/Place1\",
+                    \"DomainUri\": \"http://schema.org/Place\"
+                }],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"trainAndShowUpdates\",
+                \"value\": false,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"rdfLiteralType\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"schema_class_name\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SetSemanticTypeCommand\"
+    },
+    {
+        \"tags\": [\"Modeling\"],
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"country_uri\"}],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"metaPropertyName\",
+                \"value\": \"isUriOfClass\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"metaPropertyUri\",
+                \"value\": \"http://schema.org/Country\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"metaPropertyId\",
+                \"value\": \"http://schema.org/Country1 (add)\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"SemanticTypesArray\",
+                \"value\": [{
+                    \"isPrimary\": true,
+                    \"FullType\": \"http://isi.edu/integration/karma/dev#classLink\",
+                    \"DomainLabel\": \"schema:Country1 (add)\",
+                    \"DomainId\": \"http://schema.org/Country1 (add)\",
+                    \"DomainUri\": \"http://schema.org/Country\"
+                }],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"trainAndShowUpdates\",
+                \"value\": false,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"rdfLiteralType\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"country_uri\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"country_uri\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SetMetaPropertyCommand\"
+    },
+    {
+        \"tags\": [\"Modeling\"],
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"initialEdges\",
+                \"value\": [],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"alignmentId\",
+                \"value\": \"WSP1:WS1AL\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"newEdges\",
+                \"value\": [{
+                    \"edgeTargetUri\": \"http://schema.org/Country\",
+                    \"edgeId\": \"http://schema.org/containedIn\",
+                    \"edgeTargetId\": \"http://schema.org/Country1\",
+                    \"edgeSourceId\": \"http://schema.org/Place1\",
+                    \"edgeSourceUri\": \"http://schema.org/Place1\"
+                }],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"ChangeInternalNodeLinksCommand\"
+    },
+    {
+        \"tags\": [\"Modeling\"],
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"State1stDiv_uri\"}],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"metaPropertyName\",
+                \"value\": \"isUriOfClass\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"metaPropertyUri\",
+                \"value\": \"http://schema.org/State\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"metaPropertyId\",
+                \"value\": \"http://schema.org/State1 (add)\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"SemanticTypesArray\",
+                \"value\": [{
+                    \"isPrimary\": true,
+                    \"FullType\": \"http://isi.edu/integration/karma/dev#classLink\",
+                    \"DomainLabel\": \"schema:State1 (add)\",
+                    \"DomainId\": \"http://schema.org/State1 (add)\",
+                    \"DomainUri\": \"http://schema.org/State\"
+                }],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"trainAndShowUpdates\",
+                \"value\": false,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"rdfLiteralType\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"State1stDiv_uri\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"State1stDiv_uri\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SetMetaPropertyCommand\"
+    },
+    {
+        \"tags\": [\"Modeling\"],
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"initialEdges\",
+                \"value\": [],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"alignmentId\",
+                \"value\": \"WSP1:WS1AL\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"newEdges\",
+                \"value\": [{
+                    \"edgeTargetUri\": \"http://schema.org/State\",
+                    \"edgeId\": \"http://schema.org/containedIn\",
+                    \"edgeTargetId\": \"http://schema.org/State1\",
+                    \"edgeSourceId\": \"http://schema.org/Place1\",
+                    \"edgeSourceUri\": \"http://schema.org/Place1\"
+                }],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"ChangeInternalNodeLinksCommand\"
+    },
+    {
+        \"tags\": [\"Modeling\"],
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"CountyProvince2ndDiv_uri\"}],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"metaPropertyName\",
+                \"value\": \"isUriOfClass\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"metaPropertyUri\",
+                \"value\": \"http://schema.org/AdministrativeArea\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"metaPropertyId\",
+                \"value\": \"http://schema.org/AdministrativeArea1 (add)\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"SemanticTypesArray\",
+                \"value\": [{
+                    \"isPrimary\": true,
+                    \"FullType\": \"http://isi.edu/integration/karma/dev#classLink\",
+                    \"DomainLabel\": \"schema:AdministrativeArea1 (add)\",
+                    \"DomainId\": \"http://schema.org/AdministrativeArea1 (add)\",
+                    \"DomainUri\": \"http://schema.org/AdministrativeArea\"
+                }],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"trainAndShowUpdates\",
+                \"value\": false,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"rdfLiteralType\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"CountyProvince2ndDiv_uri\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"CountyProvince2ndDiv_uri\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SetMetaPropertyCommand\"
+    },
+    {
+        \"tags\": [\"Modeling\"],
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"Community3rdDiv_uri\"}],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"metaPropertyName\",
+                \"value\": \"isUriOfClass\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"metaPropertyUri\",
+                \"value\": \"http://schema.org/AdministrativeArea\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"metaPropertyId\",
+                \"value\": \"http://schema.org/AdministrativeArea2 (add)\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"SemanticTypesArray\",
+                \"value\": [{
+                    \"isPrimary\": true,
+                    \"FullType\": \"http://isi.edu/integration/karma/dev#classLink\",
+                    \"DomainLabel\": \"schema:AdministrativeArea2 (add)\",
+                    \"DomainId\": \"http://schema.org/AdministrativeArea2\",
+                    \"DomainUri\": \"http://schema.org/AdministrativeArea\"
+                }],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"trainAndShowUpdates\",
+                \"value\": false,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"rdfLiteralType\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"Community3rdDiv_uri\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"Community3rdDiv_uri\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SetMetaPropertyCommand\"
+    },
+    {
+        \"tags\": [\"Modeling\"],
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"SubCommunity4thDiv_uri\"}],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"metaPropertyName\",
+                \"value\": \"isUriOfClass\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"metaPropertyUri\",
+                \"value\": \"http://schema.org/AdministrativeArea\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"metaPropertyId\",
+                \"value\": \"http://schema.org/AdministrativeArea3 (add)\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"SemanticTypesArray\",
+                \"value\": [{
+                    \"isPrimary\": true,
+                    \"FullType\": \"http://isi.edu/integration/karma/dev#classLink\",
+                    \"DomainLabel\": \"schema:AdministrativeArea3 (add)\",
+                    \"DomainId\": \"http://schema.org/AdministrativeArea3 (add)\",
+                    \"DomainUri\": \"http://schema.org/AdministrativeArea\"
+                }],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"trainAndShowUpdates\",
+                \"value\": false,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"rdfLiteralType\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"SubCommunity4thDiv_uri\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"SubCommunity4thDiv_uri\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SetMetaPropertyCommand\"
+    },
+    {
+        \"tags\": [\"Modeling\"],
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"initialEdges\",
+                \"value\": [],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"alignmentId\",
+                \"value\": \"WSP1:WS1AL\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"newEdges\",
+                \"value\": [{
+                    \"edgeTargetUri\": \"http://schema.org/AdministrativeArea\",
+                    \"edgeId\": \"http://schema.org/containedIn\",
+                    \"edgeTargetId\": \"http://schema.org/AdministrativeArea1\",
+                    \"edgeSourceId\": \"http://schema.org/Place1\",
+                    \"edgeSourceUri\": \"http://schema.org/Place1\"
+                }],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"ChangeInternalNodeLinksCommand\"
+    },
+    {
+        \"tags\": [\"Modeling\"],
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"initialEdges\",
+                \"value\": [],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"alignmentId\",
+                \"value\": \"WSP1:WS1AL\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"newEdges\",
+                \"value\": [{
+                    \"edgeTargetUri\": \"http://schema.org/AdministrativeArea\",
+                    \"edgeId\": \"http://schema.org/containedIn\",
+                    \"edgeTargetId\": \"http://schema.org/AdministrativeArea2\",
+                    \"edgeSourceId\": \"http://schema.org/Place1\",
+                    \"edgeSourceUri\": \"http://schema.org/Place1\"
+                }],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"ChangeInternalNodeLinksCommand\"
+    },
+    {
+        \"tags\": [\"Modeling\"],
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"initialEdges\",
+                \"value\": [],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"alignmentId\",
+                \"value\": \"WSP1:WS1AL\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"newEdges\",
+                \"value\": [{
+                    \"edgeTargetUri\": \"http://schema.org/AdministrativeArea\",
+                    \"edgeId\": \"http://schema.org/containedIn\",
+                    \"edgeTargetId\": \"http://schema.org/AdministrativeArea3\",
+                    \"edgeSourceId\": \"http://schema.org/Place1\",
+                    \"edgeSourceUri\": \"http://schema.org/Place1\"
+                }],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"ChangeInternalNodeLinksCommand\"
+    },
+    {
+        \"tags\": [\"Modeling\"],
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"literalValue\",
+                \"value\": \"http://dig.isi.edu/gazetteer/geonames/Placetype/A_ADM2\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"literalType\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"isUri\",
+                \"value\": false,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"AddLiteralNodeCommand\"
+    },
+    {
+        \"tags\": [\"Modeling\"],
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"initialEdges\",
+                \"value\": [],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"newEdges\",
+                \"value\": [{
+                    \"edgeTargetUri\": \"http://dig.isi.edu/gazetteer/geonames/Placetype/A_ADM2\",
+                    \"edgeId\": \"http://schema.org/additionalType\",
+                    \"edgeTargetId\": \"http://dig.isi.edu/gazetteer/geonames/Placetype/A_ADM21\",
+                    \"edgeSourceId\": \"http://schema.org/AdministrativeArea1\",
+                    \"edgeSourceUri\": \"http://schema.org/AdministrativeArea\"
+                }],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"ChangeInternalNodeLinksCommand\"
+    },
+    {
+        \"tags\": [\"Modeling\"],
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"schema_class_name\"}],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"SemanticTypesArray\",
+                \"value\": [{
+                    \"isPrimary\": true,
+                    \"FullType\": \"http://www.w3.org/2000/01/rdf-schema#label\",
+                    \"DomainLabel\": \"schema:Place2 (add)\",
+                    \"DomainId\": \"http://schema.org/Place2\",
+                    \"DomainUri\": \"http://schema.org/Place\"
+                }],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"trainAndShowUpdates\",
+                \"value\": false,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"rdfLiteralType\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"schema_class_name\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"schema_class_name\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SetSemanticTypeCommand\"
+    },
+    {
+        \"tags\": [\"Modeling\"],
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"literalValue\",
+                \"value\": \"http://dig.isi.edu/gazetteer/geonames/Placetype/A_ADM3\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"literalType\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"isUri\",
+                \"value\": false,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"AddLiteralNodeCommand\"
+    },
+    {
+        \"tags\": [\"Modeling\"],
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"initialEdges\",
+                \"value\": [],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"newEdges\",
+                \"value\": [{
+                    \"edgeTargetUri\": \"http://dig.isi.edu/gazetteer/geonames/Placetype/A_ADM3\",
+                    \"edgeId\": \"http://schema.org/additionalType\",
+                    \"edgeTargetId\": \"http://dig.isi.edu/gazetteer/geonames/Placetype/A_ADM31\",
+                    \"edgeSourceId\": \"http://schema.org/AdministrativeArea2\",
+                    \"edgeSourceUri\": \"http://schema.org/AdministrativeArea\"
+                }],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"ChangeInternalNodeLinksCommand\"
+    },
+    {
+        \"tags\": [\"Modeling\"],
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"literalValue\",
+                \"value\": \"http://dig.isi.edu/gazetteer/geonames/Placetype/A_ADM4\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"literalType\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"isUri\",
+                \"value\": false,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"AddLiteralNodeCommand\"
+    },
+    {
+        \"tags\": [\"Modeling\"],
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"initialEdges\",
+                \"value\": [],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"newEdges\",
+                \"value\": [{
+                    \"edgeTargetUri\": \"http://dig.isi.edu/gazetteer/geonames/Placetype/A_ADM4\",
+                    \"edgeId\": \"http://schema.org/additionalType\",
+                    \"edgeTargetId\": \"http://dig.isi.edu/gazetteer/geonames/Placetype/A_ADM41\",
+                    \"edgeSourceId\": \"http://schema.org/AdministrativeArea3\",
+                    \"edgeSourceUri\": \"http://schema.org/AdministrativeArea\"
+                }],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"ChangeInternalNodeLinksCommand\"
+    },
+    {
+        \"tags\": [\"Modeling\"],
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"schema_class_name\"}],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"SemanticTypesArray\",
+                \"value\": [],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"trainAndShowUpdates\",
+                \"value\": true,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"rdfLiteralType\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"schema_class_name\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"UnassignSemanticTypeCommand\"
+    },
+    {
+        \"tags\": [\"Modeling\"],
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"schema_class_name\"}],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"SemanticTypesArray\",
+                \"value\": [{
+                    \"isPrimary\": true,
+                    \"FullType\": \"http://www.w3.org/2000/01/rdf-schema#label\",
+                    \"DomainLabel\": \"schema:Place1\",
+                    \"DomainId\": \"http://schema.org/Place1\",
+                    \"DomainUri\": \"http://schema.org/Place\"
+                }],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"trainAndShowUpdates\",
+                \"value\": false,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"rdfLiteralType\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"schema_class_name\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"schema_class_name\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SetSemanticTypeCommand\"
+    }
+]""" .
+
+km-dev:TriplesMap_fc7680b7-b35c-4da6-89e2-d08e2d822bc8 a rr:TriplesMap .
+
+_:node1a28glrqfx1 km-dev:hasTriplesMap km-dev:TriplesMap_fc7680b7-b35c-4da6-89e2-d08e2d822bc8 .
+
+km-dev:TriplesMap_fc7680b7-b35c-4da6-89e2-d08e2d822bc8 km-dev:isPartOfMapping _:node1a28glrqfx1 .
+
+_:node1a28glrqfx2 rr:tableName "allcountries_sample.txt" ;
+	a rr:LogicalTable ;
+	km-dev:isPartOfMapping _:node1a28glrqfx1 .
+
+_:node1a28glrqfx1 km-dev:hasLogicalTable _:node1a28glrqfx2 .
+
+km-dev:TriplesMap_fc7680b7-b35c-4da6-89e2-d08e2d822bc8 rr:logicalTable _:node1a28glrqfx2 ;
+	rr:subjectMap _:node1a28glrqfx3 .
+
+_:node1a28glrqfx1 km-dev:hasSubjectMap _:node1a28glrqfx3 .
+
+_:node1a28glrqfx3 km-dev:isPartOfMapping _:node1a28glrqfx1 ;
+	a rr:SubjectMap ;
+	km-dev:alignmentNodeId "http://schema.org/AdministrativeArea1" ;
+	rr:class schema:AdministrativeArea ;
+	rr:template "{CountyProvince2ndDiv_uri}" .
+
+km-dev:PredicateObjectMap_0511b862-b9b0-496b-8eeb-6a6313894e1f rr:predicate schema:additionalType .
+
+_:node1a28glrqfx4 rr:constant "http://dig.isi.edu/gazetteer/geonames/Placetype/A_ADM2" ;
+	a rr:ObjectMap ;
+	km-dev:isPartOfMapping _:node1a28glrqfx1 .
+
+_:node1a28glrqfx1 km-dev:hasObjectMap _:node1a28glrqfx4 .
+
+km-dev:PredicateObjectMap_0511b862-b9b0-496b-8eeb-6a6313894e1f rr:objectMap _:node1a28glrqfx4 .
+
+km-dev:TriplesMap_fc7680b7-b35c-4da6-89e2-d08e2d822bc8 rr:predicateObjectMap km-dev:PredicateObjectMap_0511b862-b9b0-496b-8eeb-6a6313894e1f .
+
+km-dev:PredicateObjectMap_0511b862-b9b0-496b-8eeb-6a6313894e1f a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1a28glrqfx1 .
+
+_:node1a28glrqfx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_0511b862-b9b0-496b-8eeb-6a6313894e1f .
+
+km-dev:TriplesMap_8be1c11f-b25c-40ff-a7ae-a2a079ea361c a rr:TriplesMap .
+
+_:node1a28glrqfx1 km-dev:hasTriplesMap km-dev:TriplesMap_8be1c11f-b25c-40ff-a7ae-a2a079ea361c .
+
+km-dev:TriplesMap_8be1c11f-b25c-40ff-a7ae-a2a079ea361c km-dev:isPartOfMapping _:node1a28glrqfx1 .
+
+_:node1a28glrqfx5 rr:tableName "allcountries_sample.txt" ;
+	a rr:LogicalTable ;
+	km-dev:isPartOfMapping _:node1a28glrqfx1 .
+
+_:node1a28glrqfx1 km-dev:hasLogicalTable _:node1a28glrqfx5 .
+
+km-dev:TriplesMap_8be1c11f-b25c-40ff-a7ae-a2a079ea361c rr:logicalTable _:node1a28glrqfx5 ;
+	rr:subjectMap _:node1a28glrqfx6 .
+
+_:node1a28glrqfx1 km-dev:hasSubjectMap _:node1a28glrqfx6 .
+
+_:node1a28glrqfx6 km-dev:isPartOfMapping _:node1a28glrqfx1 ;
+	a rr:SubjectMap ;
+	km-dev:alignmentNodeId "http://schema.org/AdministrativeArea2" ;
+	rr:class schema:AdministrativeArea ;
+	rr:template "{Community3rdDiv_uri}" .
+
+km-dev:PredicateObjectMap_f1f9f917-d5ba-48f0-9b84-5806879f73d4 rr:predicate schema:additionalType .
+
+_:node1a28glrqfx7 rr:constant "http://dig.isi.edu/gazetteer/geonames/Placetype/A_ADM3" ;
+	a rr:ObjectMap ;
+	km-dev:isPartOfMapping _:node1a28glrqfx1 .
+
+_:node1a28glrqfx1 km-dev:hasObjectMap _:node1a28glrqfx7 .
+
+km-dev:PredicateObjectMap_f1f9f917-d5ba-48f0-9b84-5806879f73d4 rr:objectMap _:node1a28glrqfx7 .
+
+km-dev:TriplesMap_8be1c11f-b25c-40ff-a7ae-a2a079ea361c rr:predicateObjectMap km-dev:PredicateObjectMap_f1f9f917-d5ba-48f0-9b84-5806879f73d4 .
+
+km-dev:PredicateObjectMap_f1f9f917-d5ba-48f0-9b84-5806879f73d4 a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1a28glrqfx1 .
+
+_:node1a28glrqfx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_f1f9f917-d5ba-48f0-9b84-5806879f73d4 .
+
+km-dev:TriplesMap_f8c056ab-94ee-4c5d-863b-03d14f884d45 a rr:TriplesMap .
+
+_:node1a28glrqfx1 km-dev:hasTriplesMap km-dev:TriplesMap_f8c056ab-94ee-4c5d-863b-03d14f884d45 .
+
+km-dev:TriplesMap_f8c056ab-94ee-4c5d-863b-03d14f884d45 km-dev:isPartOfMapping _:node1a28glrqfx1 .
+
+_:node1a28glrqfx8 rr:tableName "allcountries_sample.txt" ;
+	a rr:LogicalTable ;
+	km-dev:isPartOfMapping _:node1a28glrqfx1 .
+
+_:node1a28glrqfx1 km-dev:hasLogicalTable _:node1a28glrqfx8 .
+
+km-dev:TriplesMap_f8c056ab-94ee-4c5d-863b-03d14f884d45 rr:logicalTable _:node1a28glrqfx8 ;
+	rr:subjectMap _:node1a28glrqfx9 .
+
+_:node1a28glrqfx1 km-dev:hasSubjectMap _:node1a28glrqfx9 .
+
+_:node1a28glrqfx9 km-dev:isPartOfMapping _:node1a28glrqfx1 ;
+	a rr:SubjectMap ;
+	km-dev:alignmentNodeId "http://schema.org/AdministrativeArea3" ;
+	rr:class schema:AdministrativeArea ;
+	rr:template "{SubCommunity4thDiv_uri}" .
+
+km-dev:PredicateObjectMap_f4a3199a-7540-4697-b615-ea355075bb0f rr:predicate schema:additionalType .
+
+_:node1a28glrqfx10 rr:constant "http://dig.isi.edu/gazetteer/geonames/Placetype/A_ADM4" ;
+	a rr:ObjectMap ;
+	km-dev:isPartOfMapping _:node1a28glrqfx1 .
+
+_:node1a28glrqfx1 km-dev:hasObjectMap _:node1a28glrqfx10 .
+
+km-dev:PredicateObjectMap_f4a3199a-7540-4697-b615-ea355075bb0f rr:objectMap _:node1a28glrqfx10 .
+
+km-dev:TriplesMap_f8c056ab-94ee-4c5d-863b-03d14f884d45 rr:predicateObjectMap km-dev:PredicateObjectMap_f4a3199a-7540-4697-b615-ea355075bb0f .
+
+km-dev:PredicateObjectMap_f4a3199a-7540-4697-b615-ea355075bb0f a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1a28glrqfx1 .
+
+_:node1a28glrqfx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_f4a3199a-7540-4697-b615-ea355075bb0f .
+
+km-dev:TriplesMap_f63d6721-f6e6-415c-86c1-a436e49c856e a rr:TriplesMap .
+
+_:node1a28glrqfx1 km-dev:hasTriplesMap km-dev:TriplesMap_f63d6721-f6e6-415c-86c1-a436e49c856e .
+
+km-dev:TriplesMap_f63d6721-f6e6-415c-86c1-a436e49c856e km-dev:isPartOfMapping _:node1a28glrqfx1 .
+
+_:node1a28glrqfx11 rr:tableName "allcountries_sample.txt" ;
+	a rr:LogicalTable ;
+	km-dev:isPartOfMapping _:node1a28glrqfx1 .
+
+_:node1a28glrqfx1 km-dev:hasLogicalTable _:node1a28glrqfx11 .
+
+km-dev:TriplesMap_f63d6721-f6e6-415c-86c1-a436e49c856e rr:logicalTable _:node1a28glrqfx11 ;
+	rr:subjectMap _:node1a28glrqfx12 .
+
+_:node1a28glrqfx1 km-dev:hasSubjectMap _:node1a28glrqfx12 .
+
+_:node1a28glrqfx12 km-dev:isPartOfMapping _:node1a28glrqfx1 ;
+	a rr:SubjectMap ;
+	km-dev:alignmentNodeId "http://schema.org/Country1" ;
+	rr:class schema:Country ;
+	rr:template "{country_uri}" .
+
+km-dev:TriplesMap_5c6b33c9-ccf8-4f3c-8149-f379d0e91407 a rr:TriplesMap .
+
+_:node1a28glrqfx1 km-dev:hasTriplesMap km-dev:TriplesMap_5c6b33c9-ccf8-4f3c-8149-f379d0e91407 .
+
+km-dev:TriplesMap_5c6b33c9-ccf8-4f3c-8149-f379d0e91407 km-dev:isPartOfMapping _:node1a28glrqfx1 .
+
+_:node1a28glrqfx13 rr:tableName "allcountries_sample.txt" ;
+	a rr:LogicalTable ;
+	km-dev:isPartOfMapping _:node1a28glrqfx1 .
+
+_:node1a28glrqfx1 km-dev:hasLogicalTable _:node1a28glrqfx13 .
+
+km-dev:TriplesMap_5c6b33c9-ccf8-4f3c-8149-f379d0e91407 rr:logicalTable _:node1a28glrqfx13 ;
+	rr:subjectMap _:node1a28glrqfx14 .
+
+_:node1a28glrqfx1 km-dev:hasSubjectMap _:node1a28glrqfx14 .
+
+_:node1a28glrqfx14 km-dev:isPartOfMapping _:node1a28glrqfx1 ;
+	a rr:SubjectMap ;
+	km-dev:alignmentNodeId "http://schema.org/GeoCoordinates1" ;
+	rr:class schema:GeoCoordinates ;
+	rr:termType rr:BlankNode ;
+	km-dev:namePrefix "schema:GeoCoordinates1" .
+
+km-dev:PredicateObjectMap_a2815bae-60eb-4d97-b7d5-e5f2319a44ef rr:predicate schema:latitude .
+
+_:node1a28glrqfx15 rr:column "latitude" ;
+	a rr:ObjectMap ;
+	km-dev:isPartOfMapping _:node1a28glrqfx1 .
+
+_:node1a28glrqfx1 km-dev:hasObjectMap _:node1a28glrqfx15 .
+
+km-dev:PredicateObjectMap_a2815bae-60eb-4d97-b7d5-e5f2319a44ef rr:objectMap _:node1a28glrqfx15 .
+
+km-dev:TriplesMap_5c6b33c9-ccf8-4f3c-8149-f379d0e91407 rr:predicateObjectMap km-dev:PredicateObjectMap_a2815bae-60eb-4d97-b7d5-e5f2319a44ef .
+
+km-dev:PredicateObjectMap_a2815bae-60eb-4d97-b7d5-e5f2319a44ef a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1a28glrqfx1 .
+
+_:node1a28glrqfx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_a2815bae-60eb-4d97-b7d5-e5f2319a44ef .
+
+km-dev:PredicateObjectMap_a2c3fa4a-721c-4cdf-8fce-316dee769ca1 rr:predicate schema:longitude .
+
+_:node1a28glrqfx16 rr:column "longitude" ;
+	a rr:ObjectMap ;
+	km-dev:isPartOfMapping _:node1a28glrqfx1 .
+
+_:node1a28glrqfx1 km-dev:hasObjectMap _:node1a28glrqfx16 .
+
+km-dev:PredicateObjectMap_a2c3fa4a-721c-4cdf-8fce-316dee769ca1 rr:objectMap _:node1a28glrqfx16 .
+
+km-dev:TriplesMap_5c6b33c9-ccf8-4f3c-8149-f379d0e91407 rr:predicateObjectMap km-dev:PredicateObjectMap_a2c3fa4a-721c-4cdf-8fce-316dee769ca1 .
+
+km-dev:PredicateObjectMap_a2c3fa4a-721c-4cdf-8fce-316dee769ca1 a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1a28glrqfx1 .
+
+_:node1a28glrqfx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_a2c3fa4a-721c-4cdf-8fce-316dee769ca1 .
+
+km-dev:TriplesMap_86fe1306-8c4b-4c85-b109-71081fbeaeca a rr:TriplesMap .
+
+_:node1a28glrqfx1 km-dev:hasTriplesMap km-dev:TriplesMap_86fe1306-8c4b-4c85-b109-71081fbeaeca .
+
+km-dev:TriplesMap_86fe1306-8c4b-4c85-b109-71081fbeaeca km-dev:isPartOfMapping _:node1a28glrqfx1 .
+
+_:node1a28glrqfx17 rr:tableName "allcountries_sample.txt" ;
+	a rr:LogicalTable ;
+	km-dev:isPartOfMapping _:node1a28glrqfx1 .
+
+_:node1a28glrqfx1 km-dev:hasLogicalTable _:node1a28glrqfx17 .
+
+km-dev:TriplesMap_86fe1306-8c4b-4c85-b109-71081fbeaeca rr:logicalTable _:node1a28glrqfx17 ;
+	rr:subjectMap _:node1a28glrqfx18 .
+
+_:node1a28glrqfx1 km-dev:hasSubjectMap _:node1a28glrqfx18 .
+
+_:node1a28glrqfx18 km-dev:isPartOfMapping _:node1a28glrqfx1 ;
+	a rr:SubjectMap ;
+	km-dev:alignmentNodeId "http://schema.org/Place1" ;
+	rr:class schema:Place .
+
+_:node1a28glrqfx19 rr:template "{schema_class}" .
+
+_:node1a28glrqfx18 rr:class _:node1a28glrqfx19 ;
+	rr:template "{geonames2schema_uri}" ;
+	a km-dev:steinerTreeRootNode .
+
+km-dev:PredicateObjectMap_00b8112b-970a-4e2a-bf50-df9f9520b661 rr:predicate schema:additionalProperty .
+
+km-dev:RefObjectMap_3a9106a1-266d-44b4-8c1c-ba756474ee68 a rr:RefObjectMap , rr:ObjectMap ;
+	rr:parentTriplesMap km-dev:TriplesMap_fb622305-3423-4893-84cd-2b86b8a8b10c ;
+	km-dev:isPartOfMapping _:node1a28glrqfx1 .
+
+_:node1a28glrqfx1 km-dev:hasObjectMap km-dev:RefObjectMap_3a9106a1-266d-44b4-8c1c-ba756474ee68 .
+
+km-dev:PredicateObjectMap_00b8112b-970a-4e2a-bf50-df9f9520b661 rr:objectMap km-dev:RefObjectMap_3a9106a1-266d-44b4-8c1c-ba756474ee68 .
+
+km-dev:TriplesMap_86fe1306-8c4b-4c85-b109-71081fbeaeca rr:predicateObjectMap km-dev:PredicateObjectMap_00b8112b-970a-4e2a-bf50-df9f9520b661 .
+
+km-dev:PredicateObjectMap_00b8112b-970a-4e2a-bf50-df9f9520b661 a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1a28glrqfx1 .
+
+_:node1a28glrqfx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_00b8112b-970a-4e2a-bf50-df9f9520b661 .
+
+km-dev:PredicateObjectMap_74e2f78d-b361-4a06-ad47-5dcc653ef632 rr:predicate schema:additionalType .
+
+_:node1a28glrqfx20 rr:column "fcode_uri" ;
+	a rr:ObjectMap ;
+	km-dev:isPartOfMapping _:node1a28glrqfx1 .
+
+_:node1a28glrqfx1 km-dev:hasObjectMap _:node1a28glrqfx20 .
+
+km-dev:PredicateObjectMap_74e2f78d-b361-4a06-ad47-5dcc653ef632 rr:objectMap _:node1a28glrqfx20 .
+
+km-dev:TriplesMap_86fe1306-8c4b-4c85-b109-71081fbeaeca rr:predicateObjectMap km-dev:PredicateObjectMap_74e2f78d-b361-4a06-ad47-5dcc653ef632 .
+
+km-dev:PredicateObjectMap_74e2f78d-b361-4a06-ad47-5dcc653ef632 a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1a28glrqfx1 .
+
+_:node1a28glrqfx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_74e2f78d-b361-4a06-ad47-5dcc653ef632 .
+
+km-dev:PredicateObjectMap_f6db5906-a159-4bc1-8cdb-ceb215e347ca rr:predicate schema:alternateName .
+
+_:node1a28glrqfx21 rr:column "asciiname" ;
+	a rr:ObjectMap ;
+	km-dev:isPartOfMapping _:node1a28glrqfx1 .
+
+_:node1a28glrqfx1 km-dev:hasObjectMap _:node1a28glrqfx21 .
+
+km-dev:PredicateObjectMap_f6db5906-a159-4bc1-8cdb-ceb215e347ca rr:objectMap _:node1a28glrqfx21 .
+
+km-dev:TriplesMap_86fe1306-8c4b-4c85-b109-71081fbeaeca rr:predicateObjectMap km-dev:PredicateObjectMap_f6db5906-a159-4bc1-8cdb-ceb215e347ca .
+
+km-dev:PredicateObjectMap_f6db5906-a159-4bc1-8cdb-ceb215e347ca a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1a28glrqfx1 .
+
+_:node1a28glrqfx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_f6db5906-a159-4bc1-8cdb-ceb215e347ca .
+
+km-dev:PredicateObjectMap_8f43e80b-8323-4f88-9b1b-3cefa265498b rr:predicate schema:containedIn .
+
+km-dev:RefObjectMap_cf698cb8-144c-4eae-8ad4-a0a2a8def58c a rr:RefObjectMap , rr:ObjectMap ;
+	rr:parentTriplesMap km-dev:TriplesMap_fc7680b7-b35c-4da6-89e2-d08e2d822bc8 ;
+	km-dev:isPartOfMapping _:node1a28glrqfx1 .
+
+_:node1a28glrqfx1 km-dev:hasObjectMap km-dev:RefObjectMap_cf698cb8-144c-4eae-8ad4-a0a2a8def58c .
+
+km-dev:PredicateObjectMap_8f43e80b-8323-4f88-9b1b-3cefa265498b rr:objectMap km-dev:RefObjectMap_cf698cb8-144c-4eae-8ad4-a0a2a8def58c .
+
+km-dev:TriplesMap_86fe1306-8c4b-4c85-b109-71081fbeaeca rr:predicateObjectMap km-dev:PredicateObjectMap_8f43e80b-8323-4f88-9b1b-3cefa265498b .
+
+km-dev:PredicateObjectMap_8f43e80b-8323-4f88-9b1b-3cefa265498b a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1a28glrqfx1 .
+
+_:node1a28glrqfx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_8f43e80b-8323-4f88-9b1b-3cefa265498b .
+
+km-dev:PredicateObjectMap_50e9f24e-6468-46cc-9c9e-6fbf060817d7 rr:predicate schema:containedIn .
+
+km-dev:RefObjectMap_2cef7c98-01a7-4b34-98a4-4dd51d6624bc a rr:RefObjectMap , rr:ObjectMap ;
+	rr:parentTriplesMap km-dev:TriplesMap_8be1c11f-b25c-40ff-a7ae-a2a079ea361c ;
+	km-dev:isPartOfMapping _:node1a28glrqfx1 .
+
+_:node1a28glrqfx1 km-dev:hasObjectMap km-dev:RefObjectMap_2cef7c98-01a7-4b34-98a4-4dd51d6624bc .
+
+km-dev:PredicateObjectMap_50e9f24e-6468-46cc-9c9e-6fbf060817d7 rr:objectMap km-dev:RefObjectMap_2cef7c98-01a7-4b34-98a4-4dd51d6624bc .
+
+km-dev:TriplesMap_86fe1306-8c4b-4c85-b109-71081fbeaeca rr:predicateObjectMap km-dev:PredicateObjectMap_50e9f24e-6468-46cc-9c9e-6fbf060817d7 .
+
+km-dev:PredicateObjectMap_50e9f24e-6468-46cc-9c9e-6fbf060817d7 a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1a28glrqfx1 .
+
+_:node1a28glrqfx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_50e9f24e-6468-46cc-9c9e-6fbf060817d7 .
+
+km-dev:PredicateObjectMap_e9f41506-304d-4ab4-8eaa-f33fb9b7e14c rr:predicate schema:containedIn .
+
+km-dev:RefObjectMap_19a4c373-68f2-4dbb-843b-42350971ee90 a rr:RefObjectMap , rr:ObjectMap ;
+	rr:parentTriplesMap km-dev:TriplesMap_f8c056ab-94ee-4c5d-863b-03d14f884d45 ;
+	km-dev:isPartOfMapping _:node1a28glrqfx1 .
+
+_:node1a28glrqfx1 km-dev:hasObjectMap km-dev:RefObjectMap_19a4c373-68f2-4dbb-843b-42350971ee90 .
+
+km-dev:PredicateObjectMap_e9f41506-304d-4ab4-8eaa-f33fb9b7e14c rr:objectMap km-dev:RefObjectMap_19a4c373-68f2-4dbb-843b-42350971ee90 .
+
+km-dev:TriplesMap_86fe1306-8c4b-4c85-b109-71081fbeaeca rr:predicateObjectMap km-dev:PredicateObjectMap_e9f41506-304d-4ab4-8eaa-f33fb9b7e14c .
+
+km-dev:PredicateObjectMap_e9f41506-304d-4ab4-8eaa-f33fb9b7e14c a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1a28glrqfx1 .
+
+_:node1a28glrqfx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_e9f41506-304d-4ab4-8eaa-f33fb9b7e14c .
+
+km-dev:PredicateObjectMap_05b7e6e2-579f-420b-8d4f-7eff1714c00b rr:predicate schema:containedIn .
+
+km-dev:RefObjectMap_5af707d8-d34c-4106-8f9d-0de9879f3148 a rr:RefObjectMap , rr:ObjectMap ;
+	rr:parentTriplesMap km-dev:TriplesMap_f63d6721-f6e6-415c-86c1-a436e49c856e ;
+	km-dev:isPartOfMapping _:node1a28glrqfx1 .
+
+_:node1a28glrqfx1 km-dev:hasObjectMap km-dev:RefObjectMap_5af707d8-d34c-4106-8f9d-0de9879f3148 .
+
+km-dev:PredicateObjectMap_05b7e6e2-579f-420b-8d4f-7eff1714c00b rr:objectMap km-dev:RefObjectMap_5af707d8-d34c-4106-8f9d-0de9879f3148 .
+
+km-dev:TriplesMap_86fe1306-8c4b-4c85-b109-71081fbeaeca rr:predicateObjectMap km-dev:PredicateObjectMap_05b7e6e2-579f-420b-8d4f-7eff1714c00b .
+
+km-dev:PredicateObjectMap_05b7e6e2-579f-420b-8d4f-7eff1714c00b a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1a28glrqfx1 .
+
+_:node1a28glrqfx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_05b7e6e2-579f-420b-8d4f-7eff1714c00b .
+
+km-dev:PredicateObjectMap_17cc208e-b988-498f-9dc5-cb1d3cb80f7c rr:predicate schema:containedIn .
+
+km-dev:RefObjectMap_f0409e79-3cb9-4536-9e5e-22101a04cc56 a rr:RefObjectMap , rr:ObjectMap ;
+	rr:parentTriplesMap km-dev:TriplesMap_bc648feb-1cc6-4fc9-8e80-88d97a1a4f1e ;
+	km-dev:isPartOfMapping _:node1a28glrqfx1 .
+
+_:node1a28glrqfx1 km-dev:hasObjectMap km-dev:RefObjectMap_f0409e79-3cb9-4536-9e5e-22101a04cc56 .
+
+km-dev:PredicateObjectMap_17cc208e-b988-498f-9dc5-cb1d3cb80f7c rr:objectMap km-dev:RefObjectMap_f0409e79-3cb9-4536-9e5e-22101a04cc56 .
+
+km-dev:TriplesMap_86fe1306-8c4b-4c85-b109-71081fbeaeca rr:predicateObjectMap km-dev:PredicateObjectMap_17cc208e-b988-498f-9dc5-cb1d3cb80f7c .
+
+km-dev:PredicateObjectMap_17cc208e-b988-498f-9dc5-cb1d3cb80f7c a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1a28glrqfx1 .
+
+_:node1a28glrqfx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_17cc208e-b988-498f-9dc5-cb1d3cb80f7c .
+
+km-dev:PredicateObjectMap_72b558c2-6eb3-40fb-89c4-e50d9643db7a rr:predicate schema:geo .
+
+km-dev:RefObjectMap_fc458735-cc04-4009-9ce1-40c7f244d3a3 a rr:RefObjectMap , rr:ObjectMap ;
+	rr:parentTriplesMap km-dev:TriplesMap_5c6b33c9-ccf8-4f3c-8149-f379d0e91407 ;
+	km-dev:isPartOfMapping _:node1a28glrqfx1 .
+
+_:node1a28glrqfx1 km-dev:hasObjectMap km-dev:RefObjectMap_fc458735-cc04-4009-9ce1-40c7f244d3a3 .
+
+km-dev:PredicateObjectMap_72b558c2-6eb3-40fb-89c4-e50d9643db7a rr:objectMap km-dev:RefObjectMap_fc458735-cc04-4009-9ce1-40c7f244d3a3 .
+
+km-dev:TriplesMap_86fe1306-8c4b-4c85-b109-71081fbeaeca rr:predicateObjectMap km-dev:PredicateObjectMap_72b558c2-6eb3-40fb-89c4-e50d9643db7a .
+
+km-dev:PredicateObjectMap_72b558c2-6eb3-40fb-89c4-e50d9643db7a a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1a28glrqfx1 .
+
+_:node1a28glrqfx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_72b558c2-6eb3-40fb-89c4-e50d9643db7a .
+
+km-dev:PredicateObjectMap_84937538-fbb9-4d42-aa1f-bdeac0ba2d7c rr:predicate schema:name .
+
+_:node1a28glrqfx22 rr:column "name" ;
+	a rr:ObjectMap ;
+	km-dev:isPartOfMapping _:node1a28glrqfx1 .
+
+_:node1a28glrqfx1 km-dev:hasObjectMap _:node1a28glrqfx22 .
+
+km-dev:PredicateObjectMap_84937538-fbb9-4d42-aa1f-bdeac0ba2d7c rr:objectMap _:node1a28glrqfx22 .
+
+km-dev:TriplesMap_86fe1306-8c4b-4c85-b109-71081fbeaeca rr:predicateObjectMap km-dev:PredicateObjectMap_84937538-fbb9-4d42-aa1f-bdeac0ba2d7c .
+
+km-dev:PredicateObjectMap_84937538-fbb9-4d42-aa1f-bdeac0ba2d7c a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1a28glrqfx1 .
+
+_:node1a28glrqfx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_84937538-fbb9-4d42-aa1f-bdeac0ba2d7c .
+
+km-dev:PredicateObjectMap_6fb5553e-7d20-4b3c-99de-9ac1ce0089bd rr:predicate schema:sameAs .
+
+_:node1a28glrqfx23 rr:column "geonames_uri" ;
+	a rr:ObjectMap ;
+	km-dev:isPartOfMapping _:node1a28glrqfx1 .
+
+_:node1a28glrqfx1 km-dev:hasObjectMap _:node1a28glrqfx23 .
+
+km-dev:PredicateObjectMap_6fb5553e-7d20-4b3c-99de-9ac1ce0089bd rr:objectMap _:node1a28glrqfx23 .
+
+km-dev:TriplesMap_86fe1306-8c4b-4c85-b109-71081fbeaeca rr:predicateObjectMap km-dev:PredicateObjectMap_6fb5553e-7d20-4b3c-99de-9ac1ce0089bd .
+
+km-dev:PredicateObjectMap_6fb5553e-7d20-4b3c-99de-9ac1ce0089bd a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1a28glrqfx1 .
+
+_:node1a28glrqfx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_6fb5553e-7d20-4b3c-99de-9ac1ce0089bd .
+
+km-dev:PredicateObjectMap_26bee3d0-10dd-4733-a8e1-e58d284f6104 rr:predicate rdfs:label .
+
+_:node1a28glrqfx24 rr:column "schema_class_name" ;
+	a rr:ObjectMap ;
+	km-dev:isPartOfMapping _:node1a28glrqfx1 .
+
+_:node1a28glrqfx1 km-dev:hasObjectMap _:node1a28glrqfx24 .
+
+km-dev:PredicateObjectMap_26bee3d0-10dd-4733-a8e1-e58d284f6104 rr:objectMap _:node1a28glrqfx24 .
+
+km-dev:TriplesMap_86fe1306-8c4b-4c85-b109-71081fbeaeca rr:predicateObjectMap km-dev:PredicateObjectMap_26bee3d0-10dd-4733-a8e1-e58d284f6104 .
+
+km-dev:PredicateObjectMap_26bee3d0-10dd-4733-a8e1-e58d284f6104 a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1a28glrqfx1 .
+
+_:node1a28glrqfx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_26bee3d0-10dd-4733-a8e1-e58d284f6104 .
+
+km-dev:TriplesMap_fb622305-3423-4893-84cd-2b86b8a8b10c a rr:TriplesMap .
+
+_:node1a28glrqfx1 km-dev:hasTriplesMap km-dev:TriplesMap_fb622305-3423-4893-84cd-2b86b8a8b10c .
+
+km-dev:TriplesMap_fb622305-3423-4893-84cd-2b86b8a8b10c km-dev:isPartOfMapping _:node1a28glrqfx1 .
+
+_:node1a28glrqfx25 rr:tableName "allcountries_sample.txt" ;
+	a rr:LogicalTable ;
+	km-dev:isPartOfMapping _:node1a28glrqfx1 .
+
+_:node1a28glrqfx1 km-dev:hasLogicalTable _:node1a28glrqfx25 .
+
+km-dev:TriplesMap_fb622305-3423-4893-84cd-2b86b8a8b10c rr:logicalTable _:node1a28glrqfx25 ;
+	rr:subjectMap _:node1a28glrqfx26 .
+
+_:node1a28glrqfx1 km-dev:hasSubjectMap _:node1a28glrqfx26 .
+
+_:node1a28glrqfx26 km-dev:isPartOfMapping _:node1a28glrqfx1 ;
+	a rr:SubjectMap ;
+	km-dev:alignmentNodeId "http://schema.org/PropertyValue1" ;
+	rr:class schema:PropertyValue ;
+	rr:termType rr:BlankNode ;
+	km-dev:namePrefix "schema:PropertyValue1" .
+
+km-dev:PredicateObjectMap_9ffd3ed5-0965-450e-8ba9-2ffb5aacc669 rr:predicate schema:text .
+
+_:node1a28glrqfx27 rr:constant "Population" ;
+	a rr:ObjectMap ;
+	km-dev:isPartOfMapping _:node1a28glrqfx1 .
+
+_:node1a28glrqfx1 km-dev:hasObjectMap _:node1a28glrqfx27 .
+
+km-dev:PredicateObjectMap_9ffd3ed5-0965-450e-8ba9-2ffb5aacc669 rr:objectMap _:node1a28glrqfx27 .
+
+km-dev:TriplesMap_fb622305-3423-4893-84cd-2b86b8a8b10c rr:predicateObjectMap km-dev:PredicateObjectMap_9ffd3ed5-0965-450e-8ba9-2ffb5aacc669 .
+
+km-dev:PredicateObjectMap_9ffd3ed5-0965-450e-8ba9-2ffb5aacc669 a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1a28glrqfx1 .
+
+_:node1a28glrqfx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_9ffd3ed5-0965-450e-8ba9-2ffb5aacc669 .
+
+km-dev:PredicateObjectMap_b3d9091f-7891-4bfc-a941-c6225606969b rr:predicate schema:value .
+
+_:node1a28glrqfx28 rr:column "population" ;
+	a rr:ObjectMap ;
+	km-dev:isPartOfMapping _:node1a28glrqfx1 .
+
+_:node1a28glrqfx1 km-dev:hasObjectMap _:node1a28glrqfx28 .
+
+km-dev:PredicateObjectMap_b3d9091f-7891-4bfc-a941-c6225606969b rr:objectMap _:node1a28glrqfx28 .
+
+km-dev:TriplesMap_fb622305-3423-4893-84cd-2b86b8a8b10c rr:predicateObjectMap km-dev:PredicateObjectMap_b3d9091f-7891-4bfc-a941-c6225606969b .
+
+km-dev:PredicateObjectMap_b3d9091f-7891-4bfc-a941-c6225606969b a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1a28glrqfx1 .
+
+_:node1a28glrqfx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_b3d9091f-7891-4bfc-a941-c6225606969b .
+
+km-dev:TriplesMap_bc648feb-1cc6-4fc9-8e80-88d97a1a4f1e a rr:TriplesMap .
+
+_:node1a28glrqfx1 km-dev:hasTriplesMap km-dev:TriplesMap_bc648feb-1cc6-4fc9-8e80-88d97a1a4f1e .
+
+km-dev:TriplesMap_bc648feb-1cc6-4fc9-8e80-88d97a1a4f1e km-dev:isPartOfMapping _:node1a28glrqfx1 .
+
+_:node1a28glrqfx29 rr:tableName "allcountries_sample.txt" ;
+	a rr:LogicalTable ;
+	km-dev:isPartOfMapping _:node1a28glrqfx1 .
+
+_:node1a28glrqfx1 km-dev:hasLogicalTable _:node1a28glrqfx29 .
+
+km-dev:TriplesMap_bc648feb-1cc6-4fc9-8e80-88d97a1a4f1e rr:logicalTable _:node1a28glrqfx29 ;
+	rr:subjectMap _:node1a28glrqfx30 .
+
+_:node1a28glrqfx1 km-dev:hasSubjectMap _:node1a28glrqfx30 .
+
+_:node1a28glrqfx30 km-dev:isPartOfMapping _:node1a28glrqfx1 ;
+	a rr:SubjectMap ;
+	km-dev:alignmentNodeId "http://schema.org/State1" ;
+	rr:class schema:State ;
+	rr:template "{State1stDiv_uri}" .

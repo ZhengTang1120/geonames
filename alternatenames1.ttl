@@ -1,0 +1,237 @@
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix schema: <http://schema.org/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+@prefix km-dev: <http://isi.edu/integration/karma/dev#> .
+
+_:node1a3pnq4fcx1 a km-dev:R2RMLMapping ;
+	km-dev:sourceName "us_alternate_head.tsv" ;
+	km-dev:modelPublicationTime "1447194071532"^^xsd:long ;
+	km-dev:modelVersion "1.7" ;
+	km-dev:hasInputColumns "[[{\"columnName\":\"geonameid\"}],[{\"columnName\":\"alternatename\"}]]" ;
+	km-dev:hasOutputColumns "[[{\"columnName\":\"geonames2schema_uri\"}],[{\"columnName\":\"alternatename\"}]]" ;
+	km-dev:hasModelLabel "us_alternate_head.tsv" ;
+	km-dev:hasBaseURI "http://localhost:8080/source/" ;
+	km-dev:hasWorksheetHistory """[
+    {
+        \"tags\": [\"Transformation\"],
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"geonameid\"}],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"newColumnName\",
+                \"value\": \"geonames2schema_uri\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"transformationCode\",
+                \"value\": \"return gn_geonames2schema_uri(getValue(\\\"geonameid\\\"))\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"errorDefaultValue\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"isJSONOutput\",
+                \"value\": \"false\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"geonameid\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"geonames2schema_uri\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SubmitPythonTransformationCommand\"
+    },
+    {
+        \"tags\": [\"Modeling\"],
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"geonames2schema_uri\"}],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"metaPropertyName\",
+                \"value\": \"isUriOfClass\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"metaPropertyUri\",
+                \"value\": \"http://schema.org/Place\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"metaPropertyId\",
+                \"value\": \"http://schema.org/Place1 (add)\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"SemanticTypesArray\",
+                \"value\": [{
+                    \"isPrimary\": true,
+                    \"FullType\": \"http://isi.edu/integration/karma/dev#classLink\",
+                    \"DomainLabel\": \"schema:Place1 (add)\",
+                    \"DomainId\": \"http://schema.org/Place1\",
+                    \"DomainUri\": \"http://schema.org/Place\"
+                }],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"trainAndShowUpdates\",
+                \"value\": false,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"rdfLiteralType\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"geonames2schema_uri\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"geonames2schema_uri\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SetMetaPropertyCommand\"
+    },
+    {
+        \"tags\": [\"Modeling\"],
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"alternatename\"}],
+                \"type\": \"hNodeId\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"value\": \"W\",
+                \"type\": \"worksheetId\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"value\": \"DEFAULT_TEST\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"SemanticTypesArray\",
+                \"value\": [{
+                    \"isPrimary\": true,
+                    \"FullType\": \"http://schema.org/alternateName\",
+                    \"DomainLabel\": \"schema:Place1\",
+                    \"DomainId\": \"http://schema.org/Place1\",
+                    \"DomainUri\": \"http://schema.org/Place\"
+                }],
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"trainAndShowUpdates\",
+                \"value\": false,
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"rdfLiteralType\",
+                \"value\": \"\",
+                \"type\": \"other\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"alternatename\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"alternatename\\\"}]}]\",
+                \"type\": \"hNodeIdList\"
+            }
+        ],
+        \"commandName\": \"SetSemanticTypeCommand\"
+    }
+]""" .
+
+km-dev:TriplesMap_b8ef779a-491c-453f-919b-1519a6c1fa09 a rr:TriplesMap .
+
+_:node1a3pnq4fcx1 km-dev:hasTriplesMap km-dev:TriplesMap_b8ef779a-491c-453f-919b-1519a6c1fa09 .
+
+km-dev:TriplesMap_b8ef779a-491c-453f-919b-1519a6c1fa09 km-dev:isPartOfMapping _:node1a3pnq4fcx1 .
+
+_:node1a3pnq4fcx2 rr:tableName "us_alternate_head.tsv" ;
+	a rr:LogicalTable ;
+	km-dev:isPartOfMapping _:node1a3pnq4fcx1 .
+
+_:node1a3pnq4fcx1 km-dev:hasLogicalTable _:node1a3pnq4fcx2 .
+
+km-dev:TriplesMap_b8ef779a-491c-453f-919b-1519a6c1fa09 rr:logicalTable _:node1a3pnq4fcx2 ;
+	rr:subjectMap _:node1a3pnq4fcx3 .
+
+_:node1a3pnq4fcx1 km-dev:hasSubjectMap _:node1a3pnq4fcx3 .
+
+_:node1a3pnq4fcx3 km-dev:isPartOfMapping _:node1a3pnq4fcx1 ;
+	a rr:SubjectMap ;
+	km-dev:alignmentNodeId "http://schema.org/Place1" ;
+	rr:class schema:Place ;
+	rr:template "{geonames2schema_uri}" ;
+	a km-dev:steinerTreeRootNode .
+
+km-dev:PredicateObjectMap_522d6b72-2a2b-41f1-996b-5bd3de0f765a rr:predicate schema:alternateName .
+
+_:node1a3pnq4fcx4 rr:column "alternatename" ;
+	a rr:ObjectMap ;
+	km-dev:isPartOfMapping _:node1a3pnq4fcx1 .
+
+_:node1a3pnq4fcx1 km-dev:hasObjectMap _:node1a3pnq4fcx4 .
+
+km-dev:PredicateObjectMap_522d6b72-2a2b-41f1-996b-5bd3de0f765a rr:objectMap _:node1a3pnq4fcx4 .
+
+km-dev:TriplesMap_b8ef779a-491c-453f-919b-1519a6c1fa09 rr:predicateObjectMap km-dev:PredicateObjectMap_522d6b72-2a2b-41f1-996b-5bd3de0f765a .
+
+km-dev:PredicateObjectMap_522d6b72-2a2b-41f1-996b-5bd3de0f765a a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1a3pnq4fcx1 .
+
+_:node1a3pnq4fcx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_522d6b72-2a2b-41f1-996b-5bd3de0f765a .
