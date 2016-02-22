@@ -6,11 +6,11 @@
     "addressRegion": {"@id": "http://schema.org/addressRegion"},
     "value": {"@id": "http://schema.org/value"},
     "longitude": {"@id": "http://schema.org/longitude"},
+    "addressCountry": {"@id": "http://schema.org/addressCountry"},
     "AdministrativeArea": {
         "@type": "@id",
         "@id": "http://schema.org/AdministrativeArea"
     },
-    "addressCountry": {"@id": "http://schema.org/addressCountry"},
     "subcommunity_4th_div": {"@id": "http://schema.dig.isi.edu/ontology/subcommunity_4th_div"},
     "a": "@type",
     "additionalProperty": {"@id": "http://schema.org/additionalProperty"},
