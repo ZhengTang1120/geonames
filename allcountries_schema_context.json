@@ -1,7 +1,7 @@
 {"@context": {
     "latitude": {"@id": "http://schema.org/latitude"},
     "geo": {"@id": "http://schema.org/geo"},
-    "county_2nd_div": {"@id": "http://memexproxy.com/ontology/county_2nd_div"},
+    "county_2nd_div": {"@id": "http://schema.dig.isi.edu/ontology/county_2nd_div"},
     "text": {"@id": "http://schema.org/text"},
     "addressRegion": {"@id": "http://schema.org/addressRegion"},
     "value": {"@id": "http://schema.org/value"},
@@ -11,7 +11,7 @@
         "@id": "http://schema.org/AdministrativeArea"
     },
     "addressCountry": {"@id": "http://schema.org/addressCountry"},
-    "subcommunity_4th_div": {"@id": "http://memexproxy.com/ontology/subcommunity_4th_div"},
+    "subcommunity_4th_div": {"@id": "http://schema.dig.isi.edu/ontology/subcommunity_4th_div"},
     "a": "@type",
     "additionalProperty": {"@id": "http://schema.org/additionalProperty"},
     "address": {"@id": "http://schema.org/address"},
@@ -30,7 +30,7 @@
         "@type": "@id",
         "@id": "http://schema.org/GeoCoordinates"
     },
-    "community_3rd_div": {"@id": "http://memexproxy.com/ontology/community_3rd_div"},
+    "community_3rd_div": {"@id": "http://schema.dig.isi.edu/ontology/community_3rd_div"},
     "additionalType": {"@id": "http://schema.org/additionalType"},
     "State": {
         "@type": "@id",

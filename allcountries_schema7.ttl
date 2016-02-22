@@ -1,23 +1,25 @@
-@prefix dct: <http://purl.org/dc/terms/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix dc: <http://purl.org/dc/elements/1.1/> .
-@prefix memex: <http://memexproxy.com/ontology/> .
+@prefix schema: <http://schema.org/> .
+@prefix memex: <http://schema.dig.isi.edu/ontology/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix void: <http://rdfs.org/ns/void#> .
+@prefix dc: <http://purl.org/dc/terms/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix prov: <http://www.w3.org/ns/prov#> .
-@prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
-@prefix schema: <http://schema.org/> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix bibo: <http://purl.org/ontology/bibo/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rr: <http://www.w3.org/ns/r2rml#> .
 @prefix km-dev: <http://isi.edu/integration/karma/dev#> .
 
-_:node1abtq487bx1 a km-dev:R2RMLMapping ;
+_:node1ac53rcjsx1 a km-dev:R2RMLMapping ;
 	km-dev:sourceName "allCountries_esc_gh_1000.tsv" ;
-	km-dev:modelPublicationTime "1455920652523"^^xsd:long ;
+	km-dev:modelPublicationTime "1456165728892"^^xsd:long ;
 	km-dev:modelVersion "1.7" ;
 	km-dev:hasInputColumns "[[{\"columnName\":\"asciiname\"}],[{\"columnName\":\"admin4\"}],[{\"columnName\":\"admin3\"}],[{\"columnName\":\"latitude\"}],[{\"columnName\":\"population\"}],[{\"columnName\":\"fclass\"}],[{\"columnName\":\"longitude\"}],[{\"columnName\":\"ccode\"}],[{\"columnName\":\"fcode\"}],[{\"columnName\":\"admin1\"}],[{\"columnName\":\"admin2\"}],[{\"columnName\":\"name\"}],[{\"columnName\":\"geonameid\"}]]" ;
-	km-dev:hasOutputColumns "[[{\"columnName\":\"geonames2schema_uri\"}],[{\"columnName\":\"asciiname\"}],[{\"columnName\":\"latitude\"}],[{\"columnName\":\"population\"}],[{\"columnName\":\"longitude\"}],[{\"columnName\":\"address_uri\"}],[{\"columnName\":\"Community3rdDiv_uri\"}],[{\"columnName\":\"name\"}],[{\"columnName\":\"SubCommunity4thDiv_uri\"}],[{\"columnName\":\"schema_class_name\"}],[{\"columnName\":\"country_uri\"}],[{\"columnName\":\"schema_class\"}],[{\"columnName\":\"CountyProvince2ndDiv_uri\"}],[{\"columnName\":\"fcode_uri\"}],[{\"columnName\":\"geonames_uri\"}],[{\"columnName\":\"State1stDiv_uri\"}]]" ;
+	km-dev:hasOutputColumns "[[{\"columnName\":\"geonames2schema_uri\"}],[{\"columnName\":\"asciiname\"}],[{\"columnName\":\"latitude\"}],[{\"columnName\":\"population\"}],[{\"columnName\":\"longitude\"}],[{\"columnName\":\"postaladdress_uri\"}],[{\"columnName\":\"Community3rdDiv_uri\"}],[{\"columnName\":\"address_uri\"}],[{\"columnName\":\"name\"}],[{\"columnName\":\"SubCommunity4thDiv_uri\"}],[{\"columnName\":\"schema_class_name\"}],[{\"columnName\":\"country_uri\"}],[{\"columnName\":\"schema_class\"}],[{\"columnName\":\"CountyProvince2ndDiv_uri\"}],[{\"columnName\":\"fcode_uri\"}],[{\"columnName\":\"geonames_uri\"}],[{\"columnName\":\"State1stDiv_uri\"}]]" ;
 	km-dev:hasModelLabel "allCountries_esc_gh_1000.tsv" ;
 	km-dev:hasWorksheetHistory """[
     {
@@ -626,6 +628,616 @@ _:node1abtq487bx1 a km-dev:R2RMLMapping ;
                 \"name\": \"outputColumns\",
                 \"type\": \"hNodeIdList\",
                 \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"address_uri\\\"}]}]\"
+            }
+        ],
+        \"tags\": [\"Transformation\"]
+    },
+    {
+        \"commandName\": \"SubmitPythonTransformationCommand\",
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"type\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"geonameid\"}]
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"type\": \"worksheetId\",
+                \"value\": \"W\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"type\": \"other\",
+                \"value\": \"DEFAULT_TEST\"
+            },
+            {
+                \"name\": \"newColumnName\",
+                \"type\": \"other\",
+                \"value\": \"geonames_uri\"
+            },
+            {
+                \"name\": \"transformationCode\",
+                \"type\": \"other\",
+                \"value\": \"return gn_geonames_uri(getValue(\\\"geonameid\\\"))\"
+            },
+            {
+                \"name\": \"errorDefaultValue\",
+                \"type\": \"other\",
+                \"value\": \"\"
+            },
+            {
+                \"name\": \"isJSONOutput\",
+                \"type\": \"other\",
+                \"value\": \"false\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"geonameid\\\"}]}]\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"geonames_uri\\\"}]}]\"
+            }
+        ],
+        \"tags\": [\"Transformation\"]
+    },
+    {
+        \"commandName\": \"SubmitPythonTransformationCommand\",
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"type\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"geonames_uri\"}]
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"type\": \"worksheetId\",
+                \"value\": \"W\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"type\": \"other\",
+                \"value\": \"DEFAULT_TEST\"
+            },
+            {
+                \"name\": \"newColumnName\",
+                \"type\": \"other\",
+                \"value\": \"geonames2schema_uri\"
+            },
+            {
+                \"name\": \"transformationCode\",
+                \"type\": \"other\",
+                \"value\": \"return gn_geonames2schema_uri(getValue(\\\"geonameid\\\"))\"
+            },
+            {
+                \"name\": \"errorDefaultValue\",
+                \"type\": \"other\",
+                \"value\": \"\"
+            },
+            {
+                \"name\": \"isJSONOutput\",
+                \"type\": \"other\",
+                \"value\": \"false\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"geonameid\\\"}]}]\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"geonames2schema_uri\\\"}]}]\"
+            }
+        ],
+        \"tags\": [\"Transformation\"]
+    },
+    {
+        \"commandName\": \"SubmitPythonTransformationCommand\",
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"type\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"geonames2schema_uri\"}]
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"type\": \"worksheetId\",
+                \"value\": \"W\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"type\": \"other\",
+                \"value\": \"DEFAULT_TEST\"
+            },
+            {
+                \"name\": \"newColumnName\",
+                \"type\": \"other\",
+                \"value\": \"schema_class\"
+            },
+            {
+                \"name\": \"transformationCode\",
+                \"type\": \"other\",
+                \"value\": \"return fcode_to_class(getValue(\\\"fclass\\\"),getValue(\\\"fcode\\\"))\"
+            },
+            {
+                \"name\": \"errorDefaultValue\",
+                \"type\": \"other\",
+                \"value\": \"\"
+            },
+            {
+                \"name\": \"isJSONOutput\",
+                \"type\": \"other\",
+                \"value\": \"false\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"fclass\\\"}]},{\\\"value\\\":[{\\\"columnName\\\":\\\"fcode\\\"}]}]\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"schema_class\\\"}]}]\"
+            }
+        ],
+        \"tags\": [\"Transformation\"]
+    },
+    {
+        \"commandName\": \"SubmitPythonTransformationCommand\",
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"type\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"asciiname\"}]
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"type\": \"worksheetId\",
+                \"value\": \"W\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"type\": \"other\",
+                \"value\": \"DEFAULT_TEST\"
+            },
+            {
+                \"name\": \"newColumnName\",
+                \"type\": \"other\",
+                \"value\": \"country_uri\"
+            },
+            {
+                \"name\": \"transformationCode\",
+                \"type\": \"other\",
+                \"value\": \"return gn_country_uri(getValue(\\\"ccode\\\"))\"
+            },
+            {
+                \"name\": \"errorDefaultValue\",
+                \"type\": \"other\",
+                \"value\": \"\"
+            },
+            {
+                \"name\": \"isJSONOutput\",
+                \"type\": \"other\",
+                \"value\": \"false\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"ccode\\\"}]}]\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"country_uri\\\"}]}]\"
+            }
+        ],
+        \"tags\": [\"Transformation\"]
+    },
+    {
+        \"commandName\": \"SubmitPythonTransformationCommand\",
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"type\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"country_uri\"}]
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"type\": \"worksheetId\",
+                \"value\": \"W\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"type\": \"other\",
+                \"value\": \"DEFAULT_TEST\"
+            },
+            {
+                \"name\": \"newColumnName\",
+                \"type\": \"other\",
+                \"value\": \"State1stDiv_uri\"
+            },
+            {
+                \"name\": \"transformationCode\",
+                \"type\": \"other\",
+                \"value\": \"return gn_State1stDiv_uri(getValue(\\\"country\\\"),getValue(\\\"admin1\\\"))\"
+            },
+            {
+                \"name\": \"errorDefaultValue\",
+                \"type\": \"other\",
+                \"value\": \"\"
+            },
+            {
+                \"name\": \"isJSONOutput\",
+                \"type\": \"other\",
+                \"value\": \"false\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"admin1\\\"}]}]\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"State1stDiv_uri\\\"}]}]\"
+            }
+        ],
+        \"tags\": [\"Transformation\"]
+    },
+    {
+        \"commandName\": \"SubmitPythonTransformationCommand\",
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"type\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"State1stDiv_uri\"}]
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"type\": \"worksheetId\",
+                \"value\": \"W\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"type\": \"other\",
+                \"value\": \"DEFAULT_TEST\"
+            },
+            {
+                \"name\": \"newColumnName\",
+                \"type\": \"other\",
+                \"value\": \"CountyProvince2ndDiv_uri\"
+            },
+            {
+                \"name\": \"transformationCode\",
+                \"type\": \"other\",
+                \"value\": \"return gn_CountyProvince2ndDiv_uri(getValue(\\\"country\\\"),getValue(\\\"admin1\\\"),getValue(\\\"admin2\\\"))\"
+            },
+            {
+                \"name\": \"errorDefaultValue\",
+                \"type\": \"other\",
+                \"value\": \"\"
+            },
+            {
+                \"name\": \"isJSONOutput\",
+                \"type\": \"other\",
+                \"value\": \"false\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"admin1\\\"}]},{\\\"value\\\":[{\\\"columnName\\\":\\\"admin2\\\"}]}]\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"CountyProvince2ndDiv_uri\\\"}]}]\"
+            }
+        ],
+        \"tags\": [\"Transformation\"]
+    },
+    {
+        \"commandName\": \"SubmitPythonTransformationCommand\",
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"type\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"CountyProvince2ndDiv_uri\"}]
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"type\": \"worksheetId\",
+                \"value\": \"W\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"type\": \"other\",
+                \"value\": \"DEFAULT_TEST\"
+            },
+            {
+                \"name\": \"newColumnName\",
+                \"type\": \"other\",
+                \"value\": \"Community3rdDiv_uri\"
+            },
+            {
+                \"name\": \"transformationCode\",
+                \"type\": \"other\",
+                \"value\": \"return gn_Community3rdDiv_uri(getValue(\\\"country\\\"),getValue(\\\"admin1\\\"),getValue(\\\"admin2\\\"),getValue(\\\"admin3\\\"))\"
+            },
+            {
+                \"name\": \"errorDefaultValue\",
+                \"type\": \"other\",
+                \"value\": \"\"
+            },
+            {
+                \"name\": \"isJSONOutput\",
+                \"type\": \"other\",
+                \"value\": \"false\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"admin3\\\"}]},{\\\"value\\\":[{\\\"columnName\\\":\\\"admin1\\\"}]},{\\\"value\\\":[{\\\"columnName\\\":\\\"admin2\\\"}]}]\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"Community3rdDiv_uri\\\"}]}]\"
+            }
+        ],
+        \"tags\": [\"Transformation\"]
+    },
+    {
+        \"commandName\": \"SubmitPythonTransformationCommand\",
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"type\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"Community3rdDiv_uri\"}]
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"type\": \"worksheetId\",
+                \"value\": \"W\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"type\": \"other\",
+                \"value\": \"DEFAULT_TEST\"
+            },
+            {
+                \"name\": \"newColumnName\",
+                \"type\": \"other\",
+                \"value\": \"SubCommunity4thDiv_uri\"
+            },
+            {
+                \"name\": \"transformationCode\",
+                \"type\": \"other\",
+                \"value\": \"return gn_SubCommunity4thDiv_uri(getValue(\\\"country\\\"),getValue(\\\"admin1\\\"),getValue(\\\"admin2\\\"),getValue(\\\"admin3\\\"),getValue(\\\"admin4\\\"))\"
+            },
+            {
+                \"name\": \"errorDefaultValue\",
+                \"type\": \"other\",
+                \"value\": \"\"
+            },
+            {
+                \"name\": \"isJSONOutput\",
+                \"type\": \"other\",
+                \"value\": \"false\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"admin4\\\"}]},{\\\"value\\\":[{\\\"columnName\\\":\\\"admin3\\\"}]},{\\\"value\\\":[{\\\"columnName\\\":\\\"admin1\\\"}]},{\\\"value\\\":[{\\\"columnName\\\":\\\"admin2\\\"}]}]\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"SubCommunity4thDiv_uri\\\"}]}]\"
+            }
+        ],
+        \"tags\": [\"Transformation\"]
+    },
+    {
+        \"commandName\": \"SubmitPythonTransformationCommand\",
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"type\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"schema_class\"}]
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"type\": \"worksheetId\",
+                \"value\": \"W\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"type\": \"other\",
+                \"value\": \"DEFAULT_TEST\"
+            },
+            {
+                \"name\": \"newColumnName\",
+                \"type\": \"other\",
+                \"value\": \"fcode_uri\"
+            },
+            {
+                \"name\": \"transformationCode\",
+                \"type\": \"other\",
+                \"value\": \"return fcode_uri(getValue(\\\"fclass\\\"),getValue(\\\"fcode\\\"))\"
+            },
+            {
+                \"name\": \"errorDefaultValue\",
+                \"type\": \"other\",
+                \"value\": \"\"
+            },
+            {
+                \"name\": \"isJSONOutput\",
+                \"type\": \"other\",
+                \"value\": \"false\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"fclass\\\"}]},{\\\"value\\\":[{\\\"columnName\\\":\\\"fcode\\\"}]}]\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"fcode_uri\\\"}]}]\"
+            }
+        ],
+        \"tags\": [\"Transformation\"]
+    },
+    {
+        \"commandName\": \"SetWorksheetPropertiesCommand\",
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"worksheetId\",
+                \"type\": \"worksheetId\",
+                \"value\": \"W\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"type\": \"other\",
+                \"value\": \"DEFAULT_TEST\"
+            },
+            {
+                \"name\": \"properties\",
+                \"type\": \"other\",
+                \"value\": {
+                    \"graphLabel\": \"\",
+                    \"hasBaseURI\": true,
+                    \"baseURI\": \"\",
+                    \"hasPrefix\": false,
+                    \"hasServiceProperties\": false
+                }
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[]\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[]\"
+            }
+        ],
+        \"tags\": [\"Transformation\"]
+    },
+    {
+        \"commandName\": \"SubmitPythonTransformationCommand\",
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"type\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"schema_class\"}]
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"type\": \"worksheetId\",
+                \"value\": \"W\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"type\": \"other\",
+                \"value\": \"DEFAULT_TEST\"
+            },
+            {
+                \"name\": \"newColumnName\",
+                \"type\": \"other\",
+                \"value\": \"schema_class_name\"
+            },
+            {
+                \"name\": \"transformationCode\",
+                \"type\": \"other\",
+                \"value\": \"return fcode_to_class(getValue(\\\"fclass\\\"),getValue(\\\"fcode\\\"))\"
+            },
+            {
+                \"name\": \"errorDefaultValue\",
+                \"type\": \"other\",
+                \"value\": \"\"
+            },
+            {
+                \"name\": \"isJSONOutput\",
+                \"type\": \"other\",
+                \"value\": \"false\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"fclass\\\"}]},{\\\"value\\\":[{\\\"columnName\\\":\\\"fcode\\\"}]}]\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"schema_class_name\\\"}]}]\"
+            }
+        ],
+        \"tags\": [\"Transformation\"]
+    },
+    {
+        \"commandName\": \"SubmitPythonTransformationCommand\",
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"type\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"geonames2schema_uri\"}]
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"type\": \"worksheetId\",
+                \"value\": \"W\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"type\": \"other\",
+                \"value\": \"DEFAULT_TEST\"
+            },
+            {
+                \"name\": \"newColumnName\",
+                \"type\": \"other\",
+                \"value\": \"postaladdress_uri\"
+            },
+            {
+                \"name\": \"transformationCode\",
+                \"type\": \"other\",
+                \"value\": \"return gn_geonames2schema_uri(getValue(\\\"geonameid\\\"))+\\\"/address\\\"\"
+            },
+            {
+                \"name\": \"errorDefaultValue\",
+                \"type\": \"other\",
+                \"value\": \"\"
+            },
+            {
+                \"name\": \"isJSONOutput\",
+                \"type\": \"other\",
+                \"value\": \"false\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"geonameid\\\"}]}]\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"postaladdress_uri\\\"}]}]\"
             }
         ],
         \"tags\": [\"Transformation\"]
@@ -1741,6 +2353,692 @@ _:node1abtq487bx1 a km-dev:R2RMLMapping ;
         \"tags\": [\"SemanticType\"]
     },
     {
+        \"commandName\": \"SetMetaPropertyCommand\",
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"type\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"geonames2schema_uri\"}]
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"type\": \"worksheetId\",
+                \"value\": \"W\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"type\": \"other\",
+                \"value\": \"DEFAULT_TEST\"
+            },
+            {
+                \"name\": \"metaPropertyName\",
+                \"type\": \"other\",
+                \"value\": \"isUriOfClass\"
+            },
+            {
+                \"name\": \"metaPropertyUri\",
+                \"type\": \"other\",
+                \"value\": \"http://schema.org/Place\"
+            },
+            {
+                \"name\": \"metaPropertyId\",
+                \"type\": \"other\",
+                \"value\": \"http://schema.org/Place1 (add)\"
+            },
+            {
+                \"name\": \"SemanticTypesArray\",
+                \"type\": \"other\",
+                \"value\": [{
+                    \"DomainUri\": \"http://schema.org/Place\",
+                    \"DomainId\": \"http://schema.org/Place1 (add)\",
+                    \"isPrimary\": true,
+                    \"FullType\": \"http://isi.edu/integration/karma/dev#classLink\",
+                    \"DomainLabel\": \"schema:Place1 (add)\"
+                }]
+            },
+            {
+                \"name\": \"trainAndShowUpdates\",
+                \"type\": \"other\",
+                \"value\": false
+            },
+            {
+                \"name\": \"rdfLiteralType\",
+                \"type\": \"other\",
+                \"value\": \"\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"geonames2schema_uri\\\"}]}]\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"geonames2schema_uri\\\"}]}]\"
+            }
+        ],
+        \"tags\": [\"SemanticType\"]
+    },
+    {
+        \"commandName\": \"SetMetaPropertyCommand\",
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"type\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"schema_class\"}]
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"type\": \"worksheetId\",
+                \"value\": \"W\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"type\": \"other\",
+                \"value\": \"DEFAULT_TEST\"
+            },
+            {
+                \"name\": \"metaPropertyName\",
+                \"type\": \"other\",
+                \"value\": \"isSubclassOfClass\"
+            },
+            {
+                \"name\": \"metaPropertyUri\",
+                \"type\": \"other\",
+                \"value\": \"http://schema.org/Place\"
+            },
+            {
+                \"name\": \"metaPropertyId\",
+                \"type\": \"other\",
+                \"value\": \"http://schema.org/Place1\"
+            },
+            {
+                \"name\": \"SemanticTypesArray\",
+                \"type\": \"other\",
+                \"value\": []
+            },
+            {
+                \"name\": \"trainAndShowUpdates\",
+                \"type\": \"other\",
+                \"value\": false
+            },
+            {
+                \"name\": \"rdfLiteralType\",
+                \"type\": \"other\",
+                \"value\": \"\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"schema_class\\\"}]}]\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"schema_class\\\"}]}]\"
+            }
+        ],
+        \"tags\": [\"SemanticType\"]
+    },
+    {
+        \"commandName\": \"SetMetaPropertyCommand\",
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"type\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"country_uri\"}]
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"type\": \"worksheetId\",
+                \"value\": \"W\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"type\": \"other\",
+                \"value\": \"DEFAULT_TEST\"
+            },
+            {
+                \"name\": \"metaPropertyName\",
+                \"type\": \"other\",
+                \"value\": \"isUriOfClass\"
+            },
+            {
+                \"name\": \"metaPropertyUri\",
+                \"type\": \"other\",
+                \"value\": \"http://schema.org/Country\"
+            },
+            {
+                \"name\": \"metaPropertyId\",
+                \"type\": \"other\",
+                \"value\": \"http://schema.org/Country1 (add)\"
+            },
+            {
+                \"name\": \"SemanticTypesArray\",
+                \"type\": \"other\",
+                \"value\": [{
+                    \"DomainUri\": \"http://schema.org/Country\",
+                    \"DomainId\": \"http://schema.org/Country1 (add)\",
+                    \"isPrimary\": true,
+                    \"FullType\": \"http://isi.edu/integration/karma/dev#classLink\",
+                    \"DomainLabel\": \"schema:Country1 (add)\"
+                }]
+            },
+            {
+                \"name\": \"trainAndShowUpdates\",
+                \"type\": \"other\",
+                \"value\": false
+            },
+            {
+                \"name\": \"rdfLiteralType\",
+                \"type\": \"other\",
+                \"value\": \"\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"country_uri\\\"}]}]\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"country_uri\\\"}]}]\"
+            }
+        ],
+        \"tags\": [\"SemanticType\"]
+    },
+    {
+        \"commandName\": \"SetMetaPropertyCommand\",
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"type\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"State1stDiv_uri\"}]
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"type\": \"worksheetId\",
+                \"value\": \"W\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"type\": \"other\",
+                \"value\": \"DEFAULT_TEST\"
+            },
+            {
+                \"name\": \"metaPropertyName\",
+                \"type\": \"other\",
+                \"value\": \"isUriOfClass\"
+            },
+            {
+                \"name\": \"metaPropertyUri\",
+                \"type\": \"other\",
+                \"value\": \"http://schema.org/State\"
+            },
+            {
+                \"name\": \"metaPropertyId\",
+                \"type\": \"other\",
+                \"value\": \"http://schema.org/State1 (add)\"
+            },
+            {
+                \"name\": \"SemanticTypesArray\",
+                \"type\": \"other\",
+                \"value\": [{
+                    \"DomainUri\": \"http://schema.org/State\",
+                    \"DomainId\": \"http://schema.org/State1 (add)\",
+                    \"isPrimary\": true,
+                    \"FullType\": \"http://isi.edu/integration/karma/dev#classLink\",
+                    \"DomainLabel\": \"schema:State1 (add)\"
+                }]
+            },
+            {
+                \"name\": \"trainAndShowUpdates\",
+                \"type\": \"other\",
+                \"value\": false
+            },
+            {
+                \"name\": \"rdfLiteralType\",
+                \"type\": \"other\",
+                \"value\": \"\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"State1stDiv_uri\\\"}]}]\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"State1stDiv_uri\\\"}]}]\"
+            }
+        ],
+        \"tags\": [\"SemanticType\"]
+    },
+    {
+        \"commandName\": \"SetMetaPropertyCommand\",
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"type\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"CountyProvince2ndDiv_uri\"}]
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"type\": \"worksheetId\",
+                \"value\": \"W\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"type\": \"other\",
+                \"value\": \"DEFAULT_TEST\"
+            },
+            {
+                \"name\": \"metaPropertyName\",
+                \"type\": \"other\",
+                \"value\": \"isUriOfClass\"
+            },
+            {
+                \"name\": \"metaPropertyUri\",
+                \"type\": \"other\",
+                \"value\": \"http://schema.org/AdministrativeArea\"
+            },
+            {
+                \"name\": \"metaPropertyId\",
+                \"type\": \"other\",
+                \"value\": \"http://schema.org/AdministrativeArea1 (add)\"
+            },
+            {
+                \"name\": \"SemanticTypesArray\",
+                \"type\": \"other\",
+                \"value\": [{
+                    \"DomainUri\": \"http://schema.org/AdministrativeArea\",
+                    \"DomainId\": \"http://schema.org/AdministrativeArea1 (add)\",
+                    \"isPrimary\": true,
+                    \"FullType\": \"http://isi.edu/integration/karma/dev#classLink\",
+                    \"DomainLabel\": \"schema:AdministrativeArea1 (add)\"
+                }]
+            },
+            {
+                \"name\": \"trainAndShowUpdates\",
+                \"type\": \"other\",
+                \"value\": false
+            },
+            {
+                \"name\": \"rdfLiteralType\",
+                \"type\": \"other\",
+                \"value\": \"\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"CountyProvince2ndDiv_uri\\\"}]}]\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"CountyProvince2ndDiv_uri\\\"}]}]\"
+            }
+        ],
+        \"tags\": [\"SemanticType\"]
+    },
+    {
+        \"commandName\": \"SetMetaPropertyCommand\",
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"type\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"Community3rdDiv_uri\"}]
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"type\": \"worksheetId\",
+                \"value\": \"W\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"type\": \"other\",
+                \"value\": \"DEFAULT_TEST\"
+            },
+            {
+                \"name\": \"metaPropertyName\",
+                \"type\": \"other\",
+                \"value\": \"isUriOfClass\"
+            },
+            {
+                \"name\": \"metaPropertyUri\",
+                \"type\": \"other\",
+                \"value\": \"http://schema.org/AdministrativeArea\"
+            },
+            {
+                \"name\": \"metaPropertyId\",
+                \"type\": \"other\",
+                \"value\": \"http://schema.org/AdministrativeArea2 (add)\"
+            },
+            {
+                \"name\": \"SemanticTypesArray\",
+                \"type\": \"other\",
+                \"value\": [{
+                    \"DomainUri\": \"http://schema.org/AdministrativeArea\",
+                    \"DomainId\": \"http://schema.org/AdministrativeArea2\",
+                    \"isPrimary\": true,
+                    \"FullType\": \"http://isi.edu/integration/karma/dev#classLink\",
+                    \"DomainLabel\": \"schema:AdministrativeArea2 (add)\"
+                }]
+            },
+            {
+                \"name\": \"trainAndShowUpdates\",
+                \"type\": \"other\",
+                \"value\": false
+            },
+            {
+                \"name\": \"rdfLiteralType\",
+                \"type\": \"other\",
+                \"value\": \"\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"Community3rdDiv_uri\\\"}]}]\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"Community3rdDiv_uri\\\"}]}]\"
+            }
+        ],
+        \"tags\": [\"SemanticType\"]
+    },
+    {
+        \"commandName\": \"SetMetaPropertyCommand\",
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"type\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"SubCommunity4thDiv_uri\"}]
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"type\": \"worksheetId\",
+                \"value\": \"W\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"type\": \"other\",
+                \"value\": \"DEFAULT_TEST\"
+            },
+            {
+                \"name\": \"metaPropertyName\",
+                \"type\": \"other\",
+                \"value\": \"isUriOfClass\"
+            },
+            {
+                \"name\": \"metaPropertyUri\",
+                \"type\": \"other\",
+                \"value\": \"http://schema.org/AdministrativeArea\"
+            },
+            {
+                \"name\": \"metaPropertyId\",
+                \"type\": \"other\",
+                \"value\": \"http://schema.org/AdministrativeArea3 (add)\"
+            },
+            {
+                \"name\": \"SemanticTypesArray\",
+                \"type\": \"other\",
+                \"value\": [{
+                    \"DomainUri\": \"http://schema.org/AdministrativeArea\",
+                    \"DomainId\": \"http://schema.org/AdministrativeArea3 (add)\",
+                    \"isPrimary\": true,
+                    \"FullType\": \"http://isi.edu/integration/karma/dev#classLink\",
+                    \"DomainLabel\": \"schema:AdministrativeArea3 (add)\"
+                }]
+            },
+            {
+                \"name\": \"trainAndShowUpdates\",
+                \"type\": \"other\",
+                \"value\": false
+            },
+            {
+                \"name\": \"rdfLiteralType\",
+                \"type\": \"other\",
+                \"value\": \"\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"SubCommunity4thDiv_uri\\\"}]}]\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"SubCommunity4thDiv_uri\\\"}]}]\"
+            }
+        ],
+        \"tags\": [\"SemanticType\"]
+    },
+    {
+        \"commandName\": \"AddLiteralNodeCommand\",
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"literalValue\",
+                \"type\": \"other\",
+                \"value\": \"Population\"
+            },
+            {
+                \"name\": \"literalType\",
+                \"type\": \"other\",
+                \"value\": \"\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"type\": \"worksheetId\",
+                \"value\": \"W\"
+            },
+            {
+                \"name\": \"isUri\",
+                \"type\": \"other\",
+                \"value\": false
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[]\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[]\"
+            }
+        ],
+        \"tags\": [\"SemanticType\"]
+    },
+    {
+        \"commandName\": \"AddLiteralNodeCommand\",
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"literalValue\",
+                \"type\": \"other\",
+                \"value\": \"http://dig.isi.edu/gazetteer/geonames/Placetype/A_ADM2\"
+            },
+            {
+                \"name\": \"literalType\",
+                \"type\": \"other\",
+                \"value\": \"\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"type\": \"worksheetId\",
+                \"value\": \"W\"
+            },
+            {
+                \"name\": \"isUri\",
+                \"type\": \"other\",
+                \"value\": false
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[]\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[]\"
+            }
+        ],
+        \"tags\": [\"SemanticType\"]
+    },
+    {
+        \"commandName\": \"AddLiteralNodeCommand\",
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"literalValue\",
+                \"type\": \"other\",
+                \"value\": \"http://dig.isi.edu/gazetteer/geonames/Placetype/A_ADM3\"
+            },
+            {
+                \"name\": \"literalType\",
+                \"type\": \"other\",
+                \"value\": \"\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"type\": \"worksheetId\",
+                \"value\": \"W\"
+            },
+            {
+                \"name\": \"isUri\",
+                \"type\": \"other\",
+                \"value\": false
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[]\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[]\"
+            }
+        ],
+        \"tags\": [\"SemanticType\"]
+    },
+    {
+        \"commandName\": \"AddLiteralNodeCommand\",
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"literalValue\",
+                \"type\": \"other\",
+                \"value\": \"http://dig.isi.edu/gazetteer/geonames/Placetype/A_ADM4\"
+            },
+            {
+                \"name\": \"literalType\",
+                \"type\": \"other\",
+                \"value\": \"\"
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"type\": \"worksheetId\",
+                \"value\": \"W\"
+            },
+            {
+                \"name\": \"isUri\",
+                \"type\": \"other\",
+                \"value\": false
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[]\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[]\"
+            }
+        ],
+        \"tags\": [\"SemanticType\"]
+    },
+    {
+        \"commandName\": \"SetMetaPropertyCommand\",
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"hNodeId\",
+                \"type\": \"hNodeId\",
+                \"value\": [{\"columnName\": \"postaladdress_uri\"}]
+            },
+            {
+                \"name\": \"worksheetId\",
+                \"type\": \"worksheetId\",
+                \"value\": \"W\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"type\": \"other\",
+                \"value\": \"DEFAULT_TEST\"
+            },
+            {
+                \"name\": \"metaPropertyName\",
+                \"type\": \"other\",
+                \"value\": \"isUriOfClass\"
+            },
+            {
+                \"name\": \"metaPropertyUri\",
+                \"type\": \"other\",
+                \"value\": \"http://schema.org/PostalAddress\"
+            },
+            {
+                \"name\": \"metaPropertyId\",
+                \"type\": \"other\",
+                \"value\": \"http://schema.org/PostalAddress1\"
+            },
+            {
+                \"name\": \"SemanticTypesArray\",
+                \"type\": \"other\",
+                \"value\": [{
+                    \"DomainUri\": \"http://schema.org/PostalAddress\",
+                    \"DomainId\": \"http://schema.org/PostalAddress1\",
+                    \"isPrimary\": true,
+                    \"FullType\": \"http://isi.edu/integration/karma/dev#classLink\",
+                    \"DomainLabel\": \"schema:PostalAddress1\"
+                }]
+            },
+            {
+                \"name\": \"trainAndShowUpdates\",
+                \"type\": \"other\",
+                \"value\": true
+            },
+            {
+                \"name\": \"rdfLiteralType\",
+                \"type\": \"other\",
+                \"value\": \"\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"postaladdress_uri\\\"}]}]\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[{\\\"value\\\":[{\\\"columnName\\\":\\\"postaladdress_uri\\\"}]}]\"
+            }
+        ],
+        \"tags\": [\"SemanticType\"]
+    },
+    {
         \"commandName\": \"ChangeInternalNodeLinksCommand\",
         \"model\": \"new\",
         \"inputParameters\": [
@@ -2801,14 +4099,14 @@ _:node1abtq487bx1 a km-dev:R2RMLMapping ;
             {
                 \"name\": \"alignmentId\",
                 \"type\": \"other\",
-                \"value\": \"WSP4:WS5AL\"
+                \"value\": \"WSP2:WS5AL\"
             },
             {
                 \"name\": \"newEdges\",
                 \"type\": \"other\",
                 \"value\": [{
                     \"edgeTargetId\": \"http://schema.org/AdministrativeArea1\",
-                    \"edgeId\": \"http://memexproxy.com/ontology/county_2nd_div\",
+                    \"edgeId\": \"http://schema.dig.isi.edu/ontology/county_2nd_div\",
                     \"edgeTargetUri\": \"http://schema.org/AdministrativeArea\",
                     \"edgeSourceId\": \"http://schema.org/PostalAddress1\",
                     \"edgeSourceUri\": \"http://schema.org/PostalAddress\"
@@ -2849,14 +4147,1053 @@ _:node1abtq487bx1 a km-dev:R2RMLMapping ;
             {
                 \"name\": \"alignmentId\",
                 \"type\": \"other\",
-                \"value\": \"WSP4:WS5AL\"
+                \"value\": \"WSP3:WS3847AL\"
             },
             {
                 \"name\": \"newEdges\",
                 \"type\": \"other\",
                 \"value\": [{
+                    \"edgeId\": \"http://schema.org/geo\",
+                    \"edgeTargetId\": \"http://schema.org/GeoCoordinates1\",
+                    \"edgeTargetUri\": \"http://schema.org/GeoCoordinates\",
+                    \"edgeSourceId\": \"http://schema.org/Place1\",
+                    \"edgeSourceUri\": \"http://schema.org/Place1\"
+                }]
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[]\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[]\"
+            }
+        ],
+        \"tags\": [\"Modeling\"]
+    },
+    {
+        \"commandName\": \"ChangeInternalNodeLinksCommand\",
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"worksheetId\",
+                \"type\": \"worksheetId\",
+                \"value\": \"W\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"type\": \"other\",
+                \"value\": \"DEFAULT_TEST\"
+            },
+            {
+                \"name\": \"initialEdges\",
+                \"type\": \"other\",
+                \"value\": []
+            },
+            {
+                \"name\": \"newEdges\",
+                \"type\": \"other\",
+                \"value\": [{
+                    \"edgeId\": \"http://schema.org/text\",
+                    \"edgeTargetId\": \"Population1\",
+                    \"edgeTargetUri\": \"Population\",
+                    \"edgeSourceId\": \"http://schema.org/PropertyValue1\",
+                    \"edgeSourceUri\": \"http://schema.org/PropertyValue\"
+                }]
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[]\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[]\"
+            }
+        ],
+        \"tags\": [\"Modeling\"]
+    },
+    {
+        \"commandName\": \"ChangeInternalNodeLinksCommand\",
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"worksheetId\",
+                \"type\": \"worksheetId\",
+                \"value\": \"W\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"type\": \"other\",
+                \"value\": \"DEFAULT_TEST\"
+            },
+            {
+                \"name\": \"initialEdges\",
+                \"type\": \"other\",
+                \"value\": []
+            },
+            {
+                \"name\": \"alignmentId\",
+                \"type\": \"other\",
+                \"value\": \"WSP3:WS3847AL\"
+            },
+            {
+                \"name\": \"newEdges\",
+                \"type\": \"other\",
+                \"value\": [{
+                    \"edgeId\": \"http://schema.org/additionalProperty\",
+                    \"edgeTargetId\": \"http://schema.org/PropertyValue1\",
+                    \"edgeTargetUri\": \"http://schema.org/PropertyValue\",
+                    \"edgeSourceId\": \"http://schema.org/Place1\",
+                    \"edgeSourceUri\": \"http://schema.org/Place1\"
+                }]
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[]\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[]\"
+            }
+        ],
+        \"tags\": [\"Modeling\"]
+    },
+    {
+        \"commandName\": \"ChangeInternalNodeLinksCommand\",
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"worksheetId\",
+                \"type\": \"worksheetId\",
+                \"value\": \"W\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"type\": \"other\",
+                \"value\": \"DEFAULT_TEST\"
+            },
+            {
+                \"name\": \"initialEdges\",
+                \"type\": \"other\",
+                \"value\": []
+            },
+            {
+                \"name\": \"alignmentId\",
+                \"type\": \"other\",
+                \"value\": \"WSP1:WS1AL\"
+            },
+            {
+                \"name\": \"newEdges\",
+                \"type\": \"other\",
+                \"value\": [{
+                    \"edgeId\": \"http://schema.org/containedIn\",
+                    \"edgeTargetId\": \"http://schema.org/Country1\",
+                    \"edgeTargetUri\": \"http://schema.org/Country\",
+                    \"edgeSourceId\": \"http://schema.org/Place1\",
+                    \"edgeSourceUri\": \"http://schema.org/Place1\"
+                }]
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[]\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[]\"
+            }
+        ],
+        \"tags\": [\"Modeling\"]
+    },
+    {
+        \"commandName\": \"ChangeInternalNodeLinksCommand\",
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"worksheetId\",
+                \"type\": \"worksheetId\",
+                \"value\": \"W\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"type\": \"other\",
+                \"value\": \"DEFAULT_TEST\"
+            },
+            {
+                \"name\": \"initialEdges\",
+                \"type\": \"other\",
+                \"value\": []
+            },
+            {
+                \"name\": \"alignmentId\",
+                \"type\": \"other\",
+                \"value\": \"WSP1:WS1AL\"
+            },
+            {
+                \"name\": \"newEdges\",
+                \"type\": \"other\",
+                \"value\": [{
+                    \"edgeId\": \"http://schema.org/containedIn\",
+                    \"edgeTargetId\": \"http://schema.org/State1\",
+                    \"edgeTargetUri\": \"http://schema.org/State\",
+                    \"edgeSourceId\": \"http://schema.org/Place1\",
+                    \"edgeSourceUri\": \"http://schema.org/Place1\"
+                }]
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[]\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[]\"
+            }
+        ],
+        \"tags\": [\"Modeling\"]
+    },
+    {
+        \"commandName\": \"ChangeInternalNodeLinksCommand\",
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"worksheetId\",
+                \"type\": \"worksheetId\",
+                \"value\": \"W\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"type\": \"other\",
+                \"value\": \"DEFAULT_TEST\"
+            },
+            {
+                \"name\": \"initialEdges\",
+                \"type\": \"other\",
+                \"value\": []
+            },
+            {
+                \"name\": \"alignmentId\",
+                \"type\": \"other\",
+                \"value\": \"WSP1:WS1AL\"
+            },
+            {
+                \"name\": \"newEdges\",
+                \"type\": \"other\",
+                \"value\": [{
+                    \"edgeId\": \"http://schema.org/containedIn\",
+                    \"edgeTargetId\": \"http://schema.org/AdministrativeArea1\",
+                    \"edgeTargetUri\": \"http://schema.org/AdministrativeArea\",
+                    \"edgeSourceId\": \"http://schema.org/Place1\",
+                    \"edgeSourceUri\": \"http://schema.org/Place1\"
+                }]
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[]\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[]\"
+            }
+        ],
+        \"tags\": [\"Modeling\"]
+    },
+    {
+        \"commandName\": \"ChangeInternalNodeLinksCommand\",
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"worksheetId\",
+                \"type\": \"worksheetId\",
+                \"value\": \"W\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"type\": \"other\",
+                \"value\": \"DEFAULT_TEST\"
+            },
+            {
+                \"name\": \"initialEdges\",
+                \"type\": \"other\",
+                \"value\": []
+            },
+            {
+                \"name\": \"alignmentId\",
+                \"type\": \"other\",
+                \"value\": \"WSP1:WS1AL\"
+            },
+            {
+                \"name\": \"newEdges\",
+                \"type\": \"other\",
+                \"value\": [{
+                    \"edgeId\": \"http://schema.org/containedIn\",
+                    \"edgeTargetId\": \"http://schema.org/AdministrativeArea2\",
+                    \"edgeTargetUri\": \"http://schema.org/AdministrativeArea\",
+                    \"edgeSourceId\": \"http://schema.org/Place1\",
+                    \"edgeSourceUri\": \"http://schema.org/Place1\"
+                }]
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[]\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[]\"
+            }
+        ],
+        \"tags\": [\"Modeling\"]
+    },
+    {
+        \"commandName\": \"ChangeInternalNodeLinksCommand\",
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"worksheetId\",
+                \"type\": \"worksheetId\",
+                \"value\": \"W\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"type\": \"other\",
+                \"value\": \"DEFAULT_TEST\"
+            },
+            {
+                \"name\": \"initialEdges\",
+                \"type\": \"other\",
+                \"value\": []
+            },
+            {
+                \"name\": \"alignmentId\",
+                \"type\": \"other\",
+                \"value\": \"WSP1:WS1AL\"
+            },
+            {
+                \"name\": \"newEdges\",
+                \"type\": \"other\",
+                \"value\": [{
+                    \"edgeId\": \"http://schema.org/containedIn\",
                     \"edgeTargetId\": \"http://schema.org/AdministrativeArea3\",
-                    \"edgeId\": \"http://memexproxy.com/ontology/community_3rd_div\",
+                    \"edgeTargetUri\": \"http://schema.org/AdministrativeArea\",
+                    \"edgeSourceId\": \"http://schema.org/Place1\",
+                    \"edgeSourceUri\": \"http://schema.org/Place1\"
+                }]
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[]\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[]\"
+            }
+        ],
+        \"tags\": [\"Modeling\"]
+    },
+    {
+        \"commandName\": \"ChangeInternalNodeLinksCommand\",
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"worksheetId\",
+                \"type\": \"worksheetId\",
+                \"value\": \"W\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"type\": \"other\",
+                \"value\": \"DEFAULT_TEST\"
+            },
+            {
+                \"name\": \"initialEdges\",
+                \"type\": \"other\",
+                \"value\": []
+            },
+            {
+                \"name\": \"newEdges\",
+                \"type\": \"other\",
+                \"value\": [{
+                    \"edgeId\": \"http://schema.org/additionalType\",
+                    \"edgeTargetId\": \"http://dig.isi.edu/gazetteer/geonames/Placetype/A_ADM21\",
+                    \"edgeTargetUri\": \"http://dig.isi.edu/gazetteer/geonames/Placetype/A_ADM2\",
+                    \"edgeSourceId\": \"http://schema.org/AdministrativeArea1\",
+                    \"edgeSourceUri\": \"http://schema.org/AdministrativeArea\"
+                }]
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[]\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[]\"
+            }
+        ],
+        \"tags\": [\"Modeling\"]
+    },
+    {
+        \"commandName\": \"ChangeInternalNodeLinksCommand\",
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"worksheetId\",
+                \"type\": \"worksheetId\",
+                \"value\": \"W\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"type\": \"other\",
+                \"value\": \"DEFAULT_TEST\"
+            },
+            {
+                \"name\": \"initialEdges\",
+                \"type\": \"other\",
+                \"value\": []
+            },
+            {
+                \"name\": \"newEdges\",
+                \"type\": \"other\",
+                \"value\": [{
+                    \"edgeId\": \"http://schema.org/additionalType\",
+                    \"edgeTargetId\": \"http://dig.isi.edu/gazetteer/geonames/Placetype/A_ADM31\",
+                    \"edgeTargetUri\": \"http://dig.isi.edu/gazetteer/geonames/Placetype/A_ADM3\",
+                    \"edgeSourceId\": \"http://schema.org/AdministrativeArea2\",
+                    \"edgeSourceUri\": \"http://schema.org/AdministrativeArea\"
+                }]
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[]\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[]\"
+            }
+        ],
+        \"tags\": [\"Modeling\"]
+    },
+    {
+        \"commandName\": \"ChangeInternalNodeLinksCommand\",
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"worksheetId\",
+                \"type\": \"worksheetId\",
+                \"value\": \"W\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"type\": \"other\",
+                \"value\": \"DEFAULT_TEST\"
+            },
+            {
+                \"name\": \"initialEdges\",
+                \"type\": \"other\",
+                \"value\": []
+            },
+            {
+                \"name\": \"newEdges\",
+                \"type\": \"other\",
+                \"value\": [{
+                    \"edgeId\": \"http://schema.org/additionalType\",
+                    \"edgeTargetId\": \"http://dig.isi.edu/gazetteer/geonames/Placetype/A_ADM41\",
+                    \"edgeTargetUri\": \"http://dig.isi.edu/gazetteer/geonames/Placetype/A_ADM4\",
+                    \"edgeSourceId\": \"http://schema.org/AdministrativeArea3\",
+                    \"edgeSourceUri\": \"http://schema.org/AdministrativeArea\"
+                }]
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[]\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[]\"
+            }
+        ],
+        \"tags\": [\"Modeling\"]
+    },
+    {
+        \"commandName\": \"ChangeInternalNodeLinksCommand\",
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"worksheetId\",
+                \"type\": \"worksheetId\",
+                \"value\": \"W\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"type\": \"other\",
+                \"value\": \"DEFAULT_TEST\"
+            },
+            {
+                \"name\": \"initialEdges\",
+                \"type\": \"other\",
+                \"value\": []
+            },
+            {
+                \"name\": \"alignmentId\",
+                \"type\": \"other\",
+                \"value\": \"WSP2:WS5AL\"
+            },
+            {
+                \"name\": \"newEdges\",
+                \"type\": \"other\",
+                \"value\": [{
+                    \"edgeTargetId\": \"http://schema.org/State1\",
+                    \"edgeId\": \"http://schema.org/addressRegion\",
+                    \"edgeTargetUri\": \"http://schema.org/State\",
+                    \"edgeSourceId\": \"http://schema.org/PostalAddress1\",
+                    \"edgeSourceUri\": \"http://schema.org/PostalAddress\"
+                }]
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[]\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[]\"
+            }
+        ],
+        \"tags\": [\"Modeling\"]
+    },
+    {
+        \"commandName\": \"ChangeInternalNodeLinksCommand\",
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"worksheetId\",
+                \"type\": \"worksheetId\",
+                \"value\": \"W\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"type\": \"other\",
+                \"value\": \"DEFAULT_TEST\"
+            },
+            {
+                \"name\": \"initialEdges\",
+                \"type\": \"other\",
+                \"value\": []
+            },
+            {
+                \"name\": \"alignmentId\",
+                \"type\": \"other\",
+                \"value\": \"WSP2:WS5AL\"
+            },
+            {
+                \"name\": \"newEdges\",
+                \"type\": \"other\",
+                \"value\": [{
+                    \"edgeTargetId\": \"http://schema.org/PostalAddress1\",
+                    \"edgeId\": \"http://schema.org/address\",
+                    \"edgeTargetUri\": \"http://schema.org/PostalAddress\",
+                    \"edgeSourceId\": \"http://schema.org/Place1\",
+                    \"edgeSourceUri\": \"http://schema.org/Place\"
+                }]
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[]\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[]\"
+            }
+        ],
+        \"tags\": [\"Modeling\"]
+    },
+    {
+        \"commandName\": \"ChangeInternalNodeLinksCommand\",
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"worksheetId\",
+                \"type\": \"worksheetId\",
+                \"value\": \"W\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"type\": \"other\",
+                \"value\": \"DEFAULT_TEST\"
+            },
+            {
+                \"name\": \"initialEdges\",
+                \"type\": \"other\",
+                \"value\": [{
+                    \"edgeTargetId\": \"http://schema.org/State1\",
+                    \"edgeId\": \"http://schema.org/containedIn\",
+                    \"edgeSourceId\": \"http://schema.org/Place1\"
+                }]
+            },
+            {
+                \"name\": \"alignmentId\",
+                \"type\": \"other\",
+                \"value\": \"WSP2:WS5AL\"
+            },
+            {
+                \"name\": \"newEdges\",
+                \"type\": \"other\",
+                \"value\": []
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[]\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[]\"
+            }
+        ],
+        \"tags\": [\"Modeling\"]
+    },
+    {
+        \"commandName\": \"ChangeInternalNodeLinksCommand\",
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"worksheetId\",
+                \"type\": \"worksheetId\",
+                \"value\": \"W\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"type\": \"other\",
+                \"value\": \"DEFAULT_TEST\"
+            },
+            {
+                \"name\": \"initialEdges\",
+                \"type\": \"other\",
+                \"value\": []
+            },
+            {
+                \"name\": \"alignmentId\",
+                \"type\": \"other\",
+                \"value\": \"WSP2:WS5AL\"
+            },
+            {
+                \"name\": \"newEdges\",
+                \"type\": \"other\",
+                \"value\": [{
+                    \"edgeTargetId\": \"http://schema.org/Country1\",
+                    \"edgeId\": \"http://schema.org/addressCountry\",
+                    \"edgeTargetUri\": \"http://schema.org/Country\",
+                    \"edgeSourceId\": \"http://schema.org/PostalAddress1\",
+                    \"edgeSourceUri\": \"http://schema.org/PostalAddress\"
+                }]
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[]\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[]\"
+            }
+        ],
+        \"tags\": [\"Modeling\"]
+    },
+    {
+        \"commandName\": \"ChangeInternalNodeLinksCommand\",
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"worksheetId\",
+                \"type\": \"worksheetId\",
+                \"value\": \"W\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"type\": \"other\",
+                \"value\": \"DEFAULT_TEST\"
+            },
+            {
+                \"name\": \"initialEdges\",
+                \"type\": \"other\",
+                \"value\": [{
+                    \"edgeTargetId\": \"http://schema.org/Country1\",
+                    \"edgeId\": \"http://schema.org/containedIn\",
+                    \"edgeSourceId\": \"http://schema.org/Place1\"
+                }]
+            },
+            {
+                \"name\": \"alignmentId\",
+                \"type\": \"other\",
+                \"value\": \"WSP2:WS5AL\"
+            },
+            {
+                \"name\": \"newEdges\",
+                \"type\": \"other\",
+                \"value\": []
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[]\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[]\"
+            }
+        ],
+        \"tags\": [\"Modeling\"]
+    },
+    {
+        \"commandName\": \"ChangeInternalNodeLinksCommand\",
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"worksheetId\",
+                \"type\": \"worksheetId\",
+                \"value\": \"W\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"type\": \"other\",
+                \"value\": \"DEFAULT_TEST\"
+            },
+            {
+                \"name\": \"initialEdges\",
+                \"type\": \"other\",
+                \"value\": [{
+                    \"edgeTargetId\": \"http://dig.isi.edu/gazetteer/geonames/Placetype/A_ADM21\",
+                    \"edgeId\": \"http://schema.org/additionalType\",
+                    \"edgeSourceId\": \"http://schema.org/AdministrativeArea1\"
+                }]
+            },
+            {
+                \"name\": \"alignmentId\",
+                \"type\": \"other\",
+                \"value\": \"WSP2:WS5AL\"
+            },
+            {
+                \"name\": \"newEdges\",
+                \"type\": \"other\",
+                \"value\": []
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[]\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[]\"
+            }
+        ],
+        \"tags\": [\"Modeling\"]
+    },
+    {
+        \"commandName\": \"DeleteNodeCommand\",
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"worksheetId\",
+                \"type\": \"worksheetId\",
+                \"value\": \"W\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"type\": \"other\",
+                \"value\": \"DEFAULT_TEST\"
+            },
+            {
+                \"name\": \"label\",
+                \"type\": \"other\",
+                \"value\": \"http://dig.isi.edu/gazetteer/geonames/Placetype/A_ADM2\"
+            },
+            {
+                \"name\": \"id\",
+                \"type\": \"other\",
+                \"value\": \"http://dig.isi.edu/gazetteer/geonames/Placetype/A_ADM21\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[]\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[]\"
+            }
+        ],
+        \"tags\": [\"Modeling\"]
+    },
+    {
+        \"commandName\": \"DeleteNodeCommand\",
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"worksheetId\",
+                \"type\": \"worksheetId\",
+                \"value\": \"W\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"type\": \"other\",
+                \"value\": \"DEFAULT_TEST\"
+            },
+            {
+                \"name\": \"label\",
+                \"type\": \"other\",
+                \"value\": \"http://dig.isi.edu/gazetteer/geonames/Placetype/A_ADM3\"
+            },
+            {
+                \"name\": \"id\",
+                \"type\": \"other\",
+                \"value\": \"http://dig.isi.edu/gazetteer/geonames/Placetype/A_ADM31\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[]\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[]\"
+            }
+        ],
+        \"tags\": [\"Modeling\"]
+    },
+    {
+        \"commandName\": \"DeleteNodeCommand\",
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"worksheetId\",
+                \"type\": \"worksheetId\",
+                \"value\": \"W\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"type\": \"other\",
+                \"value\": \"DEFAULT_TEST\"
+            },
+            {
+                \"name\": \"label\",
+                \"type\": \"other\",
+                \"value\": \"http://dig.isi.edu/gazetteer/geonames/Placetype/A_ADM4\"
+            },
+            {
+                \"name\": \"id\",
+                \"type\": \"other\",
+                \"value\": \"http://dig.isi.edu/gazetteer/geonames/Placetype/A_ADM41\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[]\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[]\"
+            }
+        ],
+        \"tags\": [\"Modeling\"]
+    },
+    {
+        \"commandName\": \"ChangeInternalNodeLinksCommand\",
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"worksheetId\",
+                \"type\": \"worksheetId\",
+                \"value\": \"W\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"type\": \"other\",
+                \"value\": \"DEFAULT_TEST\"
+            },
+            {
+                \"name\": \"initialEdges\",
+                \"type\": \"other\",
+                \"value\": [{
+                    \"edgeTargetId\": \"http://schema.org/AdministrativeArea1\",
+                    \"edgeId\": \"http://schema.org/containedIn\",
+                    \"edgeSourceId\": \"http://schema.org/Place1\"
+                }]
+            },
+            {
+                \"name\": \"alignmentId\",
+                \"type\": \"other\",
+                \"value\": \"WSP2:WS5AL\"
+            },
+            {
+                \"name\": \"newEdges\",
+                \"type\": \"other\",
+                \"value\": []
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[]\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[]\"
+            }
+        ],
+        \"tags\": [\"Modeling\"]
+    },
+    {
+        \"commandName\": \"ChangeInternalNodeLinksCommand\",
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"worksheetId\",
+                \"type\": \"worksheetId\",
+                \"value\": \"W\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"type\": \"other\",
+                \"value\": \"DEFAULT_TEST\"
+            },
+            {
+                \"name\": \"initialEdges\",
+                \"type\": \"other\",
+                \"value\": [{
+                    \"edgeTargetId\": \"http://schema.org/AdministrativeArea2\",
+                    \"edgeId\": \"http://schema.org/containedIn\",
+                    \"edgeSourceId\": \"http://schema.org/Place1\"
+                }]
+            },
+            {
+                \"name\": \"alignmentId\",
+                \"type\": \"other\",
+                \"value\": \"WSP2:WS5AL\"
+            },
+            {
+                \"name\": \"newEdges\",
+                \"type\": \"other\",
+                \"value\": []
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[]\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[]\"
+            }
+        ],
+        \"tags\": [\"Modeling\"]
+    },
+    {
+        \"commandName\": \"ChangeInternalNodeLinksCommand\",
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"worksheetId\",
+                \"type\": \"worksheetId\",
+                \"value\": \"W\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"type\": \"other\",
+                \"value\": \"DEFAULT_TEST\"
+            },
+            {
+                \"name\": \"initialEdges\",
+                \"type\": \"other\",
+                \"value\": [{
+                    \"edgeTargetId\": \"http://schema.org/AdministrativeArea3\",
+                    \"edgeId\": \"http://schema.org/containedIn\",
+                    \"edgeSourceId\": \"http://schema.org/Place1\"
+                }]
+            },
+            {
+                \"name\": \"alignmentId\",
+                \"type\": \"other\",
+                \"value\": \"WSP2:WS5AL\"
+            },
+            {
+                \"name\": \"newEdges\",
+                \"type\": \"other\",
+                \"value\": []
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[]\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[]\"
+            }
+        ],
+        \"tags\": [\"Modeling\"]
+    },
+    {
+        \"commandName\": \"ChangeInternalNodeLinksCommand\",
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"worksheetId\",
+                \"type\": \"worksheetId\",
+                \"value\": \"W\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"type\": \"other\",
+                \"value\": \"DEFAULT_TEST\"
+            },
+            {
+                \"name\": \"initialEdges\",
+                \"type\": \"other\",
+                \"value\": []
+            },
+            {
+                \"name\": \"alignmentId\",
+                \"type\": \"other\",
+                \"value\": \"WSP2:WS5AL\"
+            },
+            {
+                \"name\": \"newEdges\",
+                \"type\": \"other\",
+                \"value\": [{
+                    \"edgeTargetId\": \"http://schema.org/AdministrativeArea2\",
+                    \"edgeId\": \"http://schema.dig.isi.edu/ontology/county_2nd_div\",
                     \"edgeTargetUri\": \"http://schema.org/AdministrativeArea\",
                     \"edgeSourceId\": \"http://schema.org/PostalAddress1\",
                     \"edgeSourceUri\": \"http://schema.org/PostalAddress\"
@@ -2892,14 +5229,14 @@ _:node1abtq487bx1 a km-dev:R2RMLMapping ;
             {
                 \"name\": \"alignmentId\",
                 \"type\": \"other\",
-                \"value\": \"WSP4:WS5AL\"
+                \"value\": \"WSP2:WS5AL\"
             },
             {
                 \"name\": \"initialEdges\",
                 \"type\": \"other\",
                 \"value\": [{
-                    \"edgeTargetId\": \"http://schema.org/AdministrativeArea3\",
-                    \"edgeId\": \"http://memexproxy.com/ontology/community_3rd_div\",
+                    \"edgeTargetId\": \"http://schema.org/AdministrativeArea2\",
+                    \"edgeId\": \"http://schema.dig.isi.edu/ontology/county_2nd_div\",
                     \"edgeSourceId\": \"http://schema.org/PostalAddress1\"
                 }]
             },
@@ -2907,8 +5244,8 @@ _:node1abtq487bx1 a km-dev:R2RMLMapping ;
                 \"name\": \"newEdges\",
                 \"type\": \"other\",
                 \"value\": [{
-                    \"edgeTargetId\": \"http://schema.org/AdministrativeArea3\",
-                    \"edgeId\": \"http://memexproxy.com/ontology/subcommunity_4th_div\",
+                    \"edgeTargetId\": \"http://schema.org/AdministrativeArea1\",
+                    \"edgeId\": \"http://schema.dig.isi.edu/ontology/county_2nd_div\",
                     \"edgeTargetUri\": \"http://schema.org/AdministrativeArea\",
                     \"edgeSourceId\": \"http://schema.org/PostalAddress1\",
                     \"edgeSourceUri\": \"http://schema.org/PostalAddress\"
@@ -2949,18 +5286,306 @@ _:node1abtq487bx1 a km-dev:R2RMLMapping ;
             {
                 \"name\": \"alignmentId\",
                 \"type\": \"other\",
-                \"value\": \"WSP4:WS5AL\"
+                \"value\": \"WSP2:WS5AL\"
             },
             {
                 \"name\": \"newEdges\",
                 \"type\": \"other\",
                 \"value\": [{
                     \"edgeTargetId\": \"http://schema.org/AdministrativeArea2\",
-                    \"edgeId\": \"http://memexproxy.com/ontology/community_3rd_div\",
+                    \"edgeId\": \"http://schema.dig.isi.edu/ontology/community_3rd_div\",
                     \"edgeTargetUri\": \"http://schema.org/AdministrativeArea\",
                     \"edgeSourceId\": \"http://schema.org/PostalAddress1\",
                     \"edgeSourceUri\": \"http://schema.org/PostalAddress\"
                 }]
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[]\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[]\"
+            }
+        ],
+        \"tags\": [\"Modeling\"]
+    },
+    {
+        \"commandName\": \"ChangeInternalNodeLinksCommand\",
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"worksheetId\",
+                \"type\": \"worksheetId\",
+                \"value\": \"W\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"type\": \"other\",
+                \"value\": \"DEFAULT_TEST\"
+            },
+            {
+                \"name\": \"initialEdges\",
+                \"type\": \"other\",
+                \"value\": []
+            },
+            {
+                \"name\": \"alignmentId\",
+                \"type\": \"other\",
+                \"value\": \"WSP2:WS5AL\"
+            },
+            {
+                \"name\": \"newEdges\",
+                \"type\": \"other\",
+                \"value\": [{
+                    \"edgeTargetId\": \"http://schema.org/AdministrativeArea3\",
+                    \"edgeId\": \"http://schema.dig.isi.edu/ontology/subcommunity_4th_div\",
+                    \"edgeTargetUri\": \"http://schema.org/AdministrativeArea\",
+                    \"edgeSourceId\": \"http://schema.org/PostalAddress1\",
+                    \"edgeSourceUri\": \"http://schema.org/PostalAddress\"
+                }]
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[]\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[]\"
+            }
+        ],
+        \"tags\": [\"Modeling\"]
+    },
+    {
+        \"commandName\": \"DeleteNodeCommand\",
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"worksheetId\",
+                \"type\": \"worksheetId\",
+                \"value\": \"W\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"type\": \"other\",
+                \"value\": \"DEFAULT_TEST\"
+            },
+            {
+                \"name\": \"label\",
+                \"type\": \"other\",
+                \"value\": \"Population\"
+            },
+            {
+                \"name\": \"id\",
+                \"type\": \"other\",
+                \"value\": \"Population2\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[]\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[]\"
+            }
+        ],
+        \"tags\": [\"Modeling\"]
+    },
+    {
+        \"commandName\": \"DeleteNodeCommand\",
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"worksheetId\",
+                \"type\": \"worksheetId\",
+                \"value\": \"W\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"type\": \"other\",
+                \"value\": \"DEFAULT_TEST\"
+            },
+            {
+                \"name\": \"label\",
+                \"type\": \"other\",
+                \"value\": \"http://dig.isi.edu/gazetteer/geonames/Placetype/A_ADM4\"
+            },
+            {
+                \"name\": \"id\",
+                \"type\": \"other\",
+                \"value\": \"http://dig.isi.edu/gazetteer/geonames/Placetype/A_ADM42\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[]\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[]\"
+            }
+        ],
+        \"tags\": [\"Modeling\"]
+    },
+    {
+        \"commandName\": \"DeleteNodeCommand\",
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"worksheetId\",
+                \"type\": \"worksheetId\",
+                \"value\": \"W\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"type\": \"other\",
+                \"value\": \"DEFAULT_TEST\"
+            },
+            {
+                \"name\": \"label\",
+                \"type\": \"other\",
+                \"value\": \"http://dig.isi.edu/gazetteer/geonames/Placetype/A_ADM3\"
+            },
+            {
+                \"name\": \"id\",
+                \"type\": \"other\",
+                \"value\": \"http://dig.isi.edu/gazetteer/geonames/Placetype/A_ADM32\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[]\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[]\"
+            }
+        ],
+        \"tags\": [\"Modeling\"]
+    },
+    {
+        \"commandName\": \"DeleteNodeCommand\",
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"worksheetId\",
+                \"type\": \"worksheetId\",
+                \"value\": \"W\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"type\": \"other\",
+                \"value\": \"DEFAULT_TEST\"
+            },
+            {
+                \"name\": \"label\",
+                \"type\": \"other\",
+                \"value\": \"http://dig.isi.edu/gazetteer/geonames/Placetype/A_ADM2\"
+            },
+            {
+                \"name\": \"id\",
+                \"type\": \"other\",
+                \"value\": \"http://dig.isi.edu/gazetteer/geonames/Placetype/A_ADM22\"
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[]\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[]\"
+            }
+        ],
+        \"tags\": [\"Modeling\"]
+    },
+    {
+        \"commandName\": \"ChangeInternalNodeLinksCommand\",
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"worksheetId\",
+                \"type\": \"worksheetId\",
+                \"value\": \"W\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"type\": \"other\",
+                \"value\": \"DEFAULT_TEST\"
+            },
+            {
+                \"name\": \"initialEdges\",
+                \"type\": \"other\",
+                \"value\": [{
+                    \"edgeTargetId\": \"http://dig.isi.edu/gazetteer/geonames/Placetype/A_ADM31\",
+                    \"edgeId\": \"http://schema.org/additionalType\",
+                    \"edgeSourceId\": \"http://schema.org/AdministrativeArea2\"
+                }]
+            },
+            {
+                \"name\": \"alignmentId\",
+                \"type\": \"other\",
+                \"value\": \"WSP2:WS5AL\"
+            },
+            {
+                \"name\": \"newEdges\",
+                \"type\": \"other\",
+                \"value\": []
+            },
+            {
+                \"name\": \"inputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[]\"
+            },
+            {
+                \"name\": \"outputColumns\",
+                \"type\": \"hNodeIdList\",
+                \"value\": \"[]\"
+            }
+        ],
+        \"tags\": [\"Modeling\"]
+    },
+    {
+        \"commandName\": \"ChangeInternalNodeLinksCommand\",
+        \"model\": \"new\",
+        \"inputParameters\": [
+            {
+                \"name\": \"worksheetId\",
+                \"type\": \"worksheetId\",
+                \"value\": \"W\"
+            },
+            {
+                \"name\": \"selectionName\",
+                \"type\": \"other\",
+                \"value\": \"DEFAULT_TEST\"
+            },
+            {
+                \"name\": \"initialEdges\",
+                \"type\": \"other\",
+                \"value\": [{
+                    \"edgeTargetId\": \"http://dig.isi.edu/gazetteer/geonames/Placetype/A_ADM41\",
+                    \"edgeId\": \"http://schema.org/additionalType\",
+                    \"edgeSourceId\": \"http://schema.org/AdministrativeArea3\"
+                }]
+            },
+            {
+                \"name\": \"alignmentId\",
+                \"type\": \"other\",
+                \"value\": \"WSP2:WS5AL\"
+            },
+            {
+                \"name\": \"newEdges\",
+                \"type\": \"other\",
+                \"value\": []
             },
             {
                 \"name\": \"inputColumns\",
@@ -2977,504 +5602,504 @@ _:node1abtq487bx1 a km-dev:R2RMLMapping ;
     }
 ]""" .
 
-km-dev:TriplesMap_cafd9903-20d1-4fe1-b8b2-853e4cfba40f a rr:TriplesMap .
+km-dev:TriplesMap_849eda4e-636d-498d-bfa3-d35e1ca86004 a rr:TriplesMap .
 
-_:node1abtq487bx1 km-dev:hasTriplesMap km-dev:TriplesMap_cafd9903-20d1-4fe1-b8b2-853e4cfba40f .
+_:node1ac53rcjsx1 km-dev:hasTriplesMap km-dev:TriplesMap_849eda4e-636d-498d-bfa3-d35e1ca86004 .
 
-km-dev:TriplesMap_cafd9903-20d1-4fe1-b8b2-853e4cfba40f km-dev:isPartOfMapping _:node1abtq487bx1 .
+km-dev:TriplesMap_849eda4e-636d-498d-bfa3-d35e1ca86004 km-dev:isPartOfMapping _:node1ac53rcjsx1 .
 
-_:node1abtq487bx2 rr:tableName "allCountries_esc_gh_1000.tsv" ;
+_:node1ac53rcjsx2 rr:tableName "allCountries_esc_gh_1000.tsv" ;
 	a rr:LogicalTable ;
-	km-dev:isPartOfMapping _:node1abtq487bx1 .
+	km-dev:isPartOfMapping _:node1ac53rcjsx1 .
 
-_:node1abtq487bx1 km-dev:hasLogicalTable _:node1abtq487bx2 .
+_:node1ac53rcjsx1 km-dev:hasLogicalTable _:node1ac53rcjsx2 .
 
-km-dev:TriplesMap_cafd9903-20d1-4fe1-b8b2-853e4cfba40f rr:logicalTable _:node1abtq487bx2 ;
-	rr:subjectMap _:node1abtq487bx3 .
+km-dev:TriplesMap_849eda4e-636d-498d-bfa3-d35e1ca86004 rr:logicalTable _:node1ac53rcjsx2 ;
+	rr:subjectMap _:node1ac53rcjsx3 .
 
-_:node1abtq487bx1 km-dev:hasSubjectMap _:node1abtq487bx3 .
+_:node1ac53rcjsx1 km-dev:hasSubjectMap _:node1ac53rcjsx3 .
 
-_:node1abtq487bx3 km-dev:isPartOfMapping _:node1abtq487bx1 ;
+_:node1ac53rcjsx3 km-dev:isPartOfMapping _:node1ac53rcjsx1 ;
 	a rr:SubjectMap ;
-	km-dev:alignmentNodeId "http://schema.org/AdministrativeArea1" ;
-	rr:class schema:AdministrativeArea ;
-	rr:template "{CountyProvince2ndDiv_uri}" .
+	km-dev:alignmentNodeId "http://schema.org/Place1" ;
+	rr:class schema:Place .
 
-km-dev:TriplesMap_7304f72d-0305-4201-9aa5-2861ec811459 a rr:TriplesMap .
+_:node1ac53rcjsx4 rr:template "{schema_class}" .
 
-_:node1abtq487bx1 km-dev:hasTriplesMap km-dev:TriplesMap_7304f72d-0305-4201-9aa5-2861ec811459 .
+_:node1ac53rcjsx3 rr:class _:node1ac53rcjsx4 ;
+	rr:template "{geonames2schema_uri}" ;
+	a km-dev:steinerTreeRootNode .
 
-km-dev:TriplesMap_7304f72d-0305-4201-9aa5-2861ec811459 km-dev:isPartOfMapping _:node1abtq487bx1 .
+km-dev:PredicateObjectMap_62dc1c08-4edd-41d5-b8be-f0331cbed2a0 rr:predicate schema:geo .
 
-_:node1abtq487bx4 rr:tableName "allCountries_esc_gh_1000.tsv" ;
+km-dev:RefObjectMap_07c07714-da35-44c8-945f-382e5eddb2bc a rr:RefObjectMap , rr:ObjectMap ;
+	rr:parentTriplesMap km-dev:TriplesMap_4f6a2142-44e6-4a1f-922d-8b5bfad278ba ;
+	km-dev:isPartOfMapping _:node1ac53rcjsx1 .
+
+_:node1ac53rcjsx1 km-dev:hasObjectMap km-dev:RefObjectMap_07c07714-da35-44c8-945f-382e5eddb2bc .
+
+km-dev:PredicateObjectMap_62dc1c08-4edd-41d5-b8be-f0331cbed2a0 rr:objectMap km-dev:RefObjectMap_07c07714-da35-44c8-945f-382e5eddb2bc .
+
+km-dev:TriplesMap_849eda4e-636d-498d-bfa3-d35e1ca86004 rr:predicateObjectMap km-dev:PredicateObjectMap_62dc1c08-4edd-41d5-b8be-f0331cbed2a0 .
+
+km-dev:PredicateObjectMap_62dc1c08-4edd-41d5-b8be-f0331cbed2a0 a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1ac53rcjsx1 .
+
+_:node1ac53rcjsx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_62dc1c08-4edd-41d5-b8be-f0331cbed2a0 .
+
+km-dev:PredicateObjectMap_abae0aff-1aa8-4410-8cbc-686eb0b075db rr:predicate schema:address .
+
+km-dev:RefObjectMap_0767a740-265f-45db-97fb-83fbcc57846c a rr:RefObjectMap , rr:ObjectMap ;
+	rr:parentTriplesMap km-dev:TriplesMap_0664aa70-e4f6-4fc8-98dc-12fd24009af9 ;
+	km-dev:isPartOfMapping _:node1ac53rcjsx1 .
+
+_:node1ac53rcjsx1 km-dev:hasObjectMap km-dev:RefObjectMap_0767a740-265f-45db-97fb-83fbcc57846c .
+
+km-dev:PredicateObjectMap_abae0aff-1aa8-4410-8cbc-686eb0b075db rr:objectMap km-dev:RefObjectMap_0767a740-265f-45db-97fb-83fbcc57846c .
+
+km-dev:TriplesMap_849eda4e-636d-498d-bfa3-d35e1ca86004 rr:predicateObjectMap km-dev:PredicateObjectMap_abae0aff-1aa8-4410-8cbc-686eb0b075db .
+
+km-dev:PredicateObjectMap_abae0aff-1aa8-4410-8cbc-686eb0b075db a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1ac53rcjsx1 .
+
+_:node1ac53rcjsx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_abae0aff-1aa8-4410-8cbc-686eb0b075db .
+
+km-dev:PredicateObjectMap_89958e31-06bf-42d3-9f53-6d612b59c623 rr:predicate schema:additionalProperty .
+
+km-dev:RefObjectMap_f8eba984-14a0-458a-bc7b-f13a6ad1e147 a rr:RefObjectMap , rr:ObjectMap ;
+	rr:parentTriplesMap km-dev:TriplesMap_b9ab6188-df47-4089-a1fa-22a498b1a1bf ;
+	km-dev:isPartOfMapping _:node1ac53rcjsx1 .
+
+_:node1ac53rcjsx1 km-dev:hasObjectMap km-dev:RefObjectMap_f8eba984-14a0-458a-bc7b-f13a6ad1e147 .
+
+km-dev:PredicateObjectMap_89958e31-06bf-42d3-9f53-6d612b59c623 rr:objectMap km-dev:RefObjectMap_f8eba984-14a0-458a-bc7b-f13a6ad1e147 .
+
+km-dev:TriplesMap_849eda4e-636d-498d-bfa3-d35e1ca86004 rr:predicateObjectMap km-dev:PredicateObjectMap_89958e31-06bf-42d3-9f53-6d612b59c623 .
+
+km-dev:PredicateObjectMap_89958e31-06bf-42d3-9f53-6d612b59c623 a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1ac53rcjsx1 .
+
+_:node1ac53rcjsx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_89958e31-06bf-42d3-9f53-6d612b59c623 .
+
+km-dev:PredicateObjectMap_c09d0059-d753-4eb1-b0a1-0df25b77fb1f rr:predicate schema:alternateName .
+
+_:node1ac53rcjsx5 rr:column "asciiname" ;
+	a rr:ObjectMap ;
+	km-dev:isPartOfMapping _:node1ac53rcjsx1 .
+
+_:node1ac53rcjsx1 km-dev:hasObjectMap _:node1ac53rcjsx5 .
+
+km-dev:PredicateObjectMap_c09d0059-d753-4eb1-b0a1-0df25b77fb1f rr:objectMap _:node1ac53rcjsx5 .
+
+km-dev:TriplesMap_849eda4e-636d-498d-bfa3-d35e1ca86004 rr:predicateObjectMap km-dev:PredicateObjectMap_c09d0059-d753-4eb1-b0a1-0df25b77fb1f .
+
+km-dev:PredicateObjectMap_c09d0059-d753-4eb1-b0a1-0df25b77fb1f a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1ac53rcjsx1 .
+
+_:node1ac53rcjsx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_c09d0059-d753-4eb1-b0a1-0df25b77fb1f .
+
+km-dev:PredicateObjectMap_6e2ab31c-109a-4532-9739-c060d7cb405b rr:predicate schema:name .
+
+_:node1ac53rcjsx6 rr:column "name" ;
+	a rr:ObjectMap ;
+	km-dev:isPartOfMapping _:node1ac53rcjsx1 .
+
+_:node1ac53rcjsx1 km-dev:hasObjectMap _:node1ac53rcjsx6 .
+
+km-dev:PredicateObjectMap_6e2ab31c-109a-4532-9739-c060d7cb405b rr:objectMap _:node1ac53rcjsx6 .
+
+km-dev:TriplesMap_849eda4e-636d-498d-bfa3-d35e1ca86004 rr:predicateObjectMap km-dev:PredicateObjectMap_6e2ab31c-109a-4532-9739-c060d7cb405b .
+
+km-dev:PredicateObjectMap_6e2ab31c-109a-4532-9739-c060d7cb405b a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1ac53rcjsx1 .
+
+_:node1ac53rcjsx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_6e2ab31c-109a-4532-9739-c060d7cb405b .
+
+km-dev:PredicateObjectMap_f1e4adee-2833-472d-997a-6b4524600b82 rr:predicate rdfs:label .
+
+_:node1ac53rcjsx7 rr:column "schema_class_name" ;
+	a rr:ObjectMap ;
+	km-dev:isPartOfMapping _:node1ac53rcjsx1 .
+
+_:node1ac53rcjsx1 km-dev:hasObjectMap _:node1ac53rcjsx7 .
+
+km-dev:PredicateObjectMap_f1e4adee-2833-472d-997a-6b4524600b82 rr:objectMap _:node1ac53rcjsx7 .
+
+km-dev:TriplesMap_849eda4e-636d-498d-bfa3-d35e1ca86004 rr:predicateObjectMap km-dev:PredicateObjectMap_f1e4adee-2833-472d-997a-6b4524600b82 .
+
+km-dev:PredicateObjectMap_f1e4adee-2833-472d-997a-6b4524600b82 a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1ac53rcjsx1 .
+
+_:node1ac53rcjsx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_f1e4adee-2833-472d-997a-6b4524600b82 .
+
+km-dev:PredicateObjectMap_1d0640bf-4f2b-41b9-a1e7-03e67a3c7a2b rr:predicate schema:additionalType .
+
+_:node1ac53rcjsx8 rr:column "fcode_uri" ;
+	a rr:ObjectMap ;
+	km-dev:isPartOfMapping _:node1ac53rcjsx1 .
+
+_:node1ac53rcjsx1 km-dev:hasObjectMap _:node1ac53rcjsx8 .
+
+km-dev:PredicateObjectMap_1d0640bf-4f2b-41b9-a1e7-03e67a3c7a2b rr:objectMap _:node1ac53rcjsx8 .
+
+km-dev:TriplesMap_849eda4e-636d-498d-bfa3-d35e1ca86004 rr:predicateObjectMap km-dev:PredicateObjectMap_1d0640bf-4f2b-41b9-a1e7-03e67a3c7a2b .
+
+km-dev:PredicateObjectMap_1d0640bf-4f2b-41b9-a1e7-03e67a3c7a2b a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1ac53rcjsx1 .
+
+_:node1ac53rcjsx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_1d0640bf-4f2b-41b9-a1e7-03e67a3c7a2b .
+
+km-dev:PredicateObjectMap_4e377159-1fa8-4182-a7ee-5d70663df694 rr:predicate schema:sameAs .
+
+_:node1ac53rcjsx9 rr:column "geonames_uri" ;
+	a rr:ObjectMap ;
+	km-dev:isPartOfMapping _:node1ac53rcjsx1 .
+
+_:node1ac53rcjsx1 km-dev:hasObjectMap _:node1ac53rcjsx9 .
+
+km-dev:PredicateObjectMap_4e377159-1fa8-4182-a7ee-5d70663df694 rr:objectMap _:node1ac53rcjsx9 .
+
+km-dev:TriplesMap_849eda4e-636d-498d-bfa3-d35e1ca86004 rr:predicateObjectMap km-dev:PredicateObjectMap_4e377159-1fa8-4182-a7ee-5d70663df694 .
+
+km-dev:PredicateObjectMap_4e377159-1fa8-4182-a7ee-5d70663df694 a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1ac53rcjsx1 .
+
+_:node1ac53rcjsx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_4e377159-1fa8-4182-a7ee-5d70663df694 .
+
+km-dev:TriplesMap_4f6a2142-44e6-4a1f-922d-8b5bfad278ba a rr:TriplesMap .
+
+_:node1ac53rcjsx1 km-dev:hasTriplesMap km-dev:TriplesMap_4f6a2142-44e6-4a1f-922d-8b5bfad278ba .
+
+km-dev:TriplesMap_4f6a2142-44e6-4a1f-922d-8b5bfad278ba km-dev:isPartOfMapping _:node1ac53rcjsx1 .
+
+_:node1ac53rcjsx10 rr:tableName "allCountries_esc_gh_1000.tsv" ;
 	a rr:LogicalTable ;
-	km-dev:isPartOfMapping _:node1abtq487bx1 .
+	km-dev:isPartOfMapping _:node1ac53rcjsx1 .
 
-_:node1abtq487bx1 km-dev:hasLogicalTable _:node1abtq487bx4 .
+_:node1ac53rcjsx1 km-dev:hasLogicalTable _:node1ac53rcjsx10 .
 
-km-dev:TriplesMap_7304f72d-0305-4201-9aa5-2861ec811459 rr:logicalTable _:node1abtq487bx4 ;
-	rr:subjectMap _:node1abtq487bx5 .
+km-dev:TriplesMap_4f6a2142-44e6-4a1f-922d-8b5bfad278ba rr:logicalTable _:node1ac53rcjsx10 ;
+	rr:subjectMap _:node1ac53rcjsx11 .
 
-_:node1abtq487bx1 km-dev:hasSubjectMap _:node1abtq487bx5 .
+_:node1ac53rcjsx1 km-dev:hasSubjectMap _:node1ac53rcjsx11 .
 
-_:node1abtq487bx5 km-dev:isPartOfMapping _:node1abtq487bx1 ;
-	a rr:SubjectMap ;
-	km-dev:alignmentNodeId "http://schema.org/AdministrativeArea2" ;
-	rr:class schema:AdministrativeArea ;
-	rr:template "{Community3rdDiv_uri}" .
-
-km-dev:TriplesMap_7a904655-c90a-4658-83a4-00d2629063d2 a rr:TriplesMap .
-
-_:node1abtq487bx1 km-dev:hasTriplesMap km-dev:TriplesMap_7a904655-c90a-4658-83a4-00d2629063d2 .
-
-km-dev:TriplesMap_7a904655-c90a-4658-83a4-00d2629063d2 km-dev:isPartOfMapping _:node1abtq487bx1 .
-
-_:node1abtq487bx6 rr:tableName "allCountries_esc_gh_1000.tsv" ;
-	a rr:LogicalTable ;
-	km-dev:isPartOfMapping _:node1abtq487bx1 .
-
-_:node1abtq487bx1 km-dev:hasLogicalTable _:node1abtq487bx6 .
-
-km-dev:TriplesMap_7a904655-c90a-4658-83a4-00d2629063d2 rr:logicalTable _:node1abtq487bx6 ;
-	rr:subjectMap _:node1abtq487bx7 .
-
-_:node1abtq487bx1 km-dev:hasSubjectMap _:node1abtq487bx7 .
-
-_:node1abtq487bx7 km-dev:isPartOfMapping _:node1abtq487bx1 ;
-	a rr:SubjectMap ;
-	km-dev:alignmentNodeId "http://schema.org/AdministrativeArea3" ;
-	rr:class schema:AdministrativeArea ;
-	rr:template "{SubCommunity4thDiv_uri}" .
-
-km-dev:TriplesMap_0e7f45da-3b91-4c7c-8968-3285ed33c08c a rr:TriplesMap .
-
-_:node1abtq487bx1 km-dev:hasTriplesMap km-dev:TriplesMap_0e7f45da-3b91-4c7c-8968-3285ed33c08c .
-
-km-dev:TriplesMap_0e7f45da-3b91-4c7c-8968-3285ed33c08c km-dev:isPartOfMapping _:node1abtq487bx1 .
-
-_:node1abtq487bx8 rr:tableName "allCountries_esc_gh_1000.tsv" ;
-	a rr:LogicalTable ;
-	km-dev:isPartOfMapping _:node1abtq487bx1 .
-
-_:node1abtq487bx1 km-dev:hasLogicalTable _:node1abtq487bx8 .
-
-km-dev:TriplesMap_0e7f45da-3b91-4c7c-8968-3285ed33c08c rr:logicalTable _:node1abtq487bx8 ;
-	rr:subjectMap _:node1abtq487bx9 .
-
-_:node1abtq487bx1 km-dev:hasSubjectMap _:node1abtq487bx9 .
-
-_:node1abtq487bx9 km-dev:isPartOfMapping _:node1abtq487bx1 ;
-	a rr:SubjectMap ;
-	km-dev:alignmentNodeId "http://schema.org/Country1" ;
-	rr:class schema:Country ;
-	rr:template "{country_uri}" .
-
-km-dev:TriplesMap_e8778f9d-4a2e-4de6-9cd9-9de90ec6d9d2 a rr:TriplesMap .
-
-_:node1abtq487bx1 km-dev:hasTriplesMap km-dev:TriplesMap_e8778f9d-4a2e-4de6-9cd9-9de90ec6d9d2 .
-
-km-dev:TriplesMap_e8778f9d-4a2e-4de6-9cd9-9de90ec6d9d2 km-dev:isPartOfMapping _:node1abtq487bx1 .
-
-_:node1abtq487bx10 rr:tableName "allCountries_esc_gh_1000.tsv" ;
-	a rr:LogicalTable ;
-	km-dev:isPartOfMapping _:node1abtq487bx1 .
-
-_:node1abtq487bx1 km-dev:hasLogicalTable _:node1abtq487bx10 .
-
-km-dev:TriplesMap_e8778f9d-4a2e-4de6-9cd9-9de90ec6d9d2 rr:logicalTable _:node1abtq487bx10 ;
-	rr:subjectMap _:node1abtq487bx11 .
-
-_:node1abtq487bx1 km-dev:hasSubjectMap _:node1abtq487bx11 .
-
-_:node1abtq487bx11 km-dev:isPartOfMapping _:node1abtq487bx1 ;
+_:node1ac53rcjsx11 km-dev:isPartOfMapping _:node1ac53rcjsx1 ;
 	a rr:SubjectMap ;
 	km-dev:alignmentNodeId "http://schema.org/GeoCoordinates1" ;
 	rr:class schema:GeoCoordinates ;
 	rr:termType rr:BlankNode ;
 	km-dev:namePrefix "schema:GeoCoordinates1" .
 
-km-dev:PredicateObjectMap_ba93ae38-4024-49a2-998a-0025ecb68eb2 rr:predicate schema:latitude .
+km-dev:PredicateObjectMap_8c89f423-68cc-42a0-bd52-febf2b3e346b rr:predicate schema:latitude .
 
-_:node1abtq487bx12 rr:column "latitude" ;
+_:node1ac53rcjsx12 rr:column "latitude" ;
 	a rr:ObjectMap ;
-	km-dev:isPartOfMapping _:node1abtq487bx1 .
+	km-dev:isPartOfMapping _:node1ac53rcjsx1 .
 
-_:node1abtq487bx1 km-dev:hasObjectMap _:node1abtq487bx12 .
+_:node1ac53rcjsx1 km-dev:hasObjectMap _:node1ac53rcjsx12 .
 
-km-dev:PredicateObjectMap_ba93ae38-4024-49a2-998a-0025ecb68eb2 rr:objectMap _:node1abtq487bx12 .
+km-dev:PredicateObjectMap_8c89f423-68cc-42a0-bd52-febf2b3e346b rr:objectMap _:node1ac53rcjsx12 .
 
-km-dev:TriplesMap_e8778f9d-4a2e-4de6-9cd9-9de90ec6d9d2 rr:predicateObjectMap km-dev:PredicateObjectMap_ba93ae38-4024-49a2-998a-0025ecb68eb2 .
+km-dev:TriplesMap_4f6a2142-44e6-4a1f-922d-8b5bfad278ba rr:predicateObjectMap km-dev:PredicateObjectMap_8c89f423-68cc-42a0-bd52-febf2b3e346b .
 
-km-dev:PredicateObjectMap_ba93ae38-4024-49a2-998a-0025ecb68eb2 a rr:PredicateObjectMap ;
-	km-dev:isPartOfMapping _:node1abtq487bx1 .
+km-dev:PredicateObjectMap_8c89f423-68cc-42a0-bd52-febf2b3e346b a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1ac53rcjsx1 .
 
-_:node1abtq487bx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_ba93ae38-4024-49a2-998a-0025ecb68eb2 .
+_:node1ac53rcjsx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_8c89f423-68cc-42a0-bd52-febf2b3e346b .
 
-km-dev:PredicateObjectMap_791a6b91-7a5a-4558-a9fb-da400779ec2f rr:predicate schema:longitude .
+km-dev:PredicateObjectMap_b4fc8084-616e-4c42-83e2-7cb36c24a721 rr:predicate schema:longitude .
 
-_:node1abtq487bx13 rr:column "longitude" ;
+_:node1ac53rcjsx13 rr:column "longitude" ;
 	a rr:ObjectMap ;
-	km-dev:isPartOfMapping _:node1abtq487bx1 .
+	km-dev:isPartOfMapping _:node1ac53rcjsx1 .
 
-_:node1abtq487bx1 km-dev:hasObjectMap _:node1abtq487bx13 .
+_:node1ac53rcjsx1 km-dev:hasObjectMap _:node1ac53rcjsx13 .
 
-km-dev:PredicateObjectMap_791a6b91-7a5a-4558-a9fb-da400779ec2f rr:objectMap _:node1abtq487bx13 .
+km-dev:PredicateObjectMap_b4fc8084-616e-4c42-83e2-7cb36c24a721 rr:objectMap _:node1ac53rcjsx13 .
 
-km-dev:TriplesMap_e8778f9d-4a2e-4de6-9cd9-9de90ec6d9d2 rr:predicateObjectMap km-dev:PredicateObjectMap_791a6b91-7a5a-4558-a9fb-da400779ec2f .
+km-dev:TriplesMap_4f6a2142-44e6-4a1f-922d-8b5bfad278ba rr:predicateObjectMap km-dev:PredicateObjectMap_b4fc8084-616e-4c42-83e2-7cb36c24a721 .
 
-km-dev:PredicateObjectMap_791a6b91-7a5a-4558-a9fb-da400779ec2f a rr:PredicateObjectMap ;
-	km-dev:isPartOfMapping _:node1abtq487bx1 .
+km-dev:PredicateObjectMap_b4fc8084-616e-4c42-83e2-7cb36c24a721 a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1ac53rcjsx1 .
 
-_:node1abtq487bx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_791a6b91-7a5a-4558-a9fb-da400779ec2f .
+_:node1ac53rcjsx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_b4fc8084-616e-4c42-83e2-7cb36c24a721 .
 
-km-dev:TriplesMap_6ad8fb66-03b5-4538-b026-50e29c2c1b25 a rr:TriplesMap .
+km-dev:TriplesMap_0664aa70-e4f6-4fc8-98dc-12fd24009af9 a rr:TriplesMap .
 
-_:node1abtq487bx1 km-dev:hasTriplesMap km-dev:TriplesMap_6ad8fb66-03b5-4538-b026-50e29c2c1b25 .
+_:node1ac53rcjsx1 km-dev:hasTriplesMap km-dev:TriplesMap_0664aa70-e4f6-4fc8-98dc-12fd24009af9 .
 
-km-dev:TriplesMap_6ad8fb66-03b5-4538-b026-50e29c2c1b25 km-dev:isPartOfMapping _:node1abtq487bx1 .
+km-dev:TriplesMap_0664aa70-e4f6-4fc8-98dc-12fd24009af9 km-dev:isPartOfMapping _:node1ac53rcjsx1 .
 
-_:node1abtq487bx14 rr:tableName "allCountries_esc_gh_1000.tsv" ;
+_:node1ac53rcjsx14 rr:tableName "allCountries_esc_gh_1000.tsv" ;
 	a rr:LogicalTable ;
-	km-dev:isPartOfMapping _:node1abtq487bx1 .
+	km-dev:isPartOfMapping _:node1ac53rcjsx1 .
 
-_:node1abtq487bx1 km-dev:hasLogicalTable _:node1abtq487bx14 .
+_:node1ac53rcjsx1 km-dev:hasLogicalTable _:node1ac53rcjsx14 .
 
-km-dev:TriplesMap_6ad8fb66-03b5-4538-b026-50e29c2c1b25 rr:logicalTable _:node1abtq487bx14 ;
-	rr:subjectMap _:node1abtq487bx15 .
+km-dev:TriplesMap_0664aa70-e4f6-4fc8-98dc-12fd24009af9 rr:logicalTable _:node1ac53rcjsx14 ;
+	rr:subjectMap _:node1ac53rcjsx15 .
 
-_:node1abtq487bx1 km-dev:hasSubjectMap _:node1abtq487bx15 .
+_:node1ac53rcjsx1 km-dev:hasSubjectMap _:node1ac53rcjsx15 .
 
-_:node1abtq487bx15 km-dev:isPartOfMapping _:node1abtq487bx1 ;
+_:node1ac53rcjsx15 km-dev:isPartOfMapping _:node1ac53rcjsx1 ;
 	a rr:SubjectMap ;
-	km-dev:alignmentNodeId "http://schema.org/Place1" ;
-	rr:class schema:Place .
+	km-dev:alignmentNodeId "http://schema.org/PostalAddress1" ;
+	rr:class schema:PostalAddress ;
+	rr:template "{address_uri}" .
 
-_:node1abtq487bx16 rr:template "{schema_class}" .
+km-dev:PredicateObjectMap_df479c42-dafa-4128-a08f-0670ba236f90 rr:predicate memex:county_2nd_div .
 
-_:node1abtq487bx15 rr:class _:node1abtq487bx16 ;
-	rr:template "{geonames2schema_uri}" ;
-	a km-dev:steinerTreeRootNode .
+km-dev:RefObjectMap_94b4dcd0-0844-4414-ae21-e205315b5632 a rr:RefObjectMap , rr:ObjectMap ;
+	rr:parentTriplesMap km-dev:TriplesMap_795ef029-6049-47f2-9bf8-6286b1b9b9e2 ;
+	km-dev:isPartOfMapping _:node1ac53rcjsx1 .
 
-km-dev:PredicateObjectMap_6967340b-6962-4572-9757-1e8f3ccc68ca rr:predicate schema:additionalProperty .
+_:node1ac53rcjsx1 km-dev:hasObjectMap km-dev:RefObjectMap_94b4dcd0-0844-4414-ae21-e205315b5632 .
 
-km-dev:RefObjectMap_4cca4ca9-4034-4812-9727-52da63abfa98 a rr:RefObjectMap , rr:ObjectMap ;
-	rr:parentTriplesMap km-dev:TriplesMap_b4223be8-8cc3-4249-8e5e-bfffb354ad87 ;
-	km-dev:isPartOfMapping _:node1abtq487bx1 .
+km-dev:PredicateObjectMap_df479c42-dafa-4128-a08f-0670ba236f90 rr:objectMap km-dev:RefObjectMap_94b4dcd0-0844-4414-ae21-e205315b5632 .
 
-_:node1abtq487bx1 km-dev:hasObjectMap km-dev:RefObjectMap_4cca4ca9-4034-4812-9727-52da63abfa98 .
+km-dev:TriplesMap_0664aa70-e4f6-4fc8-98dc-12fd24009af9 rr:predicateObjectMap km-dev:PredicateObjectMap_df479c42-dafa-4128-a08f-0670ba236f90 .
 
-km-dev:PredicateObjectMap_6967340b-6962-4572-9757-1e8f3ccc68ca rr:objectMap km-dev:RefObjectMap_4cca4ca9-4034-4812-9727-52da63abfa98 .
+km-dev:PredicateObjectMap_df479c42-dafa-4128-a08f-0670ba236f90 a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1ac53rcjsx1 .
 
-km-dev:TriplesMap_6ad8fb66-03b5-4538-b026-50e29c2c1b25 rr:predicateObjectMap km-dev:PredicateObjectMap_6967340b-6962-4572-9757-1e8f3ccc68ca .
+_:node1ac53rcjsx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_df479c42-dafa-4128-a08f-0670ba236f90 .
 
-km-dev:PredicateObjectMap_6967340b-6962-4572-9757-1e8f3ccc68ca a rr:PredicateObjectMap ;
-	km-dev:isPartOfMapping _:node1abtq487bx1 .
+km-dev:PredicateObjectMap_9b0d4a0e-e2e4-44ef-800a-1fff387fc9c9 rr:predicate memex:community_3rd_div .
 
-_:node1abtq487bx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_6967340b-6962-4572-9757-1e8f3ccc68ca .
+km-dev:RefObjectMap_f881b73e-b76d-4d41-baca-d86b081480f8 a rr:RefObjectMap , rr:ObjectMap ;
+	rr:parentTriplesMap km-dev:TriplesMap_da712b15-c699-407f-b519-65470ee12924 ;
+	km-dev:isPartOfMapping _:node1ac53rcjsx1 .
 
-km-dev:PredicateObjectMap_083cfdfc-953b-4217-8128-c9b2e09793eb rr:predicate schema:additionalType .
+_:node1ac53rcjsx1 km-dev:hasObjectMap km-dev:RefObjectMap_f881b73e-b76d-4d41-baca-d86b081480f8 .
 
-_:node1abtq487bx17 rr:column "fcode_uri" ;
-	a rr:ObjectMap ;
-	km-dev:isPartOfMapping _:node1abtq487bx1 .
+km-dev:PredicateObjectMap_9b0d4a0e-e2e4-44ef-800a-1fff387fc9c9 rr:objectMap km-dev:RefObjectMap_f881b73e-b76d-4d41-baca-d86b081480f8 .
 
-_:node1abtq487bx1 km-dev:hasObjectMap _:node1abtq487bx17 .
+km-dev:TriplesMap_0664aa70-e4f6-4fc8-98dc-12fd24009af9 rr:predicateObjectMap km-dev:PredicateObjectMap_9b0d4a0e-e2e4-44ef-800a-1fff387fc9c9 .
 
-km-dev:PredicateObjectMap_083cfdfc-953b-4217-8128-c9b2e09793eb rr:objectMap _:node1abtq487bx17 .
+km-dev:PredicateObjectMap_9b0d4a0e-e2e4-44ef-800a-1fff387fc9c9 a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1ac53rcjsx1 .
 
-km-dev:TriplesMap_6ad8fb66-03b5-4538-b026-50e29c2c1b25 rr:predicateObjectMap km-dev:PredicateObjectMap_083cfdfc-953b-4217-8128-c9b2e09793eb .
+_:node1ac53rcjsx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_9b0d4a0e-e2e4-44ef-800a-1fff387fc9c9 .
 
-km-dev:PredicateObjectMap_083cfdfc-953b-4217-8128-c9b2e09793eb a rr:PredicateObjectMap ;
-	km-dev:isPartOfMapping _:node1abtq487bx1 .
+km-dev:PredicateObjectMap_695a58a8-e505-4154-97a4-ec0ee1671c84 rr:predicate memex:subcommunity_4th_div .
 
-_:node1abtq487bx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_083cfdfc-953b-4217-8128-c9b2e09793eb .
+km-dev:RefObjectMap_2ba6e218-4908-4322-aa27-43c65457fa1d a rr:RefObjectMap , rr:ObjectMap ;
+	rr:parentTriplesMap km-dev:TriplesMap_0a0fcfb3-b591-4ed2-88ff-894b0f032b6d ;
+	km-dev:isPartOfMapping _:node1ac53rcjsx1 .
 
-km-dev:PredicateObjectMap_3fe858a0-0b10-4127-a969-fa7d4815fcbf rr:predicate schema:address .
+_:node1ac53rcjsx1 km-dev:hasObjectMap km-dev:RefObjectMap_2ba6e218-4908-4322-aa27-43c65457fa1d .
 
-km-dev:RefObjectMap_c4bb086b-9834-4576-b9a0-bf20629fb289 a rr:RefObjectMap , rr:ObjectMap ;
-	rr:parentTriplesMap km-dev:TriplesMap_e9793b9d-b770-4727-aa6c-4ab40c8187fb ;
-	km-dev:isPartOfMapping _:node1abtq487bx1 .
+km-dev:PredicateObjectMap_695a58a8-e505-4154-97a4-ec0ee1671c84 rr:objectMap km-dev:RefObjectMap_2ba6e218-4908-4322-aa27-43c65457fa1d .
 
-_:node1abtq487bx1 km-dev:hasObjectMap km-dev:RefObjectMap_c4bb086b-9834-4576-b9a0-bf20629fb289 .
+km-dev:TriplesMap_0664aa70-e4f6-4fc8-98dc-12fd24009af9 rr:predicateObjectMap km-dev:PredicateObjectMap_695a58a8-e505-4154-97a4-ec0ee1671c84 .
 
-km-dev:PredicateObjectMap_3fe858a0-0b10-4127-a969-fa7d4815fcbf rr:objectMap km-dev:RefObjectMap_c4bb086b-9834-4576-b9a0-bf20629fb289 .
+km-dev:PredicateObjectMap_695a58a8-e505-4154-97a4-ec0ee1671c84 a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1ac53rcjsx1 .
 
-km-dev:TriplesMap_6ad8fb66-03b5-4538-b026-50e29c2c1b25 rr:predicateObjectMap km-dev:PredicateObjectMap_3fe858a0-0b10-4127-a969-fa7d4815fcbf .
+_:node1ac53rcjsx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_695a58a8-e505-4154-97a4-ec0ee1671c84 .
 
-km-dev:PredicateObjectMap_3fe858a0-0b10-4127-a969-fa7d4815fcbf a rr:PredicateObjectMap ;
-	km-dev:isPartOfMapping _:node1abtq487bx1 .
+km-dev:PredicateObjectMap_83286655-5edc-4acf-b3e0-f2ae7eb4b669 rr:predicate schema:addressCountry .
 
-_:node1abtq487bx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_3fe858a0-0b10-4127-a969-fa7d4815fcbf .
+km-dev:RefObjectMap_8054b012-3008-4296-99cc-7965e2483d73 a rr:RefObjectMap , rr:ObjectMap ;
+	rr:parentTriplesMap km-dev:TriplesMap_6d839f06-eddd-40f7-8c70-7799d2b32bdc ;
+	km-dev:isPartOfMapping _:node1ac53rcjsx1 .
 
-km-dev:PredicateObjectMap_96ca3b71-beb9-4a5b-a147-f667a50ad669 rr:predicate schema:alternateName .
+_:node1ac53rcjsx1 km-dev:hasObjectMap km-dev:RefObjectMap_8054b012-3008-4296-99cc-7965e2483d73 .
 
-_:node1abtq487bx18 rr:column "asciiname" ;
-	a rr:ObjectMap ;
-	km-dev:isPartOfMapping _:node1abtq487bx1 .
+km-dev:PredicateObjectMap_83286655-5edc-4acf-b3e0-f2ae7eb4b669 rr:objectMap km-dev:RefObjectMap_8054b012-3008-4296-99cc-7965e2483d73 .
 
-_:node1abtq487bx1 km-dev:hasObjectMap _:node1abtq487bx18 .
+km-dev:TriplesMap_0664aa70-e4f6-4fc8-98dc-12fd24009af9 rr:predicateObjectMap km-dev:PredicateObjectMap_83286655-5edc-4acf-b3e0-f2ae7eb4b669 .
 
-km-dev:PredicateObjectMap_96ca3b71-beb9-4a5b-a147-f667a50ad669 rr:objectMap _:node1abtq487bx18 .
+km-dev:PredicateObjectMap_83286655-5edc-4acf-b3e0-f2ae7eb4b669 a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1ac53rcjsx1 .
 
-km-dev:TriplesMap_6ad8fb66-03b5-4538-b026-50e29c2c1b25 rr:predicateObjectMap km-dev:PredicateObjectMap_96ca3b71-beb9-4a5b-a147-f667a50ad669 .
+_:node1ac53rcjsx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_83286655-5edc-4acf-b3e0-f2ae7eb4b669 .
 
-km-dev:PredicateObjectMap_96ca3b71-beb9-4a5b-a147-f667a50ad669 a rr:PredicateObjectMap ;
-	km-dev:isPartOfMapping _:node1abtq487bx1 .
+km-dev:PredicateObjectMap_1841c100-a745-4b6b-acd1-b0949e344569 rr:predicate schema:addressRegion .
 
-_:node1abtq487bx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_96ca3b71-beb9-4a5b-a147-f667a50ad669 .
+km-dev:RefObjectMap_95ba2dbc-8f14-4562-b280-70c1718208de a rr:RefObjectMap , rr:ObjectMap ;
+	rr:parentTriplesMap km-dev:TriplesMap_c575a25d-c1d4-4ab3-a852-7c3f679130d2 ;
+	km-dev:isPartOfMapping _:node1ac53rcjsx1 .
 
-km-dev:PredicateObjectMap_883b9dae-4f28-4bad-88a4-01819a7532a4 rr:predicate schema:geo .
+_:node1ac53rcjsx1 km-dev:hasObjectMap km-dev:RefObjectMap_95ba2dbc-8f14-4562-b280-70c1718208de .
 
-km-dev:RefObjectMap_ae8b5d3b-7e40-43d2-bac6-2ffb571cf82a a rr:RefObjectMap , rr:ObjectMap ;
-	rr:parentTriplesMap km-dev:TriplesMap_e8778f9d-4a2e-4de6-9cd9-9de90ec6d9d2 ;
-	km-dev:isPartOfMapping _:node1abtq487bx1 .
+km-dev:PredicateObjectMap_1841c100-a745-4b6b-acd1-b0949e344569 rr:objectMap km-dev:RefObjectMap_95ba2dbc-8f14-4562-b280-70c1718208de .
 
-_:node1abtq487bx1 km-dev:hasObjectMap km-dev:RefObjectMap_ae8b5d3b-7e40-43d2-bac6-2ffb571cf82a .
+km-dev:TriplesMap_0664aa70-e4f6-4fc8-98dc-12fd24009af9 rr:predicateObjectMap km-dev:PredicateObjectMap_1841c100-a745-4b6b-acd1-b0949e344569 .
 
-km-dev:PredicateObjectMap_883b9dae-4f28-4bad-88a4-01819a7532a4 rr:objectMap km-dev:RefObjectMap_ae8b5d3b-7e40-43d2-bac6-2ffb571cf82a .
+km-dev:PredicateObjectMap_1841c100-a745-4b6b-acd1-b0949e344569 a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1ac53rcjsx1 .
 
-km-dev:TriplesMap_6ad8fb66-03b5-4538-b026-50e29c2c1b25 rr:predicateObjectMap km-dev:PredicateObjectMap_883b9dae-4f28-4bad-88a4-01819a7532a4 .
+_:node1ac53rcjsx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_1841c100-a745-4b6b-acd1-b0949e344569 .
 
-km-dev:PredicateObjectMap_883b9dae-4f28-4bad-88a4-01819a7532a4 a rr:PredicateObjectMap ;
-	km-dev:isPartOfMapping _:node1abtq487bx1 .
+km-dev:TriplesMap_b9ab6188-df47-4089-a1fa-22a498b1a1bf a rr:TriplesMap .
 
-_:node1abtq487bx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_883b9dae-4f28-4bad-88a4-01819a7532a4 .
+_:node1ac53rcjsx1 km-dev:hasTriplesMap km-dev:TriplesMap_b9ab6188-df47-4089-a1fa-22a498b1a1bf .
 
-km-dev:PredicateObjectMap_15a852cf-4d2a-4f59-a168-5f8a4dc31a7a rr:predicate schema:name .
+km-dev:TriplesMap_b9ab6188-df47-4089-a1fa-22a498b1a1bf km-dev:isPartOfMapping _:node1ac53rcjsx1 .
 
-_:node1abtq487bx19 rr:column "name" ;
-	a rr:ObjectMap ;
-	km-dev:isPartOfMapping _:node1abtq487bx1 .
-
-_:node1abtq487bx1 km-dev:hasObjectMap _:node1abtq487bx19 .
-
-km-dev:PredicateObjectMap_15a852cf-4d2a-4f59-a168-5f8a4dc31a7a rr:objectMap _:node1abtq487bx19 .
-
-km-dev:TriplesMap_6ad8fb66-03b5-4538-b026-50e29c2c1b25 rr:predicateObjectMap km-dev:PredicateObjectMap_15a852cf-4d2a-4f59-a168-5f8a4dc31a7a .
-
-km-dev:PredicateObjectMap_15a852cf-4d2a-4f59-a168-5f8a4dc31a7a a rr:PredicateObjectMap ;
-	km-dev:isPartOfMapping _:node1abtq487bx1 .
-
-_:node1abtq487bx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_15a852cf-4d2a-4f59-a168-5f8a4dc31a7a .
-
-km-dev:PredicateObjectMap_e4e3b802-81f6-4c83-a11d-a2961009c397 rr:predicate schema:sameAs .
-
-_:node1abtq487bx20 rr:column "geonames_uri" ;
-	a rr:ObjectMap ;
-	km-dev:isPartOfMapping _:node1abtq487bx1 .
-
-_:node1abtq487bx1 km-dev:hasObjectMap _:node1abtq487bx20 .
-
-km-dev:PredicateObjectMap_e4e3b802-81f6-4c83-a11d-a2961009c397 rr:objectMap _:node1abtq487bx20 .
-
-km-dev:TriplesMap_6ad8fb66-03b5-4538-b026-50e29c2c1b25 rr:predicateObjectMap km-dev:PredicateObjectMap_e4e3b802-81f6-4c83-a11d-a2961009c397 .
-
-km-dev:PredicateObjectMap_e4e3b802-81f6-4c83-a11d-a2961009c397 a rr:PredicateObjectMap ;
-	km-dev:isPartOfMapping _:node1abtq487bx1 .
-
-_:node1abtq487bx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_e4e3b802-81f6-4c83-a11d-a2961009c397 .
-
-km-dev:PredicateObjectMap_3a149846-f200-4076-a43b-7a2366b535ea rr:predicate rdfs:label .
-
-_:node1abtq487bx21 rr:column "schema_class_name" ;
-	a rr:ObjectMap ;
-	km-dev:isPartOfMapping _:node1abtq487bx1 .
-
-_:node1abtq487bx1 km-dev:hasObjectMap _:node1abtq487bx21 .
-
-km-dev:PredicateObjectMap_3a149846-f200-4076-a43b-7a2366b535ea rr:objectMap _:node1abtq487bx21 .
-
-km-dev:TriplesMap_6ad8fb66-03b5-4538-b026-50e29c2c1b25 rr:predicateObjectMap km-dev:PredicateObjectMap_3a149846-f200-4076-a43b-7a2366b535ea .
-
-km-dev:PredicateObjectMap_3a149846-f200-4076-a43b-7a2366b535ea a rr:PredicateObjectMap ;
-	km-dev:isPartOfMapping _:node1abtq487bx1 .
-
-_:node1abtq487bx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_3a149846-f200-4076-a43b-7a2366b535ea .
-
-km-dev:TriplesMap_b4223be8-8cc3-4249-8e5e-bfffb354ad87 a rr:TriplesMap .
-
-_:node1abtq487bx1 km-dev:hasTriplesMap km-dev:TriplesMap_b4223be8-8cc3-4249-8e5e-bfffb354ad87 .
-
-km-dev:TriplesMap_b4223be8-8cc3-4249-8e5e-bfffb354ad87 km-dev:isPartOfMapping _:node1abtq487bx1 .
-
-_:node1abtq487bx22 rr:tableName "allCountries_esc_gh_1000.tsv" ;
+_:node1ac53rcjsx16 rr:tableName "allCountries_esc_gh_1000.tsv" ;
 	a rr:LogicalTable ;
-	km-dev:isPartOfMapping _:node1abtq487bx1 .
+	km-dev:isPartOfMapping _:node1ac53rcjsx1 .
 
-_:node1abtq487bx1 km-dev:hasLogicalTable _:node1abtq487bx22 .
+_:node1ac53rcjsx1 km-dev:hasLogicalTable _:node1ac53rcjsx16 .
 
-km-dev:TriplesMap_b4223be8-8cc3-4249-8e5e-bfffb354ad87 rr:logicalTable _:node1abtq487bx22 ;
-	rr:subjectMap _:node1abtq487bx23 .
+km-dev:TriplesMap_b9ab6188-df47-4089-a1fa-22a498b1a1bf rr:logicalTable _:node1ac53rcjsx16 ;
+	rr:subjectMap _:node1ac53rcjsx17 .
 
-_:node1abtq487bx1 km-dev:hasSubjectMap _:node1abtq487bx23 .
+_:node1ac53rcjsx1 km-dev:hasSubjectMap _:node1ac53rcjsx17 .
 
-_:node1abtq487bx23 km-dev:isPartOfMapping _:node1abtq487bx1 ;
+_:node1ac53rcjsx17 km-dev:isPartOfMapping _:node1ac53rcjsx1 ;
 	a rr:SubjectMap ;
 	km-dev:alignmentNodeId "http://schema.org/PropertyValue1" ;
 	rr:class schema:PropertyValue ;
 	rr:termType rr:BlankNode ;
 	km-dev:namePrefix "schema:PropertyValue1" .
 
-km-dev:PredicateObjectMap_ddc0c6bd-c93a-4a8c-9d7e-866252ca59e2 rr:predicate schema:text .
+km-dev:PredicateObjectMap_8a78ffac-cbae-435f-961b-561ebeb4b39b rr:predicate schema:value .
 
-_:node1abtq487bx24 rr:constant "Population" ;
+_:node1ac53rcjsx18 rr:column "population" ;
 	a rr:ObjectMap ;
-	km-dev:isPartOfMapping _:node1abtq487bx1 .
+	km-dev:isPartOfMapping _:node1ac53rcjsx1 .
 
-_:node1abtq487bx1 km-dev:hasObjectMap _:node1abtq487bx24 .
+_:node1ac53rcjsx1 km-dev:hasObjectMap _:node1ac53rcjsx18 .
 
-km-dev:PredicateObjectMap_ddc0c6bd-c93a-4a8c-9d7e-866252ca59e2 rr:objectMap _:node1abtq487bx24 .
+km-dev:PredicateObjectMap_8a78ffac-cbae-435f-961b-561ebeb4b39b rr:objectMap _:node1ac53rcjsx18 .
 
-km-dev:TriplesMap_b4223be8-8cc3-4249-8e5e-bfffb354ad87 rr:predicateObjectMap km-dev:PredicateObjectMap_ddc0c6bd-c93a-4a8c-9d7e-866252ca59e2 .
+km-dev:TriplesMap_b9ab6188-df47-4089-a1fa-22a498b1a1bf rr:predicateObjectMap km-dev:PredicateObjectMap_8a78ffac-cbae-435f-961b-561ebeb4b39b .
 
-km-dev:PredicateObjectMap_ddc0c6bd-c93a-4a8c-9d7e-866252ca59e2 a rr:PredicateObjectMap ;
-	km-dev:isPartOfMapping _:node1abtq487bx1 .
+km-dev:PredicateObjectMap_8a78ffac-cbae-435f-961b-561ebeb4b39b a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1ac53rcjsx1 .
 
-_:node1abtq487bx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_ddc0c6bd-c93a-4a8c-9d7e-866252ca59e2 .
+_:node1ac53rcjsx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_8a78ffac-cbae-435f-961b-561ebeb4b39b .
 
-km-dev:PredicateObjectMap_a5eb72fd-039b-4fa8-a271-3ae059f86dca rr:predicate schema:value .
+km-dev:PredicateObjectMap_ed87373e-1e2c-49f2-aa58-d6f3fc6d8718 rr:predicate schema:text .
 
-_:node1abtq487bx25 rr:column "population" ;
+_:node1ac53rcjsx19 rr:constant "Population" ;
 	a rr:ObjectMap ;
-	km-dev:isPartOfMapping _:node1abtq487bx1 .
+	km-dev:isPartOfMapping _:node1ac53rcjsx1 .
 
-_:node1abtq487bx1 km-dev:hasObjectMap _:node1abtq487bx25 .
+_:node1ac53rcjsx1 km-dev:hasObjectMap _:node1ac53rcjsx19 .
 
-km-dev:PredicateObjectMap_a5eb72fd-039b-4fa8-a271-3ae059f86dca rr:objectMap _:node1abtq487bx25 .
+km-dev:PredicateObjectMap_ed87373e-1e2c-49f2-aa58-d6f3fc6d8718 rr:objectMap _:node1ac53rcjsx19 .
 
-km-dev:TriplesMap_b4223be8-8cc3-4249-8e5e-bfffb354ad87 rr:predicateObjectMap km-dev:PredicateObjectMap_a5eb72fd-039b-4fa8-a271-3ae059f86dca .
+km-dev:TriplesMap_b9ab6188-df47-4089-a1fa-22a498b1a1bf rr:predicateObjectMap km-dev:PredicateObjectMap_ed87373e-1e2c-49f2-aa58-d6f3fc6d8718 .
 
-km-dev:PredicateObjectMap_a5eb72fd-039b-4fa8-a271-3ae059f86dca a rr:PredicateObjectMap ;
-	km-dev:isPartOfMapping _:node1abtq487bx1 .
+km-dev:PredicateObjectMap_ed87373e-1e2c-49f2-aa58-d6f3fc6d8718 a rr:PredicateObjectMap ;
+	km-dev:isPartOfMapping _:node1ac53rcjsx1 .
 
-_:node1abtq487bx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_a5eb72fd-039b-4fa8-a271-3ae059f86dca .
+_:node1ac53rcjsx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_ed87373e-1e2c-49f2-aa58-d6f3fc6d8718 .
 
-km-dev:TriplesMap_e9793b9d-b770-4727-aa6c-4ab40c8187fb a rr:TriplesMap .
+km-dev:TriplesMap_795ef029-6049-47f2-9bf8-6286b1b9b9e2 a rr:TriplesMap .
 
-_:node1abtq487bx1 km-dev:hasTriplesMap km-dev:TriplesMap_e9793b9d-b770-4727-aa6c-4ab40c8187fb .
+_:node1ac53rcjsx1 km-dev:hasTriplesMap km-dev:TriplesMap_795ef029-6049-47f2-9bf8-6286b1b9b9e2 .
 
-km-dev:TriplesMap_e9793b9d-b770-4727-aa6c-4ab40c8187fb km-dev:isPartOfMapping _:node1abtq487bx1 .
+km-dev:TriplesMap_795ef029-6049-47f2-9bf8-6286b1b9b9e2 km-dev:isPartOfMapping _:node1ac53rcjsx1 .
 
-_:node1abtq487bx26 rr:tableName "allCountries_esc_gh_1000.tsv" ;
+_:node1ac53rcjsx20 rr:tableName "allCountries_esc_gh_1000.tsv" ;
 	a rr:LogicalTable ;
-	km-dev:isPartOfMapping _:node1abtq487bx1 .
+	km-dev:isPartOfMapping _:node1ac53rcjsx1 .
 
-_:node1abtq487bx1 km-dev:hasLogicalTable _:node1abtq487bx26 .
+_:node1ac53rcjsx1 km-dev:hasLogicalTable _:node1ac53rcjsx20 .
 
-km-dev:TriplesMap_e9793b9d-b770-4727-aa6c-4ab40c8187fb rr:logicalTable _:node1abtq487bx26 ;
-	rr:subjectMap _:node1abtq487bx27 .
+km-dev:TriplesMap_795ef029-6049-47f2-9bf8-6286b1b9b9e2 rr:logicalTable _:node1ac53rcjsx20 ;
+	rr:subjectMap _:node1ac53rcjsx21 .
 
-_:node1abtq487bx1 km-dev:hasSubjectMap _:node1abtq487bx27 .
+_:node1ac53rcjsx1 km-dev:hasSubjectMap _:node1ac53rcjsx21 .
 
-_:node1abtq487bx27 km-dev:isPartOfMapping _:node1abtq487bx1 ;
+_:node1ac53rcjsx21 km-dev:isPartOfMapping _:node1ac53rcjsx1 ;
 	a rr:SubjectMap ;
-	km-dev:alignmentNodeId "http://schema.org/PostalAddress1" ;
-	rr:class schema:PostalAddress ;
-	rr:template "{address_uri}" .
+	km-dev:alignmentNodeId "http://schema.org/AdministrativeArea1" ;
+	rr:class schema:AdministrativeArea ;
+	rr:template "{CountyProvince2ndDiv_uri}" .
 
-km-dev:PredicateObjectMap_e4bed2dc-cd89-4d37-a978-30e5ac878e0a rr:predicate memex:community_3rd_div .
+km-dev:TriplesMap_da712b15-c699-407f-b519-65470ee12924 a rr:TriplesMap .
 
-km-dev:RefObjectMap_89684d4f-f237-40e4-918d-2ea0ce5728d4 a rr:RefObjectMap , rr:ObjectMap ;
-	rr:parentTriplesMap km-dev:TriplesMap_7304f72d-0305-4201-9aa5-2861ec811459 ;
-	km-dev:isPartOfMapping _:node1abtq487bx1 .
+_:node1ac53rcjsx1 km-dev:hasTriplesMap km-dev:TriplesMap_da712b15-c699-407f-b519-65470ee12924 .
 
-_:node1abtq487bx1 km-dev:hasObjectMap km-dev:RefObjectMap_89684d4f-f237-40e4-918d-2ea0ce5728d4 .
+km-dev:TriplesMap_da712b15-c699-407f-b519-65470ee12924 km-dev:isPartOfMapping _:node1ac53rcjsx1 .
 
-km-dev:PredicateObjectMap_e4bed2dc-cd89-4d37-a978-30e5ac878e0a rr:objectMap km-dev:RefObjectMap_89684d4f-f237-40e4-918d-2ea0ce5728d4 .
-
-km-dev:TriplesMap_e9793b9d-b770-4727-aa6c-4ab40c8187fb rr:predicateObjectMap km-dev:PredicateObjectMap_e4bed2dc-cd89-4d37-a978-30e5ac878e0a .
-
-km-dev:PredicateObjectMap_e4bed2dc-cd89-4d37-a978-30e5ac878e0a a rr:PredicateObjectMap ;
-	km-dev:isPartOfMapping _:node1abtq487bx1 .
-
-_:node1abtq487bx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_e4bed2dc-cd89-4d37-a978-30e5ac878e0a .
-
-km-dev:PredicateObjectMap_5553dd22-9ac2-4ef2-8dd6-9b7a468b84db rr:predicate memex:county_2nd_div .
-
-km-dev:RefObjectMap_b1dbf31b-130a-49d4-b813-678f8f183b54 a rr:RefObjectMap , rr:ObjectMap ;
-	rr:parentTriplesMap km-dev:TriplesMap_cafd9903-20d1-4fe1-b8b2-853e4cfba40f ;
-	km-dev:isPartOfMapping _:node1abtq487bx1 .
-
-_:node1abtq487bx1 km-dev:hasObjectMap km-dev:RefObjectMap_b1dbf31b-130a-49d4-b813-678f8f183b54 .
-
-km-dev:PredicateObjectMap_5553dd22-9ac2-4ef2-8dd6-9b7a468b84db rr:objectMap km-dev:RefObjectMap_b1dbf31b-130a-49d4-b813-678f8f183b54 .
-
-km-dev:TriplesMap_e9793b9d-b770-4727-aa6c-4ab40c8187fb rr:predicateObjectMap km-dev:PredicateObjectMap_5553dd22-9ac2-4ef2-8dd6-9b7a468b84db .
-
-km-dev:PredicateObjectMap_5553dd22-9ac2-4ef2-8dd6-9b7a468b84db a rr:PredicateObjectMap ;
-	km-dev:isPartOfMapping _:node1abtq487bx1 .
-
-_:node1abtq487bx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_5553dd22-9ac2-4ef2-8dd6-9b7a468b84db .
-
-km-dev:PredicateObjectMap_1bbb97cb-1076-4d05-901c-cc0cbdaa3f97 rr:predicate memex:subcommunity_4th_div .
-
-km-dev:RefObjectMap_5ab29c1b-e546-4aa4-b709-8c26639b292c a rr:RefObjectMap , rr:ObjectMap ;
-	rr:parentTriplesMap km-dev:TriplesMap_7a904655-c90a-4658-83a4-00d2629063d2 ;
-	km-dev:isPartOfMapping _:node1abtq487bx1 .
-
-_:node1abtq487bx1 km-dev:hasObjectMap km-dev:RefObjectMap_5ab29c1b-e546-4aa4-b709-8c26639b292c .
-
-km-dev:PredicateObjectMap_1bbb97cb-1076-4d05-901c-cc0cbdaa3f97 rr:objectMap km-dev:RefObjectMap_5ab29c1b-e546-4aa4-b709-8c26639b292c .
-
-km-dev:TriplesMap_e9793b9d-b770-4727-aa6c-4ab40c8187fb rr:predicateObjectMap km-dev:PredicateObjectMap_1bbb97cb-1076-4d05-901c-cc0cbdaa3f97 .
-
-km-dev:PredicateObjectMap_1bbb97cb-1076-4d05-901c-cc0cbdaa3f97 a rr:PredicateObjectMap ;
-	km-dev:isPartOfMapping _:node1abtq487bx1 .
-
-_:node1abtq487bx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_1bbb97cb-1076-4d05-901c-cc0cbdaa3f97 .
-
-km-dev:PredicateObjectMap_c5399010-8004-4569-8755-484f2b92b457 rr:predicate schema:addressCountry .
-
-km-dev:RefObjectMap_47ba9ed0-c5df-45fc-ae86-288b4f50b122 a rr:RefObjectMap , rr:ObjectMap ;
-	rr:parentTriplesMap km-dev:TriplesMap_0e7f45da-3b91-4c7c-8968-3285ed33c08c ;
-	km-dev:isPartOfMapping _:node1abtq487bx1 .
-
-_:node1abtq487bx1 km-dev:hasObjectMap km-dev:RefObjectMap_47ba9ed0-c5df-45fc-ae86-288b4f50b122 .
-
-km-dev:PredicateObjectMap_c5399010-8004-4569-8755-484f2b92b457 rr:objectMap km-dev:RefObjectMap_47ba9ed0-c5df-45fc-ae86-288b4f50b122 .
-
-km-dev:TriplesMap_e9793b9d-b770-4727-aa6c-4ab40c8187fb rr:predicateObjectMap km-dev:PredicateObjectMap_c5399010-8004-4569-8755-484f2b92b457 .
-
-km-dev:PredicateObjectMap_c5399010-8004-4569-8755-484f2b92b457 a rr:PredicateObjectMap ;
-	km-dev:isPartOfMapping _:node1abtq487bx1 .
-
-_:node1abtq487bx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_c5399010-8004-4569-8755-484f2b92b457 .
-
-km-dev:PredicateObjectMap_c4a00edd-6028-4e69-b7ee-e9644add7500 rr:predicate schema:addressRegion .
-
-km-dev:RefObjectMap_99869521-5bf8-40f4-b705-c13e16ce3f10 a rr:RefObjectMap , rr:ObjectMap ;
-	rr:parentTriplesMap km-dev:TriplesMap_f49b199e-6eda-437a-9fc6-53c955726758 ;
-	km-dev:isPartOfMapping _:node1abtq487bx1 .
-
-_:node1abtq487bx1 km-dev:hasObjectMap km-dev:RefObjectMap_99869521-5bf8-40f4-b705-c13e16ce3f10 .
-
-km-dev:PredicateObjectMap_c4a00edd-6028-4e69-b7ee-e9644add7500 rr:objectMap km-dev:RefObjectMap_99869521-5bf8-40f4-b705-c13e16ce3f10 .
-
-km-dev:TriplesMap_e9793b9d-b770-4727-aa6c-4ab40c8187fb rr:predicateObjectMap km-dev:PredicateObjectMap_c4a00edd-6028-4e69-b7ee-e9644add7500 .
-
-km-dev:PredicateObjectMap_c4a00edd-6028-4e69-b7ee-e9644add7500 a rr:PredicateObjectMap ;
-	km-dev:isPartOfMapping _:node1abtq487bx1 .
-
-_:node1abtq487bx1 km-dev:hasPredicateObjectMap km-dev:PredicateObjectMap_c4a00edd-6028-4e69-b7ee-e9644add7500 .
-
-km-dev:TriplesMap_f49b199e-6eda-437a-9fc6-53c955726758 a rr:TriplesMap .
-
-_:node1abtq487bx1 km-dev:hasTriplesMap km-dev:TriplesMap_f49b199e-6eda-437a-9fc6-53c955726758 .
-
-km-dev:TriplesMap_f49b199e-6eda-437a-9fc6-53c955726758 km-dev:isPartOfMapping _:node1abtq487bx1 .
-
-_:node1abtq487bx28 rr:tableName "allCountries_esc_gh_1000.tsv" ;
+_:node1ac53rcjsx22 rr:tableName "allCountries_esc_gh_1000.tsv" ;
 	a rr:LogicalTable ;
-	km-dev:isPartOfMapping _:node1abtq487bx1 .
+	km-dev:isPartOfMapping _:node1ac53rcjsx1 .
 
-_:node1abtq487bx1 km-dev:hasLogicalTable _:node1abtq487bx28 .
+_:node1ac53rcjsx1 km-dev:hasLogicalTable _:node1ac53rcjsx22 .
 
-km-dev:TriplesMap_f49b199e-6eda-437a-9fc6-53c955726758 rr:logicalTable _:node1abtq487bx28 ;
-	rr:subjectMap _:node1abtq487bx29 .
+km-dev:TriplesMap_da712b15-c699-407f-b519-65470ee12924 rr:logicalTable _:node1ac53rcjsx22 ;
+	rr:subjectMap _:node1ac53rcjsx23 .
 
-_:node1abtq487bx1 km-dev:hasSubjectMap _:node1abtq487bx29 .
+_:node1ac53rcjsx1 km-dev:hasSubjectMap _:node1ac53rcjsx23 .
 
-_:node1abtq487bx29 km-dev:isPartOfMapping _:node1abtq487bx1 ;
+_:node1ac53rcjsx23 km-dev:isPartOfMapping _:node1ac53rcjsx1 ;
+	a rr:SubjectMap ;
+	km-dev:alignmentNodeId "http://schema.org/AdministrativeArea2" ;
+	rr:class schema:AdministrativeArea ;
+	rr:template "{Community3rdDiv_uri}" .
+
+km-dev:TriplesMap_0a0fcfb3-b591-4ed2-88ff-894b0f032b6d a rr:TriplesMap .
+
+_:node1ac53rcjsx1 km-dev:hasTriplesMap km-dev:TriplesMap_0a0fcfb3-b591-4ed2-88ff-894b0f032b6d .
+
+km-dev:TriplesMap_0a0fcfb3-b591-4ed2-88ff-894b0f032b6d km-dev:isPartOfMapping _:node1ac53rcjsx1 .
+
+_:node1ac53rcjsx24 rr:tableName "allCountries_esc_gh_1000.tsv" ;
+	a rr:LogicalTable ;
+	km-dev:isPartOfMapping _:node1ac53rcjsx1 .
+
+_:node1ac53rcjsx1 km-dev:hasLogicalTable _:node1ac53rcjsx24 .
+
+km-dev:TriplesMap_0a0fcfb3-b591-4ed2-88ff-894b0f032b6d rr:logicalTable _:node1ac53rcjsx24 ;
+	rr:subjectMap _:node1ac53rcjsx25 .
+
+_:node1ac53rcjsx1 km-dev:hasSubjectMap _:node1ac53rcjsx25 .
+
+_:node1ac53rcjsx25 km-dev:isPartOfMapping _:node1ac53rcjsx1 ;
+	a rr:SubjectMap ;
+	km-dev:alignmentNodeId "http://schema.org/AdministrativeArea3" ;
+	rr:class schema:AdministrativeArea ;
+	rr:template "{SubCommunity4thDiv_uri}" .
+
+km-dev:TriplesMap_6d839f06-eddd-40f7-8c70-7799d2b32bdc a rr:TriplesMap .
+
+_:node1ac53rcjsx1 km-dev:hasTriplesMap km-dev:TriplesMap_6d839f06-eddd-40f7-8c70-7799d2b32bdc .
+
+km-dev:TriplesMap_6d839f06-eddd-40f7-8c70-7799d2b32bdc km-dev:isPartOfMapping _:node1ac53rcjsx1 .
+
+_:node1ac53rcjsx26 rr:tableName "allCountries_esc_gh_1000.tsv" ;
+	a rr:LogicalTable ;
+	km-dev:isPartOfMapping _:node1ac53rcjsx1 .
+
+_:node1ac53rcjsx1 km-dev:hasLogicalTable _:node1ac53rcjsx26 .
+
+km-dev:TriplesMap_6d839f06-eddd-40f7-8c70-7799d2b32bdc rr:logicalTable _:node1ac53rcjsx26 ;
+	rr:subjectMap _:node1ac53rcjsx27 .
+
+_:node1ac53rcjsx1 km-dev:hasSubjectMap _:node1ac53rcjsx27 .
+
+_:node1ac53rcjsx27 km-dev:isPartOfMapping _:node1ac53rcjsx1 ;
+	a rr:SubjectMap ;
+	km-dev:alignmentNodeId "http://schema.org/Country1" ;
+	rr:class schema:Country ;
+	rr:template "{country_uri}" .
+
+km-dev:TriplesMap_c575a25d-c1d4-4ab3-a852-7c3f679130d2 a rr:TriplesMap .
+
+_:node1ac53rcjsx1 km-dev:hasTriplesMap km-dev:TriplesMap_c575a25d-c1d4-4ab3-a852-7c3f679130d2 .
+
+km-dev:TriplesMap_c575a25d-c1d4-4ab3-a852-7c3f679130d2 km-dev:isPartOfMapping _:node1ac53rcjsx1 .
+
+_:node1ac53rcjsx28 rr:tableName "allCountries_esc_gh_1000.tsv" ;
+	a rr:LogicalTable ;
+	km-dev:isPartOfMapping _:node1ac53rcjsx1 .
+
+_:node1ac53rcjsx1 km-dev:hasLogicalTable _:node1ac53rcjsx28 .
+
+km-dev:TriplesMap_c575a25d-c1d4-4ab3-a852-7c3f679130d2 rr:logicalTable _:node1ac53rcjsx28 ;
+	rr:subjectMap _:node1ac53rcjsx29 .
+
+_:node1ac53rcjsx1 km-dev:hasSubjectMap _:node1ac53rcjsx29 .
+
+_:node1ac53rcjsx29 km-dev:isPartOfMapping _:node1ac53rcjsx1 ;
 	a rr:SubjectMap ;
 	km-dev:alignmentNodeId "http://schema.org/State1" ;
 	rr:class schema:State ;
