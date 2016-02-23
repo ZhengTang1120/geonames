@@ -1,4 +1,11 @@
 {"@context": {
+    "latitude": {"@id": "http://schema.org/latitude"},
+    "geo": {"@id": "http://schema.org/geo"},
+    "county_2nd_div": {"@id": "http://schema.dig.isi.edu/ontology/county_2nd_div"},
+    "text": {"@id": "http://schema.org/text"},
+    "addressRegion": {"@id": "http://schema.org/addressRegion"},
+    "value": {"@id": "http://schema.org/value"},
+    "longitude": {"@id": "http://schema.org/longitude"},
     "AdministrativeArea": {
         "@type": "@id",
         "@id": "http://schema.org/AdministrativeArea"
@@ -8,19 +15,16 @@
     "a": "@type",
     "additionalProperty": {"@id": "http://schema.org/additionalProperty"},
     "address": {"@id": "http://schema.org/address"},
-    "latitude": {"@id": "http://schema.org/latitude"},
     "PropertyValue": {
         "@type": "@id",
         "@id": "http://schema.org/PropertyValue"
     },
     "alternateName": {"@id": "http://schema.org/alternateName"},
     "uri": "@id",
-    "geo": {"@id": "http://schema.org/geo"},
     "PostalAddress": {
         "@type": "@id",
         "@id": "http://schema.org/PostalAddress"
     },
-    "county_2nd_div": {"@id": "http://schema.dig.isi.edu/ontology/county_2nd_div"},
     "GeoCoordinates": {
         "@type": "@id",
         "@id": "http://schema.org/GeoCoordinates"
@@ -36,12 +40,9 @@
         "@type": "@id",
         "@id": "http://schema.org/Country"
     },
-    "text": {"@id": "http://schema.org/text"},
-    "addressRegion": {"@id": "http://schema.org/addressRegion"},
-    "value": {"@id": "http://schema.org/value"},
     "Place": {
         "@type": "@id",
         "@id": "http://schema.org/Place"
     },
-    "longitude": {"@id": "http://schema.org/longitude"}
+    "sameAs": {"@id": "http://schema.org/sameAs"}
 }}
